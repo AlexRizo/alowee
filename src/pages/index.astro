@@ -1,64 +1,20 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
-import {
-  image01,
-  image02,
-  image03,
-  image04,
-  image05,
-  image06,
-  image07,
-  image08,
-  image09,
-  image10,
-  image11,
-  image12,
-  image13,
-} from "@pages/images";
 import { Loader } from "@components/react/Loader";
-
-const images = [
-  image01,
-  image02,
-  image03,
-  image04,
-  image05,
-  image06,
-  image07,
-  image08,
-  image09,
-  image10,
-  image11,
-  image12,
-  image13,
-];
-
+import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
 ---
 
 <Layout title="Alowee Interactive">
+  <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
   <Loader client:load>
-    <div class="w-full flex items-center justify-center">
-      <Image src={image01} alt="imagen de programación" width={300} height={300} class="w-56 h-full object-cover rotate-6" />
-      <Image src={image02} alt="imagen de programación" width={300} height={300} class="w-56 h-full object-cover -rotate-6" />
-      <Image src={image03} alt="imagen de programación" width={300} height={300} class="w-56 h-full object-cover rotate-12" />
-      <Image src={image05} alt="imagen de programación" width={300} height={300} class="w-56 h-full object-cover -rotate-12" />
-    </div>
+    <LoaderImagesContainer />
   </Loader>
-  
+
   <section class="container mx-auto">
     <h1 class="text-4xl font-bold">Alowee Interactive</h1>
 
     <div class="columns-4 gap-x-5">
-      {images.map((image) => (
-          <Image
-            src={image}
-            alt="imagen de programación"
-            width={300}
-            height={300}
-            class="rounded-md w-full h-full object-cover my-2"
-          />
-      ))}
+      <h1>Hola Mundo</h1>
     </div>
   </section>
 </Layout>

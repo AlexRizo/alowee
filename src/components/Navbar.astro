@@ -1,9 +1,13 @@
-<header class=" p-8">
-  <nav class="flex gap-5 justify-center text-white">
-    <a href="/#">Inicio</a>
-    <a href="/#nosotros">Nosotros</a>
-    <a href="/#">Alowee</a>
+---
+import { Icon } from "astro-icon/components";
+---
+
+<header class="py-2 px-16 flex items-center justify-between bg-black/6">
+  <Icon name="alowee-icon" width={120} height={70}/>
+  <nav class="flex items-center gap-16">
     <a href="/#servicios">Servicios</a>
-    <a href="/#contacto">Contacto</a>
+    <a href="/#paquetes">Paquetes</a>
+    <a href="/#portfolio">Portafolio</a>
+    <a href="/#contacto" class="bg-neutral-300 px-4 py-2 rounded-md">Contacto</a>
   </nav>
 </header>
