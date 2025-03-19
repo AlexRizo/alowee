@@ -9,12 +9,6 @@ import {
   image05,
   image06,
   image07,
-  image08,
-  image09,
-  image10,
-  image11,
-  image12,
-  image13,
 } from "@pages/images";
 ---
 
@@ -25,7 +19,7 @@ import {
     alt="imagen de programación"
     width={300}
     height={300}
-    class="w-56 h-100 object-cover scale-90 absolute z-10 rounded"
+    class="w-56 h-100 object-cover scale-70 absolute z-10 rounded"
   />
   <Image
     id="image-2"
@@ -33,7 +27,7 @@ import {
     alt="imagen de programación"
     width={300}
     height={300}
-    class="w-56 h-100 object-cover scale-95 absolute z-20 rounded"
+    class="w-56 h-100 object-cover scale-80 absolute z-20 rounded"
   />
   <Image
     id="image-3"
@@ -41,7 +35,7 @@ import {
     alt="imagen de programación"
     width={300}
     height={300}
-    class="w-56 h-100 object-cover absolute z-30 rounded"
+    class="w-56 h-100 object-cover scale-90 absolute z-30 rounded"
   />
   <Image
     id="image-4"
@@ -49,7 +43,7 @@ import {
     alt="imagen de programación"
     width={300}
     height={300}
-    class="w-56 h-100 object-cover scale-105 z-40 rounded"
+    class="w-56 h-100 object-cover absolute z-40 rounded"
   />
   <Image
     id="image-5"
@@ -57,7 +51,7 @@ import {
     alt="imagen de programación"
     width={300}
     height={300}
-    class="w-56 h-100 object-cover absolute z-30 rounded"
+    class="w-56 h-100 object-cover scale-90 z-30 rounded"
   />
   <Image
     id="image-6"
@@ -65,7 +59,7 @@ import {
     alt="imagen de programación"
     width={300}
     height={300}
-    class="w-56 h-100 object-cover scale-95 absolute z-20 rounded"
+    class="w-56 h-100 object-cover scale-80 absolute z-20 rounded"
   />
   <Image
     id="image-7"
@@ -73,14 +67,29 @@ import {
     alt="imagen de programación"
     width={300}
     height={300}
-    class="w-56 h-100 object-cover scale-90 absolute z-10 rounded"
+    class="w-56 h-100 object-cover scale-70 absolute z-10 rounded"
   />
 </div>
 
 <script>
   import gsap from "gsap";
 
+  interface ReturnAnimation {
+    name: string;
+    position: string | number;
+  }
+
+  const returnAnimation: ReturnAnimation = {
+    name: 'return',
+    position: '+=1.4',
+  }
+
+  const animImageDuration: number = 1.2;
+  const animStartDelay: number = 1;
+
+  // ? Contenedor de imagenes
   const tl = gsap.timeline();
+
 
   tl.to("#images-container", {
     opacity: 1,
@@ -92,35 +101,82 @@ import {
     opacity: 0,
     scale: 0.9,
     duration: 1.2,
-    delay: 4.5,
+    delay: 2.5,
     ease: "power2.out",
   });
 
-  gsap.to("#image-3", {
-    x: -200,
-    duration: 1.5,
-    delay: 1.5,
-    ease: "power2.out",
-  });
+  // * Primeros elementos
+  const firstElements = gsap.timeline();
 
-  gsap.to("#image-5", {
-    x: 200,
-    duration: 1.5,
-    delay: 1.5,
+  firstElements.to("#image-3", {
+    x: -160,
+    duration: animImageDuration,
+    delay: animStartDelay,
     ease: "power2.out",
-  });
+  }).to("#image-5", {
+    x: 160,
+    duration: animImageDuration,
+    delay: animStartDelay,
+    ease: "power2.out",
+  }, 0).add(returnAnimation.name, returnAnimation.position)
+  .to("#image-3", {
+    x: 0,
+    duration: animImageDuration,
+    ease: "power2.inOut",
+  }, 'return').to("#image-5", {
+    x: 0,
+    duration: animImageDuration,
+    ease: "power2.inOut",
+  }, 'return')
 
-  gsap.to("#image-7", {
-    x: -400,
-    duration: 2,
-    delay: 1.5,
-    ease: "power2.out",
-  });
+  // ? Ultimos elementos
+  const secondElements = gsap.timeline();
 
-  gsap.to("#image-1", {
-    x: 400,
-    duration: 2,
-    delay: 1.5,
+  secondElements.to("#image-6", {
+    x: -250,
+    duration: animImageDuration,
+    delay: animStartDelay,
     ease: "power2.out",
-  });
+  }).to("#image-2", {
+    x: 250,
+    duration: animImageDuration,
+    delay: animStartDelay,
+    ease: "power2.out",
+  }, 0)
+  .add(returnAnimation.name, returnAnimation.position)
+  .to("#image-6", {
+    x: 0,
+    duration: animImageDuration,
+    ease: "power2.inOut",
+  }, 'return')
+  .to("#image-2", {
+    x: 0,
+    duration: animImageDuration,
+    ease: "power2.inOut",
+  }, 'return');
+
+  const thirdElements = gsap.timeline();
+
+  thirdElements.to("#image-7", {
+    x: -320,
+    duration: animImageDuration,
+    delay: animStartDelay,
+    ease: "power2.out",
+  }).to("#image-1", {
+    x: 320,
+    duration: animImageDuration,
+    delay: animStartDelay,
+    ease: "power2.out",
+  }, 0)
+  .add(returnAnimation.name, returnAnimation.position)
+  .to("#image-7", {
+    x: 0,
+    duration: animImageDuration,
+    ease: "power2.inOut",
+  }, 'return')
+  .to("#image-1", {
+    x: 0,
+    duration: animImageDuration,
+    ease: "power2.inOut",
+  }, 'return');
 </script>

@@ -14,37 +14,63 @@ export const Loader: FC<Props> = ({ children }) => {
   const progressRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    let start: any = null;
+    let start: number | null = null;
 
-    // Función de easing: easeOutQuad aplica desaceleración.
-    // t es un valor entre 0 y 1, y devuelve un valor modificado para que la animación decelere.
+    // Duraciones de cada fase (en milisegundos)
+    const durationPhase1 = 2500; // Fase 1: de 0 a 40 (desaceleración)
+    const durationPhase2 = 2500; // Fase 2: de 40 a 100 (aceleración)
+    const totalDuration = durationPhase1 + durationPhase2;
+    
+    // Función de easing para desacelerar en la fase 1
     const easeOutQuad = (t: number) => t * (2 - t);
-
-    // Función animate: Se encarga de la animación utilizando requestAnimationFrame.
+    
+    // Función de easing para acelerar en la fase 2
+    const easeInQuad = (t: number) => t * t;
+    
     const animate = (timestamp: number) => {
-      if (!start) start = timestamp; // Se guarda el tiempo inicial en la primera llamada.
-      const elapsed = timestamp - start; // Tiempo transcurrido desde el inicio.
-      // progress es el avance de la animación, limitado a 1 (100%).
-      const progress = Math.min(elapsed / 5500, 1);
-      // Se aplica la función de easing para desacelerar la animación al final.
-      const easedProgress = easeOutQuad(progress);
-      // Se actualiza el estado del contador, redondeando el valor.
-      setProgress(Math.floor(easedProgress * 100));
-
-      // Si la animación no ha terminado, se solicita el siguiente frame.
-      if (progress < 1) {
+      if (start === null) start = timestamp; // Guarda el tiempo inicial en la primera llamada.
+      const elapsed = timestamp - start;      // Tiempo transcurrido desde el inicio.
+      let currentValue: number;
+    
+      if (elapsed <= durationPhase1) {
+        // Fase 1: de 0 a 40
+        // Se calcula el progreso de 0 a 1 en la primera fase.
+        const progressPhase1 = elapsed / durationPhase1;
+        // Se aplica easing para desacelerar al final de esta fase.
+        const easedProgress = easeOutQuad(progressPhase1);
+        // Se calcula el valor actual, llegando hasta 40.
+        currentValue = easedProgress * 40;
+      } else {
+        // Fase 2: de 40 a 100
+        // Se calcula el tiempo transcurrido en la segunda fase.
+        const elapsedPhase2 = elapsed - durationPhase1;
+        // Se calcula el progreso de 0 a 1 en esta fase, limitado a 1.
+        const progressPhase2 = Math.min(elapsedPhase2 / durationPhase2, 1);
+        // Se aplica easing para acelerar en esta fase.
+        const easedProgress = easeInQuad(progressPhase2);
+        // Se calcula el valor actual, partiendo desde 40 y llegando hasta 100.
+        currentValue = 40 + easedProgress * 60;
+      }
+    
+      // Actualiza el estado del contador (redondeado).
+      setProgress(Math.floor(currentValue));
+    
+      // Si la animación no ha alcanzado el total, se solicita el siguiente frame.
+      if (elapsed < totalDuration) {
         requestAnimationFrame(animate);
       }
     };
-
+    
+    // Inicia la animación.
+    requestAnimationFrame(animate);
     // Se inicia la animación.
     requestAnimationFrame(animate);
 
     gsap.to(progressRef.current, {
       y:0,
       opacity: 1,
-      duration: 0.5,
-      delay: 0.15,
+      duration: 0.7,
+      delay: 0.3,
       ease: "power1.out",
     })
   }, []); // Se vuelve a ejecutar el efecto si 'target' o 'duration' cambian.
@@ -55,13 +81,13 @@ export const Loader: FC<Props> = ({ children }) => {
 
       lt.to(loaderRef.current, {
         opacity: 0,
-        duration: 0.8,
-        delay: 1.4,
-        ease: "power1.out",
+        duration: 1,
+        delay: 0.1,
+        ease: "power1.in",
       })
       .to(loaderSectionRef.current, {
         y: "-100%",
-        duration: .7,
+        duration: 0.8,
         ease: "power2.in",
       })
     }
