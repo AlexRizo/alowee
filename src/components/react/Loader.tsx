@@ -17,8 +17,8 @@ export const Loader: FC<Props> = ({ children }) => {
     let start: number | null = null;
 
     // Duraciones de cada fase (en milisegundos)
-    const durationPhase1 = 2500; // Fase 1: de 0 a 40 (desaceleración)
-    const durationPhase2 = 2500; // Fase 2: de 40 a 100 (aceleración)
+    const durationPhase1 = 2200; // Fase 1: de 0 a 40 (desaceleración)
+    const durationPhase2 = 2000; // Fase 2: de 40 a 100 (aceleración)
     const totalDuration = durationPhase1 + durationPhase2;
     
     // Función de easing para desacelerar en la fase 1

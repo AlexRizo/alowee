@@ -2,19 +2,33 @@
 import Layout from "@layouts/Layout.astro";
 import { Loader } from "@components/react/Loader";
 import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
+import ServicesCard from "@components/ServicesCard.astro";
+import Title from "@components/Title.astro";
 ---
 
 <Layout title="Alowee Interactive">
   <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
-  <Loader client:load>
+  <!-- <Loader client:load>
     <LoaderImagesContainer />
-  </Loader>
+  </Loader> -->
 
-  <section class="container mx-auto">
-    <h1 class="text-4xl font-bold">Alowee Interactive</h1>
+  <section class="max-w-7xl mx-auto">
+    <article class="text-center text-success-600 flex flex-col gap-6">
+      <Title firstTitle="DISEÑO" />
+      <p class="text-xl">
+        Nos especializamos en crear piezas gráficas de alta<br /> calidad para cualquier
+        plataforma digital o impresa.
+      </p>
+      <p class="text-xl">
+        Desde identidades visuales hasta contenido para redes<br /> y medios físicos
+        o digitales.
+      </p>
+    </article>
 
-    <div class="columns-4 gap-x-5">
-      <h1>Hola Mundo</h1>
+    <div role="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ServicesCard />
+      <ServicesCard />
+      <ServicesCard />
     </div>
   </section>
 </Layout>

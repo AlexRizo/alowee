@@ -2,12 +2,11 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<header class="py-2 px-16 flex items-center justify-between bg-black/6">
-  <Icon name="alowee-icon" width={120} height={70}/>
-  <nav class="flex items-center gap-16">
-    <a href="/#servicios">Servicios</a>
-    <a href="/#paquetes">Paquetes</a>
-    <a href="/#portfolio">Portafolio</a>
-    <a href="/#contacto" class="bg-neutral-300 px-4 py-2 rounded-md">Contacto</a>
-  </nav>
+<header class="py-10">
+  <div role="menubar" class="flex items-center justify-between max-w-7xl mx-auto">
+    <Icon name="alowee-icon" width={120} height={70}/>
+    <button class="bg-neutral-300 py-3 px-6 border-2 border-neutral-600 rounded-md text-2xl cursor-pointer">
+      MENÚ
+    </button>
+  </div>
 </header>

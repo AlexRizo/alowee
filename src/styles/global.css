@@ -25,7 +25,9 @@
   --color-error-300: #EF397C;
   --color-error-600: #D6014F;
   
-  --font-primary: 'League Spartan', sans-serif;
+  --font-primary: 'Manrope', sans-serif;
+  --font-secondary: 'Space Grotesk', sans-serif;
+  --font-tertiary: 'Plus Jakarta Sans', sans-serif;
 
   --animate-loader-lines: loader-lines 2.2s ease-in-out forwards;
 
@@ -41,7 +43,6 @@
 
 body {
   @apply font-primary text-white;
-  scrollbar-width: none;
 }
 
 body::-webkit-scrollbar {
