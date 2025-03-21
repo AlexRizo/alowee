@@ -1,0 +1,114 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<nav
+  class="nav-menu"
+>
+  <div class="text-[5.60rem] leading-[inherit] text-outline flex flex-col gap-5 font-extrabold" id="nav-menu-content">
+    <button id="quit" class="cursor-pointer">
+      <Icon name="quit" width={77} height={77} />
+    </button>
+    <span class="relative">
+      <a href="/#diseño">DISEÑO</a>
+      <hr class="w-0"/>
+    </span>
+    <span>
+      <a href="/#animacion-2d">ANIMACIÓN 2D Y VIDEO</a>
+      <hr class="w-0"/>
+    </span>
+    <span>
+      <a href="/#diseño-web">DISEÑO WEB</a>
+      <hr class="w-0"/>
+    </span>
+    <span>
+      <a href="/#campanas-interactivas">CAMPAÑAS INTERACTIVAS</a>
+      <hr class="w-0"/>
+    </span>
+  </div>
+</nav>
+
+<style>
+  @reference '@styles/global.css';
+  
+  .nav-menu {
+    @apply fixed top-0 left-0 w-full h-full bg-warning-600 z-50 p-18;
+  }
+
+  .text-outline {
+    -webkit-text-fill-color: #222128;
+    -webkit-text-stroke: 2px #F7F0F0;
+    paint-order: stroke fill;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const tl = gsap.timeline();
+  
+  const lines = document.querySelectorAll('hr') as NodeListOf<HTMLElement>;
+  const elements = document.querySelectorAll('a') as NodeListOf<HTMLElement>;
+  const button = document.querySelector('#quit') as HTMLElement;
+
+  const navMenu = document.querySelector('.nav-menu') as HTMLElement;
+  const navMenuContent = document.querySelector('#nav-menu-content') as HTMLElement;
+    
+  console.log(button)
+  
+  lines.forEach((line, index) => {
+    if (index === 0) {
+      tl.to(line, {
+        width: '100%',
+        duration: 0.5,
+        ease: 'power3.inOut',
+        delay: .5
+      });
+    } else {
+      tl.to(line, {
+        width: '100%',
+        duration: 0.5,
+        ease: 'power3.inOut',
+      });
+    }
+  });
+
+  const elementsTl = gsap.timeline();
+
+  elementsTl.from(button, {
+    opacity: 0,
+    duration: 1,
+    ease: 'power2.inOut',
+  });
+  
+  elements.forEach((element, index) => {
+    elementsTl.from(element, {
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.inOut',
+    }, (index + 1) * 0.45);
+  });
+
+  const allElementsTl = gsap.timeline();
+
+  button.addEventListener('click', () => {
+    allElementsTl.to(navMenuContent, {
+      opacity: 0,
+      duration: .5,
+      ease: 'power2.inOut',
+    }).to(navMenu, {
+      top: '-100%',
+      duration: 1,
+      ease: 'power2.inOut',
+    }, 0.2).to(navMenu, {
+      display: 'none',
+    }).to(navMenu, {
+      top: 0,
+    });
+  });
+
+
+</script>
+

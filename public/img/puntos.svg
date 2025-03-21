@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.59 155.26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d9d9d9;
+        isolation: isolate;
+        opacity: .5;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="5.29" cy="5.63" r="5"/>
+  <circle class="cls-1" cx="23.29" cy="23.63" r="5"/>
+  <circle class="cls-1" cx="5.29" cy="23.63" r="5"/>
+  <circle class="cls-1" cx="23.29" cy="41.63" r="5"/>
+  <circle class="cls-1" cx="5.29" cy="41.63" r="5"/>
+  <circle class="cls-1" cx="23.29" cy="59.63" r="5"/>
+  <circle class="cls-1" cx="5.29" cy="59.63" r="5"/>
+  <circle class="cls-1" cx="23.29" cy="77.63" r="5"/>
+  <circle class="cls-1" cx="5.29" cy="77.63" r="5"/>
+  <circle class="cls-1" cx="23.29" cy="95.63" r="5"/>
+  <circle class="cls-1" cx="5.29" cy="95.63" r="5"/>
+  <circle class="cls-1" cx="23.29" cy="113.63" r="5"/>
+  <circle class="cls-1" cx="5.29" cy="113.63" r="5"/>
+  <circle class="cls-1" cx="23.29" cy="131.63" r="5"/>
+  <circle class="cls-1" cx="23.29" cy="149.63" r="5"/>
+</svg>

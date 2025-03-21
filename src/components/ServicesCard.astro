@@ -1,13 +1,33 @@
 ---
 import { Icon } from "astro-icon/components";
 
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+}
 
+const { icon, title, description }: Props = Astro.props;
 ---
 
-<div role="group" class="p-[2px] rounded-lg bg-gradient-to-br from-success-50 to-[#B47EF4]">
-  <div role="contentinfo" class="flex flex-col items-center px-4 py-3 rounded-lg bg-gradient-to-t from-neutral-600 to-purple-950">
-    <Icon name="alowee-icon" width={120} height={70}/>
-    <h3 class="text-center font-secondary text-2xl font-bold">Diseño de Identidad Visual</h3>
-    <p class="text-center">Creamos identidades visuales únicas y memorables para tu marca.</p>
+<div
+  role="group"
+  class="p-[2px] rounded-lg bg-gradient-to-br from-success-50 to-[#B47EF4] w-min hover:scale-110 transition-all duration-300 cursor-pointer group"
+>
+  <div
+    role="contentinfo"
+    class="flex flex-col items-center justify-center px-6 rounded-lg card-gradient gap-3 w-64 h-56"
+  >
+    <Icon name={icon} width={47} height={47} />
+    <h3 class="text-center font-secondary text-2xl font-bold">{title}</h3>
+    <p class="text-center">{description}</p>
   </div>
 </div>
+
+<style>
+  @reference '@styles/global.css';
+  
+  .card-gradient {
+    @apply bg-purple-950/85 group-hover:bg-primary-600 transition-colors
+  }
+</style>
