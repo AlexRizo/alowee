@@ -1,8 +1,9 @@
 ---
 import "@styles/global.css";
-import Navbar from "@components/Navbar.astro";
 import { Loader } from "@components/react/Loader";
 import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
+import { Navbar } from "@components/react/Navbar";
+
 interface Props {
   title: string;
 }
@@ -30,15 +31,33 @@ const { title }: Props = Astro.props;
     <title>{title ?? "Alowee Interactive"}</title>
   </head>
   <body class="bg-gradient-to-r from-[#803fd0] to-[#180231]">
-    <Navbar />
+    <Navbar client:load />
 
       <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
-    <!-- <Loader client:load>
+    <Loader client:load>
       <LoaderImagesContainer />
-    </Loader> -->
+    </Loader>
     
     <main>
       <slot />
     </main>
   </body>
+
+  <!-- ? Estilos para el Navbar (TSX component) -->
+  <style is:global>
+    @reference '@styles/global.css';
+    
+    .nav-menu {
+      @apply fixed top-0 left-0 w-full h-full bg-warning-600 z-50 p-18;
+    }
+  
+    .text-outline {
+      -webkit-text-fill-color: #222128;
+      -webkit-text-stroke: 2px #F7F0F0;
+      paint-order: stroke fill;
+  
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+  
 </html>
