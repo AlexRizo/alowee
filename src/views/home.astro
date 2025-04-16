@@ -1,0 +1,101 @@
+---
+import ServicesCard from "@components/ServicesCard.astro";
+import Title from "@components/Title.astro";
+import { Image } from "astro:assets";
+
+import messengerLogo from "@assets/img/messenger-logo.png";
+import facebookLogo from "@assets/img/facebook-logo.png";
+import like from "@assets/img/like.png";
+import lol from "@assets/img/lol.png";
+import BackgroundAnimation from "@components/BackgroundAnimation.astro";
+import { Navbar } from "@components/react/Navbar";
+---
+<section class="h-screen">
+  <BackgroundAnimation />
+
+  <Navbar client:load />
+
+  <section class="max-w-7xl mx-auto flex flex-col justify-center gap-20 relative">
+    <article class="text-center text-success-600 flex flex-col gap-6 mt-20 relative">
+      <Image src={messengerLogo} alt="Messenger" width={80} height={74} class="absolute -top-20 left-32 icon-animation icon-animation-150" quality="max" />
+      <Image src={like} alt="Like" width={50} height={57} class="absolute top-0 right-[20%] icon-animation icon-animation-200" quality="max" />
+      <Image src={lol} alt="Lol" width={61} height={61} class="absolute left-20 bottom-10 icon-animation icon-animation-300" quality="max"  />
+      <Image src={facebookLogo} alt="Facebook" width={45} height={47} class="absolute bottom-0 right-[20%] icon-animation icon-animation-350" quality="max" />
+
+      <Title firstTitle="DISEÑO" />
+
+      <p class="text-xl">
+        Nos especializamos en crear piezas gráficas de alta<br /> calidad para cualquier
+        plataforma digital o impresa.
+      </p>
+      <p class="text-xl">
+        Desde identidades visuales hasta contenido para redes<br /> y medios físicos
+        o digitales.
+      </p>
+    </article>
+
+    <img src="/img/puntos.svg" alt="Puntos" width="28" class="absolute top-0 left-5">
+    <img src="/img/puntos.svg" alt="Puntos" width="28" class="absolute top-50 right-30">
+    <img src="/img/puntos.svg" alt="Puntos" width="12" class="absolute bottom-0 left-0">
+    
+    <div
+      role="grid"
+      class="flex gap-10 justify-center"
+    >
+      <ServicesCard
+        icon="design-icon"
+        title="Digital"
+        description="Banners o imágenes para cualquier tipo de plataforma."
+      />
+      <ServicesCard
+        icon="design-icon"
+        title="Redes"
+        description="Posts, infografías, stories o Ads."
+      />
+      <ServicesCard
+        icon="design-icon"
+        title="UX/UI"
+        description="Interfaces o prototipos para web / sistemas."
+      />
+    </div>
+  </section>
+</section>
+
+<style>
+  .icon-animation {
+    animation: icon-animation 2s ease-in-out infinite;
+    animation-delay: 
+  }
+
+  .icon-animation-150 {
+    animation-duration: 3s;
+  }
+
+  .icon-animation-200 {
+    animation-duration: 4s;
+  }
+
+  .icon-animation-300 {
+    animation-duration: 5s;
+  }
+
+  .icon-animation-350 {
+    animation-duration: 6s;
+  }
+  
+
+  @keyframes icon-animation {
+    0% {
+      transform: translateY(0);
+      scale: 1;
+    }
+    50% {
+      transform: translateY(-10px);
+      scale: 1.1;
+    }
+    100% {
+      transform: translateY(0);
+      scale: 1;
+    }
+  }
+</style>
