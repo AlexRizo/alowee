@@ -31,9 +31,7 @@ const { title }: Props = Astro.props;
     <title>{title ?? "Alowee Interactive"}</title>
   </head>
   <body class="bg-gradient-to-r from-[#803fd0] to-[#180231]">
-    <Navbar client:load />
-
-      <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
+    <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
     <Loader client:load>
       <LoaderImagesContainer />
     </Loader>
@@ -52,11 +50,15 @@ const { title }: Props = Astro.props;
     }
   
     .text-outline {
-      -webkit-text-fill-color: #222128;
+      color: #222128;
       -webkit-text-stroke: 2px #F7F0F0;
       paint-order: stroke fill;
-  
+      transition: color 0.3s;
       font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .text-outline:hover {
+      color: #F7F0F0;
     }
   </style>
   

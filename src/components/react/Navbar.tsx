@@ -1,12 +1,12 @@
 import NavbarMenu from "./NavbarMenu.tsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
     <>
-      <header className="py-10">
+      <header className="py-10 z-20 relative">
         <div
           role="menubar"
           className="flex items-center justify-between max-w-7xl mx-auto"

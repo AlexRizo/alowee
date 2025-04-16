@@ -98,7 +98,7 @@ export const Loader: FC<Props> = ({ children }) => {
 
       <div ref={loaderRef} className="flex items-center gap-2 w-full px-40">
         <hr className="w-0 bg-white mr-auto animate-loader-lines" />
-        <span ref={progressRef} className="text-neutral-300 text-8xl font-bold text-center opacity-0 translate-y-10">{progress}%</span>
+        <span ref={progressRef} className="text-neutral-300 text-9xl font-bold text-center opacity-0 translate-y-10">{progress}%</span>
         <hr className="w-0 bg-white ml-auto animate-loader-lines" />
       </div>
     </section>

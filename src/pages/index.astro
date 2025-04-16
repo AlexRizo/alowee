@@ -8,9 +8,15 @@ import messengerLogo from "@assets/img/messenger-logo.png";
 import facebookLogo from "@assets/img/facebook-logo.png";
 import like from "@assets/img/like.png";
 import lol from "@assets/img/lol.png";
+import BackgroundAnimation from "@components/BackgroundAnimation.astro";
+import { Navbar } from "@components/react/Navbar";
 ---
 
 <Layout title="Alowee Interactive">
+  <BackgroundAnimation />
+  
+  <Navbar client:load />
+
   <section class="max-w-7xl mx-auto flex flex-col justify-center gap-20 relative">
     <article class="text-center text-success-600 flex flex-col gap-6 mt-20 relative">
       <Image src={messengerLogo} alt="Messenger" width={80} height={74} class="absolute -top-20 left-32 icon-animation icon-animation-150" quality="max" />
