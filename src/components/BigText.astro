@@ -1,0 +1,17 @@
+---
+import { cn } from "@utils/cn";
+interface Props {
+  text: string;
+  styles?: string;
+}
+
+const { text, styles }: Props = Astro.props;
+
+const defaultClass = "text-[400px] font-tertiary font-bold italic text-[#F1EBEB] absolute -bottom-52 text-center w-full pointer-events-none";
+---
+
+<h1
+  class={cn(defaultClass, styles)}
+>
+  { text }
+</h1>

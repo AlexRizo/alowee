@@ -1,0 +1,46 @@
+---
+import BigText from "@components/BigText.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  class="h-screen w-full bg-gradient-to-r from-[#514F5B] to-[#222128] relative overflow-hidden flex items-center justify-center"
+>
+  <div class="absolute z-1">
+    <span class="size-80 bg-info-600 rounded-full absolute blur-[100px] z-2 -translate-x-15 -translate-y-20"></span>
+    <span class="size-80 bg-neutral-600 rounded-full absolute blur-[100px] z-1 translate-x-70 -translate-y-20"></span>
+    <span class="size-80 bg-neutral-300 rounded-full absolute blur-[100px] z-3 translate-x-25 -translate-y-80"></span>
+  </div>
+  <div class="container mx-auto flex gap-[11%] justify-center items-center z-2">
+    <div class="relative">
+      <img
+        src="/img/macbook.webp"
+        alt="Design 1"
+        class="object-cover relative z-4 rounded shadow-md"
+      />
+      <img
+        src="/img/check-graph.webp"
+        alt="Design 1"
+        class="absolute top-20 left-24 rounded blur-[1px] shadow-lg z-3"
+      />
+    </div>
+    <article class="flex flex-col gap-10 max-w-[28%] relative text-warning-50 z-2">
+      <h1 class="text-6xl font-semibold font-tertiary leading-18">
+        <span class="inline-flex gap-14 items-center">
+          Nuestra
+          <Icon name="metodology-icon" class="size-10" />
+        </span> 
+        Metodología
+      </h1>
+      <p class="text-lg leading-8">
+        Nuestra metodología nos permite anticiparnos a posibles omisiones y
+        estructurar cada diseño de manera eficiente. Sabemos que muchas veces
+        los clientes tienen una visión general, pero no siempre una idea clara
+        de cómo traducirla en piezas gráficas efectivas. Por eso, investigamos,
+        analizamos y proponemos estructuras que optimicen la comunicación y
+        refuercen la identidad visual de cada proyecto.
+      </p>
+    </article>
+  </div>
+  <BigText text="MÉTODO" styles="text-[#3C3B42] -bottom-58 z-1 tracking-tighter" />
+</section>

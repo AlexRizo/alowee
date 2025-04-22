@@ -1,0 +1,170 @@
+---
+
+---
+
+<section class="bg-gradient-to-b from-black to-neutral-600 h-[300vh] relative py-20 section">
+  <article class="w-full text-center text-white text-8xl font-extrabold font-tertiary uppercase leading-snug article sticky top-1/6 overflow-hidden">
+    <p class="text-outlined paragraph -translate-x-[100%]"><span class="text-white exalted">Estructuramos</span> la</p>
+    <p class="text-outlined paragraph translate-x-[100%]">Comunicación <span class="text-white exalted">visual</span> de tu</p>
+    <p class="text-outlined paragraph -translate-x-[100%]"><span class="text-white bg-neutral-600 exalted">Marca</span> para conectarla</p>
+    <p class="text-outlined paragraph translate-x-[100%]">con tu <span class="text-white bg-neutral-600 exalted">audiencia</span></p>
+  </article>
+
+  <article class="w-full bottom-article opacity-0 overflow-hidden">
+    <div class="w-full text-center font-tertiary text-outlined text-7xl font-extrabold whitespace-nowrap">
+      <span class="text-neutral-600">Ilustración</span>
+      <span>Corporativa</span>
+      <span class="text-neutral-600">UX/UI</span>
+      <span>Análisis</span>
+      <span class="text-neutral-600">Animación</span>
+      <span>Ilustración</span>
+      <span class="text-neutral-600">Corporativa</span>
+      <span>UX/UI</span>
+      <span class="text-neutral-600">Análisis</span>
+      <span>Animación</span>
+      <span class="text-neutral-600">Ilustración</span>
+      <span>Corporativa</span>
+      <span class="text-neutral-600">UX/UI</span>
+      <span>Análisis</span>
+      <span class="text-neutral-600">Animación</span>
+      <span>Ilustración</span>
+      <span class="text-neutral-600">Corporativa</span>
+      <span>UX/UI</span>
+      <span class="text-neutral-600">Análisis</span>
+      <span>Animación</span>
+    </div>
+    <div class="w-full text-center font-tertiary text-outlined text-8xl font-extrabold whitespace-nowrap relative -left-[40%]">
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+    </div>
+  </article>
+</section>
+
+<style>
+  @reference '@styles/global.css';
+
+  .text-outlined {
+    -webkit-text-stroke: 2px #FFF;
+    paint-order: stroke fill;
+    color: #000;
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+
+  const paragraphs = document.querySelectorAll('.paragraph');
+  const textExalted = document.querySelectorAll('.exalted');
+
+  const section = document.querySelector('.section');
+  const bottomArticle = document.querySelector('.bottom-article');
+  const bottomDivs = document.querySelectorAll('.bottom-article div');
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  //? Scroll del párrafo
+  const scrollTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      toggleActions: 'restart pause reverse pause',
+      scrub: 1,
+      start: 'top center',
+      end: 'bottom bottom',
+    },
+  });
+
+  scrollTl.to(paragraphs[0], {
+    x: 0,
+    ease: 'power1.out',
+    duration: 3,
+  }).to(paragraphs[1], {
+    x: 0,
+    ease: 'power1.out',
+    duration: 3,
+  }).to(paragraphs[2], {
+    x: 0,
+    ease: 'power1.out',
+    duration: 3,
+  }).to(paragraphs[3], {
+    x: 0,
+    ease: 'power1.out',
+    duration: 3,
+  })
+
+  //? Color del párrafo
+  const paragraphTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      toggleActions: 'restart pause reverse pause',
+      start: 'center center', // El primer valor se refiere al viewport del elemento
+      end: 'bottom bottom',
+      scrub: 1,
+    },
+  })
+  paragraphs.forEach((paragraph, index) => {
+    paragraphTl.to(paragraph, {
+      color: '#8942dc',
+      ease: 'power1.inOut',
+      duration: 5,
+    }, 0);
+
+    paragraphTl.to(textExalted[index], {
+      backgroundColor: `${ (index === paragraphs.length - 1 || index === paragraphs.length - 2) ? '#000' : '' }`,
+      ease: 'power1.inOut',
+      duration: 5,
+    }, 0);
+  });
+
+  //? Scroll del artículo
+  const bottomArticleTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      toggleActions: 'restart pause reverse pause',
+      scrub: 1,
+      start: 'top top',
+    },
+  });
+
+  bottomArticleTl.to(bottomArticle, {
+    position: 'fixed',
+    bottom: '0',
+    opacity: .4,
+    duration: 5,
+  });
+
+  bottomDivs.forEach((div, index) => {
+    if (index % 2 === 0) {
+      bottomArticleTl.to(div, {
+        x: '-150%',
+        ease: 'linear',
+        duration: 10,
+      }, 0);
+    } else {
+      bottomArticleTl.from(div, {
+        x: '-150%',
+        ease: 'linear',
+        duration: 10,
+      }, 0);
+    }
+  });
+
+  bottomArticleTl.to(bottomArticle, {
+    position: 'absolute'
+  });
+
+</script>
