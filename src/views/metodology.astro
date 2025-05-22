@@ -4,35 +4,36 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section
-  class="h-screen w-full bg-gradient-to-r from-[#514F5B] to-[#222128] relative overflow-hidden flex items-center justify-center"
+  class="lg:h-screen w-full bg-gradient-to-r from-[#514F5B] to-[#222128] relative overflow-hidden flex items-center justify-center lg:py-0 pt-14 pb-40"
 >
-  <div class="absolute z-1">
-    <span class="size-80 bg-info-600 rounded-full absolute blur-[100px] z-2 -translate-x-15 -translate-y-20"></span>
-    <span class="size-80 bg-neutral-600 rounded-full absolute blur-[100px] z-1 translate-x-70 -translate-y-20"></span>
-    <span class="size-80 bg-neutral-300 rounded-full absolute blur-[100px] z-3 translate-x-25 -translate-y-80"></span>
+  <div class="absolute z-1 top-1/10 left-1/2">
+    <span class="2xl:size-80 xl:size-70 size-60 bg-info-600 rounded-full absolute xl:blur-[100px] lg:blur-[80px] blur-[30px] z-2 2xl:-translate-x-15 xl:-translate-x-10 xl:-translate-y-20 lg:-translate-y-10 lg:-translate-x-30 -translate-x-2/2 translate-y-40"></span>
+    <span class="2xl:size-80 xl:size-70 size-60 bg-neutral-600 rounded-full absolute xl:blur-[100px] lg:blur-[80px] blur-[30px] z-1 2xl:translate-x-70 xl:translate-x-50 xl:-translate-y-20 lg:-translate-y-10 lg:translate-x-30 translate-y-40"></span>
+    <span class="2xl:size-80 xl:size-70 size-60 bg-neutral-300 rounded-full absolute xl:blur-[100px] lg:blur-[80px] blur-[30px] z-3 2xl:translate-x-25 xl:translate-x-15 xl:-translate-y-80 lg:-translate-y-60 lg:translate-x-0 -translate-x-1/2"></span>
   </div>
-  <div class="container mx-auto flex gap-[11%] justify-center items-center z-2">
+  <div class="container mx-auto flex flex-col-reverse lg:flex-row 2xl:gap-[11%] lg:gap-[15%] gap-10 justify-center items-center z-2">
     <div class="relative">
       <img
         src="/img/macbook.webp"
         alt="Design 1"
-        class="object-cover relative z-4 rounded shadow-md"
+        class="object-cover relative z-4 rounded shadow-md 2xl:w-75 xl:w-65 lg:w-60 w-40"
       />
       <img
         src="/img/check-graph.webp"
         alt="Design 1"
-        class="absolute top-20 left-24 rounded blur-[1px] shadow-lg z-3"
+        class="absolute lg:top-20 lg:left-24 top-10 left-12 rounded lg:blur-[1px] shadow-lg z-3 2xl:w-75 xl:w-65 lg:w-60 w-40"
       />
     </div>
-    <article class="flex flex-col gap-10 max-w-[28%] relative text-warning-50 z-2">
-      <h1 class="text-6xl font-semibold font-tertiary leading-18">
-        <span class="inline-flex gap-14 items-center">
+    <article class="flex flex-col lg:items-start items-center xl:gap-10 lg:gap-6 gap-5 2xl:max-w-[28%] lg:max-w-xs max-w-76 relative text-warning-50 z-2">
+      <Icon name="metodology-icon" class="size-14 lg:hidden" />
+      <h1 class="2xl:text-6xl/18 xl:text-5xl/15 lg:text-4xl/12 text-2xl font-semibold font-tertiary">
+        <span class="inline-flex 2xl:gap-14 xl:gap-6 lg:gap-4 items-center">
           Nuestra
-          <Icon name="metodology-icon" class="size-10" />
+          <Icon name="metodology-icon" class="2xl:size-10 xl:size-9 lg:size-8 lg:mt-2 hidden lg:block" />
         </span> 
         Metodología
       </h1>
-      <p class="text-lg leading-8">
+      <p class="2xl:text-lg/8 xl:text-base/7 lg:text-sm/6 text-white">
         Nuestra metodología nos permite anticiparnos a posibles omisiones y
         estructurar cada diseño de manera eficiente. Sabemos que muchas veces
         los clientes tienen una visión general, pero no siempre una idea clara
@@ -42,5 +43,5 @@ import { Icon } from "astro-icon/components";
       </p>
     </article>
   </div>
-  <BigText text="MÉTODO" styles="text-[#3C3B42] -bottom-58 z-1 tracking-tighter" />
+  <BigText text="MÉTODO" styles="text-[#3C3B42] -bottom-14 z-1 tracking-tighter" />
 </section>

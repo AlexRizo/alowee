@@ -57,3 +57,9 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+
+@media (max-width: 1024px) {
+  .swiper-slide-active > div {
+    @apply scale-110;
+  }
+}

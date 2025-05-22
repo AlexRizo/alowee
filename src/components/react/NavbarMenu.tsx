@@ -84,10 +84,10 @@ export default function NavbarMenu({ setIsMenuOpen }: NavbarMenuProps) {
   }, []);
 
   return (
-    <nav ref={navMenuRef} className="fixed top-0 left-0 w-full h-full bg-warning-600 z-50 p-18">
+    <nav ref={navMenuRef} className="fixed top-0 left-0 w-full h-full bg-warning-600 z-50 lg:p-18 xl:p-16">
       <div 
         ref={navMenuContentRef}
-        className="text-[5.60rem] leading-[inherit] flex flex-col gap-5 font-extrabold"
+        className="xl:text-[5.60rem] lg:text-[4.60rem] leading-[inherit] flex flex-col gap-5 font-extrabold"
       >
         <button ref={buttonRef} id="quit" className="cursor-pointer" onClick={handleQuit}>
           <img src="./icons/quit.svg" alt="Quit" width={77} height={77} />

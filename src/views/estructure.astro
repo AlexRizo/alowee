@@ -2,16 +2,16 @@
 
 ---
 
-<section class="bg-gradient-to-b from-black to-neutral-600 h-[300vh] relative py-20 section">
-  <article class="w-full text-center text-white text-8xl font-extrabold font-tertiary uppercase leading-snug article sticky top-1/6 overflow-hidden">
+<section class="bg-gradient-to-b from-black to-neutral-600 h-[300vh] relative py-20 section overflow-hidden lg:block hidden">
+  <article class="w-full text-center text-white 2xl:text-8xl xl:text-7xl lg:text-6xl text-4xl font-extrabold font-tertiary uppercase leading-snug article overflow-hidden">
     <p class="text-outlined paragraph -translate-x-[100%]"><span class="text-white exalted">Estructuramos</span> la</p>
     <p class="text-outlined paragraph translate-x-[100%]">Comunicación <span class="text-white exalted">visual</span> de tu</p>
     <p class="text-outlined paragraph -translate-x-[100%]"><span class="text-white bg-neutral-600 exalted">Marca</span> para conectarla</p>
     <p class="text-outlined paragraph translate-x-[100%]">con tu <span class="text-white bg-neutral-600 exalted">audiencia</span></p>
   </article>
 
-  <article class="w-full bottom-article opacity-0 overflow-hidden">
-    <div class="w-full text-center font-tertiary text-outlined text-7xl font-extrabold whitespace-nowrap">
+  <article class="w-full bottom-article opacity-0 overflow-hidden absolute 2xl:top-[24%] xl:top-[25%] lg:top-[25.5%]">
+    <div class="w-full text-center font-tertiary text-outlined 2xl:text-7xl xl:text-6xl lg:text-5xl font-extrabold whitespace-nowrap">
       <span class="text-neutral-600">Ilustración</span>
       <span>Corporativa</span>
       <span class="text-neutral-600">UX/UI</span>
@@ -33,7 +33,7 @@
       <span class="text-neutral-600">Análisis</span>
       <span>Animación</span>
     </div>
-    <div class="w-full text-center font-tertiary text-outlined text-8xl font-extrabold whitespace-nowrap relative -left-[40%]">
+    <div class="w-full text-center font-tertiary text-outlined 2xl:text-8xl xl:text-7xl lg:text-6xl font-extrabold whitespace-nowrap relative -left-[40%]">
       <span>Social Media</span>
       <span class="text-neutral-600">Digital</span>
       <span>Ads</span>
@@ -55,8 +55,6 @@
 </section>
 
 <style>
-  @reference '@styles/global.css';
-
   .text-outlined {
     -webkit-text-stroke: 2px #FFF;
     paint-order: stroke fill;
@@ -71,6 +69,7 @@
   const paragraphs = document.querySelectorAll('.paragraph');
   const textExalted = document.querySelectorAll('.exalted');
 
+  const article = document.querySelector('.article');
   const section = document.querySelector('.section');
   const bottomArticle = document.querySelector('.bottom-article');
   const bottomDivs = document.querySelectorAll('.bottom-article div');
@@ -80,11 +79,12 @@
   //? Scroll del párrafo
   const scrollTl = gsap.timeline({
     scrollTrigger: {
-      trigger: section,
+      trigger: article,
       toggleActions: 'restart pause reverse pause',
       scrub: 1,
-      start: 'top center',
-      end: 'bottom bottom',
+      start: 'center center',
+      end: 'bottom -120%', //'bottom -120%'
+      pin: true,
     },
   });
 
@@ -112,7 +112,7 @@
       trigger: section,
       toggleActions: 'restart pause reverse pause',
       start: 'center center', // El primer valor se refiere al viewport del elemento
-      end: 'bottom bottom',
+      end: 'bottom 110%',
       scrub: 1,
     },
   })
@@ -133,16 +133,16 @@
   //? Scroll del artículo
   const bottomArticleTl = gsap.timeline({
     scrollTrigger: {
-      trigger: section,
+      trigger: bottomArticle,
       toggleActions: 'restart pause reverse pause',
       scrub: 1,
-      start: 'top top',
+      pin: true,
+      start: 'bottom bottom',
+      end: 'bottom -110%',
     },
   });
 
   bottomArticleTl.to(bottomArticle, {
-    position: 'fixed',
-    bottom: '0',
     opacity: .4,
     duration: 5,
   });
@@ -161,10 +161,6 @@
         duration: 10,
       }, 0);
     }
-  });
-
-  bottomArticleTl.to(bottomArticle, {
-    position: 'absolute'
   });
 
 </script>

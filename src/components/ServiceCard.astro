@@ -1,16 +1,22 @@
 ---
 interface Props {
-  icon: string;
   title: string;
   subtitle: string;
   description: string;
 }
 
-const { icon, title, subtitle, description }: Props = Astro.props;
+const { title, subtitle, description }: Props = Astro.props;
 ---
 
-<>
-  <div>
-    
+<div
+  class="w-full max-w-78 h-full bg-[#1F1E21] border border-[#F7F0F0]/25 text-[#F7F0F0] rounded-lg flex flex-col items-center justify-center gap-5 px-16"
+>
+  <div class="p-1 border-2 border-dashed rounded bg-neutral-600/20">
+    <slot />
   </div>
-</>
+  <article class="text-center font-primary">
+    <h3 class="font-semibold text-xl">{title}</h3>
+    <h4 class="text-sm">{subtitle}</h4>
+  </article>
+  <p class="text-center font-light text-lg text-[#F5F5F5]">{description}</p>
+</div>

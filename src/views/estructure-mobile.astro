@@ -1,0 +1,163 @@
+---
+
+---
+
+<section class="bg-gradient-to-b from-black to-neutral-600 h-[250vh] relative py-20 section overflow-hidden lg:hidden flex justify-center section-mobile">
+  <article class="text-outlined text-center text-6xl/20 font-extrabold min-w-max h-min font-tertiary uppercase first-article">
+    <p class="p-to-animate -translate-x-[100%]"><span class="text-exalted">Estructuramos</span> la</p>
+    <p class="p-to-animate translate-x-[100%]">comunicación <span class="text-exalted">visual</span> de tu</p>
+    <p class="p-to-animate -translate-x-[100%]"><span class="text-exalted-bg">marca</span> para conectarla</p>
+    <p class="p-to-animate translate-x-[100%]">con tu <span class="text-exalted-bg">audiencia</span></p>
+  </article>
+
+  <article class="text-outlined text-center min-w-max h-min font-tertiary uppercase second-article absolute">
+    <div class="flex flex-wrap gap-4 text-4xl font-extrabold text-to-right opacity-0 translate-x-[50%] transition-opacity">
+      <span class="text-neutral-600">Ilustración</span>
+      <span>Corporativa</span>
+      <span class="text-neutral-600">UX/UI</span>
+      <span>Análisis</span>
+      <span class="text-neutral-600">Animación</span>
+      <span>Ilustración</span>
+      <span class="text-neutral-600">Corporativa</span>
+      <span>UX/UI</span>
+      <span class="text-neutral-600">Análisis</span>
+      <span>Animación</span>
+      <span class="text-neutral-600">Ilustración</span>
+      <span>Corporativa</span>
+      <span class="text-neutral-600">UX/UI</span>
+      <span>Análisis</span>
+      <span class="text-neutral-600">Animación</span>
+      <span>Ilustración</span>
+      <span class="text-neutral-600">Corporativa</span>
+      <span>UX/UI</span>
+      <span class="text-neutral-600">Análisis</span>
+      <span>Animación</span>
+      <span class="text-neutral-600">Ilustración</span>
+      <span>Corporativa</span>
+      <span class="text-neutral-600">UX/UI</span>
+      <span>Análisis</span>
+      <span class="text-neutral-600">Animación</span>
+      <span>Ilustración</span>
+      <span class="text-neutral-600">Corporativa</span>
+      <span>UX/UI</span>
+      <span>Análisis</span>
+    </div>
+    <div class="flex flex-wrap gap-4 text-3xl font-extrabold text-to-left opacity-0 -translate-x-[20%] transition-opacity">
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+      <span class="text-neutral-600">Digital</span>
+      <span>Ads</span>
+      <span class="text-neutral-600">Creatividad</span>
+      <span>Social Media</span>
+    </div>
+  </article>
+</section>
+
+<style>
+  @reference '@/styles/global.css';
+  
+  .text-outlined {
+    -webkit-text-stroke: 2px #FFF;
+    paint-order: stroke fill;
+    color: #000;
+  }
+
+  .text-exalted {
+    @apply text-white;
+  }
+
+  .text-exalted-bg {
+    @apply text-white bg-neutral-600;
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+
+  const sectionMobile: HTMLElement | null = document.querySelector('.section-mobile');
+  
+  const firstArticle: HTMLElement | null = document.querySelector('.first-article');
+  const secondArticle: HTMLElement | null = document.querySelector('.second-article');
+
+  const paragraphs: NodeListOf<HTMLElement> = document.querySelectorAll('.p-to-animate');
+
+  const textToRight: NodeListOf<HTMLElement> = document.querySelectorAll('.text-to-right');
+  const textToLeft: NodeListOf<HTMLElement> = document.querySelectorAll('.text-to-left');
+
+  const fstArticleTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: firstArticle,
+      start: 'center center',
+      end: () => '+=' + ((sectionMobile?.offsetHeight || 0) / 1.2),
+      scrub: 2,
+      pin: true,
+    }
+  });
+
+  fstArticleTl.to(paragraphs[0], {
+    x: '100%',
+    ease: 'power1.out',
+    duration: 3,
+  }).to(paragraphs[1], {
+    x: '-100%',
+    ease: 'power1.out',
+    duration: 3,
+  }, '<').to(paragraphs[2], {
+    x: '100%',
+    ease: 'power1.out',
+    duration: 3,
+  }, '<').to(paragraphs[3], {
+    x: '-100%',
+    ease: 'power1.out',
+    duration: 3,
+  }, '<');
+
+  const sndArticleTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: secondArticle,
+      start: 'bottom bottom',
+      end: () => '+=' + ((sectionMobile?.offsetHeight || 0) / 1.1),
+      pin: true,
+      scrub: 3,
+      markers: true,
+    }
+  });
+
+  sndArticleTl.to(textToRight, {
+    x: '-50%',
+    ease: 'power1.out',
+    opacity: 1,
+    duration: 6,
+  }, '<').to(textToLeft, {
+    x: '50%',
+    ease: 'power1.out',
+    duration: 6,
+    opacity: 1,
+  }, '<').to(textToRight, {
+    duration: 2,
+    opacity: 0,
+  }, 4).to(textToLeft, {
+    duration: 2,
+    opacity: 0,
+  }, 4);
+</script>

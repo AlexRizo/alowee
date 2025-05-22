@@ -7,15 +7,21 @@ interface Props {
 const { firstTitle, secondTitle }: Props = Astro.props;
 ---
 
-<h1 class="flex items-center justify-center gap-4">
-  <span class="font-tertiary title-text-gradient font-bold text-6xl leading-[inherit]"
+<h1 class="flex lg:flex-row flex-col items-center justify-center lg:gap-4">
+  <span
+    class="font-tertiary title-text-gradient font-bold 2xl:text-6xl xl:text-5xl text-4xl leading-normal"
     >{firstTitle}</span
   >
-  <div class="relative h-[64px]" id="title-to-animate-container">
-    <span class="font-secondary title-text-gradient font-medium text-[4rem] leading-[4rem] relative z-10" id="title-to-animate">
+  <div class="relative lg:h-auto h-10" id="title-to-animate-container">
+    <span
+      class="font-secondary title-text-gradient font-medium relative z-10 2xl:text-[4rem]/16 xl:text-[3.5rem]/14 text-[2.5rem]/10"
+      id="title-to-animate"
+    >
       {secondTitle}
     </span>
-    <small class="bg-neutral-300 h-3 absolute transition-[width] bottom-1.5 left-0" id="underline"></small>
+    <small
+      class="bg-neutral-300 2xl:h-3 xl:h-2.5 h-1.5 absolute transition-[width] bottom-1.5 left-0"
+      id="underline"></small>
   </div>
 </h1>
 
@@ -28,14 +34,18 @@ const { firstTitle, secondTitle }: Props = Astro.props;
 </style>
 
 <script>
-  import { gsap } from 'gsap';
-  import { TextPlugin } from 'gsap/TextPlugin';
+  import { gsap } from "gsap";
+  import { TextPlugin } from "gsap/TextPlugin";
 
-  const titleToAnimate = document.getElementById('title-to-animate') as HTMLElement;
-  const underline = document.getElementById('underline') as HTMLElement;
-  const titleToAnimateContainer = document.getElementById('title-to-animate-container') as HTMLElement;
+  const titleToAnimate = document.getElementById(
+    "title-to-animate"
+  ) as HTMLElement;
+  const underline = document.getElementById("underline") as HTMLElement;
+  const titleToAnimateContainer = document.getElementById(
+    "title-to-animate-container"
+  ) as HTMLElement;
 
-  const resizeObserver = new ResizeObserver(entries => {
+  const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       underline.style.width = `${entry.target.clientWidth}px`;
     }
@@ -48,36 +58,36 @@ const { firstTitle, secondTitle }: Props = Astro.props;
   const tl = gsap.timeline({ repeat: -1, repeatDelay: 1, delay: 3.5 });
 
   const phrases: string[] = [
-    'DIGITAL',
-    'REDES',
-    'IDENTIDAD',
-    'UX/UI',
-    'IMPRESO',
-  ]
+    "DIGITAL",
+    "REDES",
+    "IDENTIDAD",
+    "UX/UI",
+    "IMPRESO",
+  ];
 
   const specs = {
-    duration: .8,
+    duration: 0.8,
     delay: 2.2,
-    ease: 'power1.inOut'
-  }
+    ease: "power1.inOut",
+  };
 
   phrases.forEach((phrase, index) => {
     if (index === 0) {
       tl.to(titleToAnimate, {
         duration: 1.5,
-        ease: 'power1.inOut',
+        ease: "power1.inOut",
         text: phrase,
-      })
+      });
     } else {
       tl.to(titleToAnimate, {
         ...specs,
         text: phrase,
-      })
+      });
     }
-  })
+  });
 
   tl.to(titleToAnimate, {
     ...specs,
-    text: '',
+    text: "",
   });
 </script>

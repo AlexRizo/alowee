@@ -2,7 +2,6 @@
 import "@styles/global.css";
 import { Loader } from "@components/react/Loader";
 import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
-import { Navbar } from "@components/react/Navbar";
 
 interface Props {
   title: string;
@@ -12,7 +11,7 @@ const { title }: Props = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -30,12 +29,11 @@ const { title }: Props = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? "Alowee Interactive"}</title>
   </head>
-  <body class="bg-gradient-to-r from-[#803fd0] to-[#180231]">
+  <body class="bg-gradient-to-r from-[#803fd0] to-[#180231] bg-cover bg-no-repeat">
     <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
     <!-- <Loader client:load>
       <LoaderImagesContainer />
     </Loader> -->
-    
     <main>
       <slot />
     </main>
