@@ -8,7 +8,7 @@ import { ServicesSliderCard } from "./ServicesSliderCard"
 const buttonStyle = 'absolute top-1/2 -translate-y-1/2 z-10 bg-purple-400 rounded-full 2xl:p-3 lg:p-2 after:hidden cursor-pointer'
 export const ServicesSlider = () => {
   return (
-    <div className="relative w-full h-full mx-auto">
+    <div className="relative w-full h-full mx-auto hidden lg:block">
     <button className={cn(buttonStyle, 'custom-prev left-0 -rotate-90')}>
       <Triangle fill="white" className="2xl:size-6 lg:size-5"/>
     </button>

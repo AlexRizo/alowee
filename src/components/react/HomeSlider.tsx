@@ -31,8 +31,8 @@ export const HomeSlider = () => {
       modules={[Navigation]}
       breakpoints={{
         0: {
-          slidesPerView: 2,
-          spaceBetween: 30,
+          slidesPerView: 1.5,
+          spaceBetween: 0,
           centeredSlides: true,
         },
         1024: {

@@ -11,7 +11,7 @@
   </article>
 
   <article class="text-outlined text-center min-w-max h-min font-tertiary uppercase second-article absolute">
-    <div class="flex flex-wrap gap-4 text-4xl font-extrabold text-to-right opacity-0 translate-x-[50%] transition-opacity">
+    <div class="flex flex-wrap gap-4 text-5xl font-extrabold text-to-right opacity-0 translate-x-[50%] transition-opacity">
       <span class="text-neutral-600">Ilustración</span>
       <span>Corporativa</span>
       <span class="text-neutral-600">UX/UI</span>
@@ -42,7 +42,7 @@
       <span>UX/UI</span>
       <span>Análisis</span>
     </div>
-    <div class="flex flex-wrap gap-4 text-3xl font-extrabold text-to-left opacity-0 -translate-x-[20%] transition-opacity">
+    <div class="flex flex-wrap gap-4 text-4xl font-extrabold text-to-left opacity-0 -translate-x-[20%] transition-opacity">
       <span>Social Media</span>
       <span class="text-neutral-600">Digital</span>
       <span>Ads</span>
@@ -107,6 +107,7 @@
   const fstArticleTl = gsap.timeline({
     scrollTrigger: {
       trigger: firstArticle,
+      toggleActions: 'restart pause reverse pause',
       start: 'center center',
       end: () => '+=' + ((sectionMobile?.offsetHeight || 0) / 1.2),
       scrub: 2,
@@ -135,29 +136,22 @@
   const sndArticleTl = gsap.timeline({
     scrollTrigger: {
       trigger: secondArticle,
+      toggleActions: 'restart pause reverse pause',
       start: 'bottom bottom',
-      end: () => '+=' + ((sectionMobile?.offsetHeight || 0) / 1.1),
+      end: () => '+=' + ((sectionMobile?.offsetHeight || 0) / 1.2),
       pin: true,
-      scrub: 3,
-      markers: true,
-    }
+      scrub: 1
+    },
   });
-
   sndArticleTl.to(textToRight, {
-    x: '-50%',
+    x: '-25%',
+    duration: 3,
     ease: 'power1.out',
     opacity: 1,
-    duration: 6,
   }, '<').to(textToLeft, {
-    x: '50%',
+    x: '25%',
+    duration: 3,
     ease: 'power1.out',
-    duration: 6,
     opacity: 1,
-  }, '<').to(textToRight, {
-    duration: 2,
-    opacity: 0,
-  }, 4).to(textToLeft, {
-    duration: 2,
-    opacity: 0,
-  }, 4);
+  }, '<');
 </script>
