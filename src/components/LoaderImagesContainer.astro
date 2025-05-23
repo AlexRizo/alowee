@@ -21,7 +21,7 @@ const imageSize: number = 500;
     alt="imagen de programación"
     width={imageSize}
     height={imageSize}
-    class="w-56 h-100 object-cover scale-70 absolute z-10 rounded"
+    class="lg:w-56 lg:h-100 w-40 h-60 object-cover scale-70 absolute z-10 rounded"
   />
   <Image
     id="image-2"
@@ -29,7 +29,7 @@ const imageSize: number = 500;
     alt="imagen de programación"
     width={imageSize}
     height={imageSize}
-    class="w-56 h-100 object-cover scale-80 absolute z-20 rounded"
+    class="lg:w-56 lg:h-100 w-40 h-60 object-cover scale-80 absolute z-20 rounded"
   />
   <Image
     id="image-3"
@@ -37,7 +37,7 @@ const imageSize: number = 500;
     alt="imagen de programación"
     width={imageSize}
     height={imageSize}
-    class="w-56 h-100 object-cover scale-90 absolute z-30 rounded"
+    class="lg:w-56 lg:h-100 w-40 h-60 object-cover scale-90 absolute z-30 rounded"
   />
   <Image
     id="image-4"
@@ -45,7 +45,7 @@ const imageSize: number = 500;
     alt="imagen de programación"
     width={imageSize}
     height={imageSize}
-    class="w-56 h-100 object-cover absolute z-40 rounded"
+    class="lg:w-56 lg:h-100 w-40 h-60 object-cover absolute z-40 rounded"
   />
   <Image
     id="image-5"
@@ -53,7 +53,7 @@ const imageSize: number = 500;
     alt="imagen de programación"
     width={imageSize}
     height={imageSize}
-    class="w-56 h-100 object-cover scale-90 z-30 rounded"
+    class="lg:w-56 lg:h-100 w-40 h-60 object-cover scale-90 z-30 rounded"
   />
   <Image
     id="image-6"
@@ -61,7 +61,7 @@ const imageSize: number = 500;
     alt="imagen de programación"
     width={imageSize}
     height={imageSize}
-    class="w-56 h-100 object-cover scale-80 absolute z-20 rounded"
+    class="lg:w-56 lg:h-100 w-40 h-60 object-cover scale-80 absolute z-20 rounded"
   />
   <Image
     id="image-7"
@@ -69,7 +69,7 @@ const imageSize: number = 500;
     alt="imagen de programación"
     width={imageSize}
     height={imageSize}
-    class="w-56 h-100 object-cover scale-70 absolute z-10 rounded"
+    class="lg:w-56 lg:h-100 w-40 h-60 object-cover scale-70 absolute z-10 rounded"
   />
 </div>
 
@@ -89,9 +89,9 @@ const imageSize: number = 500;
   const animImageDuration: number = 1.2;
   const animStartDelay: number = 1;
 
+  const mm = gsap.matchMedia();
   // ? Contenedor de imagenes
   const tl = gsap.timeline();
-
 
   tl.to("#images-container", {
     opacity: 1,
@@ -110,31 +110,58 @@ const imageSize: number = 500;
   // * Primeros elementos
   const firstElements = gsap.timeline();
 
-  firstElements.to("#image-3", {
-    x: -160,
-    duration: animImageDuration,
-    delay: animStartDelay,
-    ease: "power2.out",
-  }).to("#image-5", {
-    x: 160,
-    duration: animImageDuration,
-    delay: animStartDelay,
-    ease: "power2.out",
-  }, 0).add(returnAnimation.name, returnAnimation.position)
-  .to("#image-3", {
-    x: 0,
-    duration: animImageDuration,
-    ease: "power2.inOut",
-  }, 'return').to("#image-5", {
-    x: 0,
-    duration: animImageDuration,
-    ease: "power2.inOut",
-  }, 'return')
+  mm.add("(min-width: 1024px)", () => {
+    firstElements.to("#image-3", {
+      x: -160,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }).to("#image-5", {
+      x: 160,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }, 0).add(returnAnimation.name, returnAnimation.position)
+    .to("#image-3", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return').to("#image-5", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return')
+  });
+
+  mm.add("(max-width: 1023px)", () => {
+    firstElements.to("#image-3", {
+      x: -40,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }).to("#image-5", {
+      x: 40,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }, 0).add(returnAnimation.name, returnAnimation.position)
+    .to("#image-3", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return').to("#image-5", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return')
+  });
+  
 
   // ? Ultimos elementos
   const secondElements = gsap.timeline();
 
-  secondElements.to("#image-6", {
+  mm.add("(min-width: 1024px)", () => {
+    secondElements.to("#image-6", {
     x: -250,
     duration: animImageDuration,
     delay: animStartDelay,
@@ -154,31 +181,84 @@ const imageSize: number = 500;
   .to("#image-2", {
     x: 0,
     duration: animImageDuration,
-    ease: "power2.inOut",
-  }, 'return');
+      ease: "power2.inOut",
+    }, 'return');
+  });
+
+  mm.add("(max-width: 1023px)", () => {
+    secondElements.to("#image-6", {
+      x: -80,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }).to("#image-2", {
+      x: 80,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }, 0)
+    .add(returnAnimation.name, returnAnimation.position)
+    .to("#image-6", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return')
+    .to("#image-2", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return');
+  });
 
   const thirdElements = gsap.timeline();
 
-  thirdElements.to("#image-7", {
-    x: -320,
-    duration: animImageDuration,
-    delay: animStartDelay,
-    ease: "power2.out",
-  }).to("#image-1", {
-    x: 320,
-    duration: animImageDuration,
-    delay: animStartDelay,
-    ease: "power2.out",
-  }, 0)
-  .add(returnAnimation.name, returnAnimation.position)
-  .to("#image-7", {
-    x: 0,
-    duration: animImageDuration,
-    ease: "power2.inOut",
-  }, 'return')
-  .to("#image-1", {
-    x: 0,
-    duration: animImageDuration,
-    ease: "power2.inOut",
-  }, 'return');
+  mm.add("(min-width: 1024px)", () => {
+    thirdElements.to("#image-7", {
+      x: -320,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }).to("#image-1", {
+      x: 320,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }, 0)
+    .add(returnAnimation.name, returnAnimation.position)
+    .to("#image-7", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return')
+    .to("#image-1", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return');
+  });
+
+  mm.add("(max-width: 1023px)", () => {
+    thirdElements.to("#image-7", {
+      x: -120,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }).to("#image-1", {
+      x: 120,
+      duration: animImageDuration,
+      delay: animStartDelay,
+      ease: "power2.out",
+    }, 0)
+    .add(returnAnimation.name, returnAnimation.position)
+    .to("#image-7", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return')
+    .to("#image-1", {
+      x: 0,
+      duration: animImageDuration,
+      ease: "power2.inOut",
+    }, 'return');
+  });
 </script>

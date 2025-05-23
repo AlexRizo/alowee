@@ -31,9 +31,9 @@ const { title }: Props = Astro.props;
   </head>
   <body class="bg-gradient-to-r from-[#803fd0] to-[#180231] bg-cover bg-no-repeat">
     <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
-    <!-- <Loader client:load>
+    <Loader client:load>
       <LoaderImagesContainer />
-    </Loader> -->
+    </Loader>
     <main>
       <slot />
     </main>

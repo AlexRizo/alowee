@@ -96,9 +96,9 @@ export const Loader: FC<Props> = ({ children }) => {
     <section ref={loaderSectionRef} className="h-screen w-screen bg-[url('/img/background-loader-image.jpg')] bg-cover bg-center fixed top-0 left-0 z-50 flex flex-col items-center justify-evenly">
       {children}
 
-      <div ref={loaderRef} className="flex items-center gap-2 w-full px-40">
+      <div ref={loaderRef} className="flex items-center gap-2 w-full lg:px-40 px-10">
         <hr className="w-0 bg-white mr-auto animate-loader-lines" />
-        <span ref={progressRef} className="text-neutral-300 text-9xl font-bold text-center opacity-0 translate-y-10">{progress}%</span>
+        <span ref={progressRef} className="text-neutral-300 xl:text-9xl lg:text-8xl text-6xl font-bold text-center opacity-0 translate-y-10">{progress}%</span>
         <hr className="w-0 bg-white ml-auto animate-loader-lines" />
       </div>
     </section>
