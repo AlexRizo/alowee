@@ -35,6 +35,11 @@ export const HomeSlider = () => {
           spaceBetween: 0,
           centeredSlides: true,
         },
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 0,
+          centeredSlides: true,
+        },
         1024: {
           slidesPerView: 3,
         },

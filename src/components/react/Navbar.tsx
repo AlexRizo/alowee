@@ -7,10 +7,10 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="2xl:py-10 lg:py-8 py-4 z-20 lg:relative fixed top-0 lg:bg-transparent bg-black/10 w-full">
+      <header className="2xl:py-10 lg:py-8 py-4 z-20 lg:relative fixed top-0 lg:bg-transparent bg-black/15 w-full">
         <div
           role="menubar"
-          className="flex items-center justify-between 2xl:max-w-full xl:max-w-5xl lg:w-4xl lg:px-0 px-10 mx-auto"
+          className="flex items-center justify-between 2xl:w-7xl xl:w-5xl lg:w-4xl lg:px-0 px-10 mx-auto"
         >
           <img
             src="./icons/alowee-icon.svg"
