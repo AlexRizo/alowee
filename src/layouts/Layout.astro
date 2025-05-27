@@ -2,12 +2,13 @@
 import "@styles/global.css";
 import { Loader } from "@components/react/Loader";
 import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
-
+import BasicNavbar from "@components/BasicNavbar.astro";
 interface Props {
   title: string;
+  load?: boolean;
 }
 
-const { title }: Props = Astro.props;
+const { title, load = true }: Props = Astro.props;
 ---
 
 <!doctype html>
@@ -29,11 +30,14 @@ const { title }: Props = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? "Alowee Interactive"}</title>
   </head>
-  <body class="bg-gradient-to-r from-[#803fd0] to-[#180231] bg-cover bg-no-repeat">
+  <body class="bg-gradient-to-br from-fuchsia-800 to-[#310034] bg-cover bg-no-repeat min-h-screen">
     <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
-    <Loader client:load>
-      <LoaderImagesContainer />
-    </Loader>
+    {load && (
+      <Loader client:load>
+        <LoaderImagesContainer />
+      </Loader>
+    )}
+    <BasicNavbar />
     <main>
       <slot />
     </main>

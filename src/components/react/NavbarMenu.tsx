@@ -6,6 +6,25 @@ interface NavbarMenuProps {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
 }
 
+const MenuOptions = [
+  {
+    text: 'DISEÑO',
+    href: '#diseno'
+  },
+  {
+    text: 'ANIMACIÓN 2D Y VIDEO',
+    href: 'video'
+  },
+  {
+    text: 'DISEÑO WEB',
+    href: '#diseno-web'
+  },
+  {
+    text: 'CAMPAÑAS INTERACTIVAS',
+    href: '#campanas-interactivas'
+  },
+]
+
 export default function NavbarMenu({ setIsMenuOpen }: NavbarMenuProps) {
   const linesRef = useRef<HTMLHRElement[]>([]);
   const elementsRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -92,14 +111,14 @@ export default function NavbarMenu({ setIsMenuOpen }: NavbarMenuProps) {
         <button ref={buttonRef} id="quit" className="cursor-pointer" onClick={handleQuit}>
           <img src="./icons/quit.svg" alt="Quit" width={77} height={77} className='2xl:w-19 xl:w-16 lg:w-14 w-12' />
         </button>
-        {['DISEÑO', 'ANIMACIÓN 2D Y VIDEO', 'DISEÑO WEB', 'CAMPAÑAS INTERACTIVAS'].map((text, index) => (
-          <span key={text} className="relative text-outline hover:[text-stroke:2px]">
+        {MenuOptions.map((option, index) => (
+          <span key={option.href} className="relative text-outline hover:[text-stroke:2px]">
             <a 
               ref={el => { if (el) elementsRef.current[index] = el }}
-              href={`/#${text.toLowerCase().replace(/ /g, '-')}`}
+              href={option.href}
               onClick={handleQuit}
             >
-              {text}
+              {option.text}
             </a>
             <hr ref={el => { if (el) linesRef.current[index] = el }} className="w-0 text-success-600"/>
           </span>
