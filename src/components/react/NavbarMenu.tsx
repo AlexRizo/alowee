@@ -13,11 +13,11 @@ const MenuOptions = [
   },
   {
     text: 'ANIMACIÓN 2D Y VIDEO',
-    href: 'video'
+    href: '/video'
   },
   {
     text: 'DISEÑO WEB',
-    href: '#diseno-web'
+    href: '/diseno-web'
   },
   {
     text: 'CAMPAÑAS INTERACTIVAS',

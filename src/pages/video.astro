@@ -1,9 +1,9 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import ServicesLayout from "@layouts/ServicesLayout.astro";
 import { Icon } from "astro-icon/components";
 ---
   
-<Layout title="Alowee | Video y Animación 2D" load={false}>
+<ServicesLayout title="Video y Animación 2D | Alowee">
   <section class="flex justify-center items-center max-h-screen relative container mx-auto">
     <article class="flex flex-col gap-4 w-max">
       <div class="w-[420px] h-[144px]">
@@ -28,12 +28,11 @@ import { Icon } from "astro-icon/components";
     </div>
   </section>
   <Icon name="video-decoration" class="absolute top-1/2 -translate-y-1/2 left-20" width={16} height={125} />
-</Layout>
+</ServicesLayout>
 
 <script>
   import { gsap } from "gsap";
   import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
-
 
   type Video = HTMLVideoElement | null;
   
@@ -48,10 +47,11 @@ import { Icon } from "astro-icon/components";
   const hr1 = document.querySelector(".hr1");
   const hr2 = document.querySelector(".hr2");
 
+  // ? Animación de videos
   const videosTl = gsap.timeline({
-    delay: 2,
+    delay: 1,
     repeat: -1,
-    repeatDelay: 2,
+    repeatDelay: 1,
   });
 
 
@@ -67,7 +67,6 @@ import { Icon } from "astro-icon/components";
     y: 0,
     duration: 1,
     ease: "power2.inOut",
-    delay: 2,
   }).to(video01, {
     x: "200%",
     rotateY: -90,
@@ -82,12 +81,12 @@ import { Icon } from "astro-icon/components";
     scale: 1,
     duration: .7,
     ease: "power2.inOut",
-  }, 4.5).to(video03, {
+  }, 2.5).to(video03, {
     scale: .90,
     right: -64,
     duration: .7,
     ease: "power2.inOut",
-  }, 4.5).to(video02, {
+  }, 2.5).to(video02, {
     x: "200%",
     rotateY: -90,
     duration: 1,
@@ -101,7 +100,7 @@ import { Icon } from "astro-icon/components";
     scale: 1,
     duration: .6,
     ease: "power2.inOut",
-  }, 7)/* ? animation back */.to(video02, {
+  }, 5)/* ? animation back */.to(video02, {
     x: 0,
     rotateY: 0,
     ease: "power2.inOut",
@@ -112,7 +111,7 @@ import { Icon } from "astro-icon/components";
     right: -64,
     duration: 1,
     ease: "power2.inOut",
-  }, 9.5).to(video01, {
+  }, 7.5).to(video01, {
     x: 0,
     rotateY: 0,
     duration: 1,
@@ -123,12 +122,12 @@ import { Icon } from "astro-icon/components";
     right: -128,
     duration: 1,
     ease: "power2.inOut",
-  }, 11).to(video02, {
+  }, 9).to(video02, {
     scale: .90,
     right: -64,
     duration: 1,
     ease: "power2.inOut",
-  }, 11).to(video01, {
+  }, 9).to(video01, {
     minWidth: "80vw",
     x: "-44%",
     duration: 1,
@@ -136,8 +135,9 @@ import { Icon } from "astro-icon/components";
     delay: 1,
   });
 
+  // ? Animación de líneas
   const hrTl = gsap.timeline({
-    delay: 2.3,
+    delay: 1.3,
   });
 
   hrTl.fromTo(hr1, {
@@ -155,10 +155,11 @@ import { Icon } from "astro-icon/components";
     ease: "power2.inOut",
   }, 0);
 
+  // ? Animación de texto
   gsap.registerPlugin(ScrambleTextPlugin);
 
   const textTl = gsap.timeline({
-    delay: 2.5,
+    delay: 1.5,
   });
   
   textTl.to(title, {

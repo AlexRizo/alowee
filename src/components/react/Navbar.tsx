@@ -7,8 +7,8 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="2xl:py-10 lg:py-8 py-4 z-20 lg:relative fixed top-0 lg:bg-transparent bg-black/15 w-full">
-        <div
+      <header className="2xl:py-10 lg:py-8 py-4 z-20 lg:absolute fixed top-0 left-0 right-0 lg:bg-transparent bg-black/15">
+        <nav
           role="menubar"
           className="flex items-center justify-between 2xl:w-7xl xl:w-5xl lg:w-4xl lg:px-0 px-10 mx-auto"
         >
@@ -17,6 +17,7 @@ export const Navbar = () => {
             alt="Alowee Interactive"
             className="2xl:w-30 xl:w-26 lg:w-24 w-20"
           />
+          
           <button
             className="lg:bg-neutral-300 lg:py-3 lg:px-6 border-2 lg:border-neutral-600 border-none rounded-md cursor-pointer 2xl:text-2xl xl:text-xl lg:text-lg text-base"
             onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -24,7 +25,7 @@ export const Navbar = () => {
             <span className="lg:block hidden">MENÚ</span>
             <Menu className="size-8 lg:hidden"/>
           </button>
-        </div>
+        </nav>
       </header>
 
       {isMenuOpen && <NavbarMenu setIsMenuOpen={setIsMenuOpen} />}
