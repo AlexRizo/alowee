@@ -1,6 +1,7 @@
 ---
 import "@styles/global.css";
-import ServicesNavbar from "@components/ServicesNavbar.astro";
+import Navbar from "@components/Navbar.astro";
+import BackgroundAnimation from "@components/BackgroundAnimation.astro";
 
 interface Props {
   title: string;
@@ -29,9 +30,11 @@ const { title }: Props = Astro.props;
     <title>{title ?? "Alowee Interactive"}</title>
   </head>
   <body class="bg-gradient-to-br from-fuchsia-800 to-[#310034] bg-cover bg-no-repeat min-h-screen">
-    <ServicesNavbar />
+    <Navbar />
 
-    <main>
+    <BackgroundAnimation />
+
+    <main class="relative">
       <slot />
     </main>
   </body>

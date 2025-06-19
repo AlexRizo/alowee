@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+import NavbarMenu from "./react/NavbarMenu";
+
+
+---
+
+<header class="w-full bg-gradient-to-b from-[#230D28] to-[#44234D]">
+  <nav class="flex items-center justify-between container mx-auto py-4 max-h-20">
+    <NavbarMenu client:load>
+      <button>
+        <Icon name="burguer-menu" />
+      </button>
+    </NavbarMenu>
+    <a href="/">
+      <img src="./icons/alowee-icon.svg" alt="Alowee Interactive" class="h-full">
+    </a>
+
+    <a href="/contacto" class="font-secondary font-bold text-xl">
+      CONTACTO
+    </a>
+  </nav>
+  <div class="h-0.5 bg-gradient-to-r from-[#252237] via-[#6A7C88] to-[#252237]"></div>
+</header>

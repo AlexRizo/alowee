@@ -1,0 +1,41 @@
+---
+import ServicesLayout from "@layouts/ServicesLayout.astro";
+---
+
+<ServicesLayout title="¿Quienes Somoss? | Alowee">
+  <section class="container mx-auto grid grid-cols-2 h-[calc(100vh-5rem)]">
+    <article class="flex flex-col justify-center items-end">
+      <div class="w-3/4 flex flex-col gap-5">
+        <h1
+          class="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-success-600 to-info-50 py-1"
+        >
+          ¿Quienes <span class="font-secondary">somos?</span>
+        </h1>
+        <p class="text-2xl text-gray-50">
+          Somos un equipo apasionado que se especializa en diseño gráfico,
+          impresión profesional, desarrollo web innovador, gestión estratégica
+          de redes sociales, creación de material audiovisual impactante y
+          campañas interactivas que cautivan audiencias.
+        </p>
+        <picture>
+          <img
+            src="img/servicios-integrales/contenido.webp"
+            alt="Representación de contenido digital"
+            class="rounded"
+          />
+        </picture>
+      </div>
+    </article>
+
+    <div class="flex justify-center items-end">
+      <picture>
+        <img
+          src="img/servicios-integrales/personaje.webp"
+          class="w-[703px]"
+          alt="Personaje"
+        />
+      </picture>
+    </div>
+  </section>
+  <section class="bg-gray-50 py-16"></section>
+</ServicesLayout>

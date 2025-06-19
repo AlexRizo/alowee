@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  --font-primary: 'Manrope', sans-serif;
+  --font-secondary: 'Space Grotesk', sans-serif;
+  --font-tertiary: 'Plus Jakarta Sans', sans-serif;
+
   --color-primary-50: #F7A6EE;
   --color-primary-300: #B75BAC;
   --color-primary-600: #822D78;
@@ -24,11 +28,6 @@
   --color-error-50: #F96EA1;
   --color-error-300: #EF397C;
   --color-error-600: #D6014F;
-  
-  --font-primary: 'Manrope', sans-serif;
-  --font-secondary: 'Space Grotesk', sans-serif;
-  --font-tertiary: 'Plus Jakarta Sans', sans-serif;
-
   --animate-loader-lines: loader-lines 2.2s ease-in-out forwards;
 
   @keyframes loader-lines {
