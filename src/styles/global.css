@@ -50,6 +50,7 @@ body::-webkit-scrollbar {
 
 html {
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {
@@ -61,4 +62,8 @@ html::-webkit-scrollbar {
   .swiper-slide-active > div {
     @apply scale-110;
   }
+}
+
+.title-style {
+  @apply font-bold bg-clip-text text-transparent !bg-gradient-to-b !from-success-600 !to-info-50 py-1;
 }

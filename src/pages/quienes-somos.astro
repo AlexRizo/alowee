@@ -6,18 +6,16 @@ import ServicesLayout from "@layouts/ServicesLayout.astro";
   <section class="container mx-auto grid grid-cols-2 h-[calc(100vh-5rem)]">
     <article class="flex flex-col justify-center items-end">
       <div class="w-3/4 flex flex-col gap-5">
-        <h1
-          class="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-success-600 to-info-50 py-1"
-        >
-          ¿Quienes <span class="font-secondary">somos?</span>
+        <h1 class="title text-6xl">
+          ¿Quienes <span class="font-secondary text-[4rem]">somos?</span>
         </h1>
-        <p class="text-2xl text-gray-50">
+        <p class="text-2xl text-gray-50 description">
           Somos un equipo apasionado que se especializa en diseño gráfico,
           impresión profesional, desarrollo web innovador, gestión estratégica
           de redes sociales, creación de material audiovisual impactante y
           campañas interactivas que cautivan audiencias.
         </p>
-        <picture>
+        <picture class="picture">
           <img
             src="img/servicios-integrales/contenido.webp"
             alt="Representación de contenido digital"
@@ -37,5 +35,158 @@ import ServicesLayout from "@layouts/ServicesLayout.astro";
       </picture>
     </div>
   </section>
-  <section class="bg-gray-50 py-16"></section>
+  <section class="bg-gray-50 h-screen relative section-2">
+    <article
+      class="text-center flex flex-col items-center justify-center gap-5 h-full"
+    >
+      <picture class="absolute como-lo-hacemos">
+        <img
+          src="img/servicios-integrales/como-lo-hacemos.webp"
+          alt="Como lo hacemos"
+        />
+      </picture>
+      <h2 class="text-black text-7xl font-bold">¿Cómo lo hacemos?</h2>
+      <p class="text-gray-800 text-xl">
+        Escuchamos lo que tu marca necesita y para<br /> qué lo vas a usar. A partir
+        de eso, creamos<br /> piezas gráficas bien pensadas, diseñadas<br /> con
+        detalle y enfocadas en cumplir su<br /> propósito.
+      </p>
+    </article>
+  </section>
+
+  <section
+    class="bg-[url('img/servicios-integrales/enfoque-estrategico-bg.webp')] h-screen relative section-3"
+  >
+    <article
+      class="text-center flex flex-col items-center justify-center gap-5 h-full"
+    >
+      <picture class="absolute enfoque-estrategico">
+        <img
+          src="img/servicios-integrales/enfoque-estrategico.webp"
+          alt="Como lo hacemos"
+        />
+      </picture>
+      <h2
+        class="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-rose-300 to-purple-600 py-2.5"
+      >
+        Enfoque estratégico
+      </h2>
+      <p class="text-gray-50 text-xl">
+        Analizamos referentes y tendencias en comunicación dentro del<br /> sector
+        y cómo responde la audiencia a esos estímulos. Con esa<br /> base, estructuramos
+        ideas, seleccionamos los formatos<br /> adecuados y diseñamos piezas que
+        conectan efectivamente<br /> con la audiencia y cumplen el objetivo del cliente.
+      </p>
+    </article>
+  </section>
+
+  <section
+    class="bg-gray-50 h-screen relative section-4"
+  >
+    <article
+      class="text-center flex flex-col items-center justify-center gap-5 h-full"
+    >
+      <picture class="absolute experiencia">
+        <img
+          src="img/servicios-integrales/experiencia.webp"
+          alt="Como lo hacemos"
+        />
+      </picture>
+      <h2
+        class="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-rose-300 to-purple-600 py-2.5"
+      >
+        Experiencia
+      </h2>
+      <p class="text-gray-800 text-xl">
+        Alowee nace en 2008. A lo largo del camino hemos colaborado<br/> con tiendas departamentales,
+        gobiernos, universidades,<br/> colegios, empresas de servicios, del sector inmobiliario,<br/>
+        restaurantes y firmas de valores en México y el extranjero.<br/><br/> Las diversas necesidades
+        y retos de nuestros clientes nos han<br/> impulsado a crecer profesionalmente, elevando
+        nuestra calidad<br/> técnica y ampliando nuestra oferta de servicios.
+      </p>
+    </article>
+  </section>
 </ServicesLayout>
+
+<script>
+  import { gsap } from "gsap";
+  import { SplitText } from "gsap/SplitText";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(SplitText);
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.fonts.ready.then(() => {
+    const view01tl = gsap.timeline();
+
+    const splitTitle = new SplitText(".title", {
+      type: "lines",
+    });
+
+    splitTitle.lines.forEach((line) => {
+      line.classList.add("title-style");
+    });
+
+    const splitDescription = new SplitText(".description", {
+      type: "lines",
+    });
+
+    view01tl
+      .from(splitTitle.lines, {
+        y: 50,
+        autoAlpha: 0,
+        filter: "blur(10px)",
+        duration: 1,
+      })
+      .from(
+        splitDescription.lines,
+        {
+          y: 10,
+          autoAlpha: 0,
+          filter: "blur(10px)",
+          duration: 1,
+          stagger: 0.1,
+        },
+        "-=0.8"
+      )
+      .from(
+        ".picture",
+        {
+          y: 10,
+          autoAlpha: 0,
+          filter: "blur(10px)",
+          duration: 1,
+          stagger: 0.1,
+        },
+        "-=0.8"
+      );
+  });
+
+  const view02tl = gsap.timeline();
+
+  view02tl
+    .to(".como-lo-hacemos", {
+      y: -215,
+      scrollTrigger: {
+        trigger: ".section-2",
+        scrub: true,
+        end: "center center",
+      },
+    })
+    .to(".enfoque-estrategico", {
+      y: -215,
+      scrollTrigger: {
+        trigger: ".section-3",
+        scrub: true,
+        end: "center center",
+      },
+    })
+    .to(".experiencia", {
+      y: -225,
+      scrollTrigger: {
+        trigger: ".section-4",
+        scrub: true,
+        end: "center center",
+      },
+    });
+</script>
