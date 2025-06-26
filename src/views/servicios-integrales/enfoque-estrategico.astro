@@ -1,0 +1,64 @@
+---
+
+---
+
+<section
+  class="bg-[url('img/servicios-integrales/enfoque-estrategico-bg.webp')] h-screen relative section-3 snap-start"
+>
+  <article
+    class="text-center flex flex-col items-center justify-center gap-5 h-full"
+  >
+    <picture class="enfoque-estrategico relative top-16">
+      <img
+        src="img/servicios-integrales/enfoque-estrategico.webp"
+        alt="Como lo hacemos"
+      />
+    </picture>
+    <h2
+      class="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-rose-300 to-purple-600 py-2.5"
+    >
+      Enfoque estratégico
+    </h2>
+    <p class="text-gray-50 text-xl">
+      Analizamos referentes y tendencias en comunicación dentro del<br /> sector
+      y cómo responde la audiencia a esos estímulos. Con esa<br /> base, estructuramos
+      ideas, seleccionamos los formatos<br /> adecuados y diseñamos piezas que conectan
+      efectivamente<br /> con la audiencia y cumplen el objetivo del cliente.
+    </p>
+  </article>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const section3 = document.querySelector(".section-3") as HTMLElement;
+  const children = section3.children[0].children;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const defaults = {
+    delay: 0.2,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power4.out",
+  };
+
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: section3,
+    onEnter: () => {
+      gsap.fromTo(
+        children,
+        {
+          y: 1000,
+          ...defaults,
+        },
+        {
+          y: 0,
+          ...defaults,
+        }
+      );
+    },
+  });
+</script>

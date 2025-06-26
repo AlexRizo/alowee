@@ -102,7 +102,7 @@ export default function NavbarMenu({
       <div onClick={handleOpen}>{children}</div>
       <nav
         ref={navMenuRef}
-        className="fixed left-0 w-full h-full bg-warning-600 z-50 2xl:p-18 lg:p-16 p-14 top-[-100%]"
+        className="fixed left-0 w-screen h-screen bg-warning-600 z-50 2xl:p-18 lg:p-16 p-14 top-[-100%] overflow-y-auto"
       >
         <div
           ref={navMenuContentRef}

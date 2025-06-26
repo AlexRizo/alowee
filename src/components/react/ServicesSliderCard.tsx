@@ -140,7 +140,7 @@ export const ServicesSliderCard = ({
         <div className="p-1.5 border-2 border-dashed rounded bg-neutral-600/20 mt-40" ref={iconRef}>
           {children}
         </div>
-        <article className="text-center font-primary">
+        <article className="text-center font-manrope">
           <h3 className="font-semibold 2xl:text-xl xl:text-lg lg:text-base" ref={titleRef}>{title}</h3>
           <h4 className="xl:text-sm lg:text-xs underline decoration-error-300 underline-offset-4" ref={subtitleRef}>{subtitle}</h4>
         </article>

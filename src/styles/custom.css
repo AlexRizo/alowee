@@ -1,0 +1,24 @@
+.floating-element-3s {
+  animation: floating 3s ease-in-out infinite alternate;
+}
+
+.floating-element-6s {
+  animation: floating 6s ease-in-out infinite alternate;
+}
+
+.floating-element-9s {
+  animation: floating 9s ease-in-out infinite alternate;
+}
+
+.delay-3s {
+  animation-delay: 2s;
+}
+
+@keyframes floating {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}

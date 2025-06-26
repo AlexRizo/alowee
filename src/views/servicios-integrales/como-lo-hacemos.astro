@@ -1,0 +1,61 @@
+---
+
+---
+
+<section
+  class="bg-[url('img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center h-screen section-2 snap-start"
+>
+  <article
+    class="text-center flex flex-col items-center justify-center gap-5 h-full"
+  >
+    <picture class="como-lo-hacemos relative top-16">
+      <img
+        src="img/servicios-integrales/como-lo-hacemos.webp"
+        alt="Como lo hacemos"
+      />
+    </picture>
+    <h2 class="text-7xl font-bold text-black py-2.5 title-p01">
+      ¿Cómo lo hacemos?
+    </h2>
+    <p class="text-gray-800 text-xl description-p01">
+      Escuchamos lo que tu marca necesita y para<br /> qué lo vas a usar. A partir
+      de eso, creamos<br /> piezas gráficas bien pensadas, diseñadas<br /> con detalle
+      y enfocadas en cumplir su<br /> propósito.
+    </p>
+  </article>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const section2 = document.querySelector(".section-2") as HTMLElement;
+  const children = section2.children[0].children;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const defaults = {
+    delay: 0.2,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power4.out",
+  };
+
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: section2,
+    onEnter: () => {
+      gsap.fromTo(
+        children,
+        {
+          y: 1000,
+          ...defaults,
+        },
+        {
+          y: 0,
+          ...defaults,
+        }
+      );
+    },
+  });
+</script>

@@ -1,0 +1,27 @@
+---
+import 'swiper/css';
+import ServicesCard from './ServicesCard.astro';
+import { services } from '../../../utils/data';
+
+---
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    {services.map((service) => (
+      <div class="swiper-slide cursor-grab active:cursor-grabbing">
+        <ServicesCard title={service.title} description={service.description} icon={service.icon} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  import Swiper from 'swiper';
+
+  const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 25,
+  });
+</script>

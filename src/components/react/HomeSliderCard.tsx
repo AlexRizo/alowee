@@ -19,7 +19,7 @@ export const HomeSliderCard = ({ title, description, children }: Props) => {
         className={cn(cardGradient, "flex flex-col items-center justify-center xl:px-6 lg:px-4 px-2 rounded-lg xl:gap-3 gap-2 2xl:w-64 2xl:h-56 xl:w-58 xl:h-50 lg:w-50 lg:h-40 w-53.5 h-65")}
       >
         {children}
-        <h3 className="text-center font-secondary font-bold 2xl:text-2xl xl:text-xl lg:text-lg text-base lg:text-white text-[#F7F0F0]">{title}</h3>
+        <h3 className="text-center font-space-grotesk font-bold 2xl:text-2xl xl:text-xl lg:text-lg text-base lg:text-white text-[#F7F0F0]">{title}</h3>
         <p className="text-center xl:text-base lg:text-sm text-sm lg:text-white text-[#F7F0F0]">{description}</p>
       </div>
     </div>

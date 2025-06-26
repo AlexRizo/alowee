@@ -31,7 +31,7 @@ export const MobileServiceCard = ({
         <div className="p-1.5 border-2 border-dashed rounded bg-neutral-600/20">
           {children}
         </div>
-        <article className="text-center font-primary">
+        <article className="text-center font-manrope">
           <h3 className="font-semibold">{title}</h3>
           <h4 className="text-xs underline decoration-error-300 underline-offset-4">{subtitle}</h4>
         </article>
