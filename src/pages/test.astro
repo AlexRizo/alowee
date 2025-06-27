@@ -1,98 +1,116 @@
 ---
+// SlotMachine.astro
+
 import "@styles/global.css";
+
+// 1. Constantes
+const letters = ["T", "e", "x", "t"];
+const svgIcons = [
+  "img/servicios-integrales/cuadrado.webp",
+  "img/servicios-integrales/cuadrado-redondeado.webp",
+  "img/servicios-integrales/estrella.webp",
+  "img/servicios-integrales/flor.webp",
+];
+const ITERATIONS_COUNT = 6;
+
+type Item = { type: "text" | "svg"; content: string };
+
+/**
+ * Genera el arreglo de elementos para una columna:
+ * - Comienza con la letra `startLetter`
+ * - Alterna aleatoriamente imagen y letra, ITERATIONS_COUNT veces
+ * - Termina forzando la misma letra `startLetter`
+ */
+
+//  ? Esto retorna n letras + n imágenes + 1 elemento final
+function generateColumnItems(startLetter: string): Item[] {
+  const items: Item[] = [];
+
+  // 1️⃣ Agregar la letra inicial
+  items.push({ type: "text", content: startLetter });
+
+  // 2️⃣ Alternar ITERATIONS_COUNT veces
+  for (let i = 0; i < ITERATIONS_COUNT; i++) {
+    // 2.1️⃣ Seleccionar imagen aleatoria
+    const imgRandom = svgIcons[Math.floor(Math.random() * svgIcons.length)];
+    items.push({ type: "svg", content: imgRandom });
+
+    // 2.2️⃣ Seleccionar letra aleatoria
+    const letterRandom = letters[Math.floor(Math.random() * letters.length)];
+    items.push({ type: "text", content: letterRandom });
+  }
+
+  // 3️⃣ Forzar que el último elemento sea startLetter
+  items[items.length - 1] = { type: "text", content: startLetter };
+
+  return items;
+}
 ---
 
 <main class="h-screen flex items-center justify-center">
-  <article aria-label="Text" class="text-8xl font-bold text-black flex overflow-hidden max-h-24">
-    <div class="flex flex-col" id="T" aria-label="T">
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      
-    </div>
-    <div class="flex flex-col" id="e" aria-label="e">
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-    </div>
-    <div class="flex flex-col" id="x" aria-label="x">
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-    </div>
-    <div class="flex flex-col" id="t" aria-label="t">
-      <!-- ? 14 elementos -->
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-      <span>t</span>
-      <span>T</span>
-      <span>e</span>
-      <span>x</span>
-      <span>t</span>
-    </div>
+  <article
+    aria-label="Texto animado tipo slot machine con iconos"
+    class="text-8xl font-bold text-black flex overflow-hidden"
+  >
+    {
+      letters.map((letter) => (
+        <div
+          class="flex flex-col slot-column"
+          data-letter={letter}
+          aria-label={`Columna animada iniciando con ${letter}`}
+          style="height: 6rem;"
+        >
+          {generateColumnItems(letter).map((item) =>
+            item.type === "text" ? (
+              <span class="flex-shrink-0">{item.content}</span>
+            ) : (
+              <span class="flex-shrink-0">
+                <img
+                  src={item.content}
+                  alt=""
+                  class="w-14 h-14 object-contain"
+                />
+              </span>
+            )
+          )}
+        </div>
+      ))
+    }
   </article>
 </main>
 
+<style>
+  .slot-column span {
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slot-column span img {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+  }
+
+  .slot-column span img:hover {
+    transform: scale(1);
+  }
+</style>
+
 <script>
   import { gsap } from "gsap";
-  const textT = document.getElementById('T');
-  const texte = document.getElementById('e');
-  const textx = document.getElementById('x');
-  const textt = document.getElementById('t');
 
-  const textTl = gsap.timeline({
-    defaults: {
-      duration: 2,
-      ease: "power4.inOut",
-      stagger: 0.15,
-      yoyo: true,
-      repeat: -1,
-    }
+  const columns = document.querySelectorAll(".slot-column");
+  const slotAnimation = gsap.timeline({
+    defaults: { duration: 2.4, ease: "power4.inOut" },
   });
 
-  // ? el porcentaje se calcula así: [n] elementos * 100 - 100;
-  textTl.to([textT, texte, textx, textt], {
-    y: '-=1300%',
-  })
+  slotAnimation.to(columns, {
+    y: `-1200%`,
+    stagger: 0.1,
+  });
 
+  document.addEventListener("visibilitychange", () => {
+    slotAnimation[document.hidden ? "pause" : "resume"]();
+  });
 </script>
