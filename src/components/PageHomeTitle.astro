@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  titleExalted: string;
+  description: string;
+}
+
+const { title, titleExalted, description } = Astro.props as Props;
+---
+<>
+  <h1
+    class="title w-max relative"
+  >
+    {title} <br />
+    <span>
+      <span class="font-space-grotesk relative z-2 title">{titleExalted}</span>
+      <hr class="w-[calc(100%+1.5rem)] h-3 bg-purple-400 absolute left-0 bottom-2 z-1" />
+    </span>
+  </h1>
+  <p class="text-xl text-gray-50 description">
+    {description}
+  </p>
+</>
+
+<style>
+  @reference '@styles/global.css';
+  .title {
+    @apply text-6xl text-transparent bg-clip-text bg-gradient-to-b from-rose-50 to-rose-100 font-extrabold py-1;
+  }
+</style>

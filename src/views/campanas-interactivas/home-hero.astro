@@ -1,0 +1,82 @@
+---
+import PageHomeTitle from "@components/PageHomeTitle.astro";
+
+
+---
+
+<section
+  class="container mx-auto grid grid-cols-2 h-screen snap-start relative pt-20.5"
+>
+  <img
+    src="img/puntos.svg"
+    alt="Puntos"
+    class="absolute bottom-10 left-0 w-8"
+  />
+  <article class="flex flex-col justify-center items-end relative z-1">
+    <div class="w-[500px] flex flex-col gap-10 tracking-wider">
+      <PageHomeTitle
+        title="Campañas"
+        titleExalted="Interactivas"
+        description="Creamos estrategias publicitarias y contenido dinámico diseñado para cada plataforma digital, asegurando el máximo impacto."
+      />
+      <div class="flex gap-2 items-center">
+        <picture class="picture">
+          <img
+            src="img/campanas-interactivas/analitica-de-ventas.webp"
+            alt="Representación de contenido digital"
+            class="rounded-lg"
+          />
+        </picture>
+        <div class="flex flex-col gap-4">
+          <picture class="picture">
+            <img
+              src="img/campanas-interactivas/product.webp"
+              alt="Representación de contenido digital"
+              class="rounded-lg"
+            />
+          </picture>
+          <picture class="picture">
+            <img
+              src="img/campanas-interactivas/product.webp"
+              alt="Representación de contenido digital"
+              class="rounded-lg"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <div class="flex items-end relative">
+    <img
+      src="img/campanas-interactivas/message.webp"
+      alt="Tools"
+      class="absolute top-30 left-2/7 floating-element-3s rotate-3"
+    />
+    <img
+      src="img/campanas-interactivas/ad-button.webp"
+      alt="Ad File"
+      class="absolute top-38 left-20 -rotate-12 floating-element-6s blur-[1px]"
+    />
+    <img
+      src="img/campanas-interactivas/laptop.webp"
+      alt="File"
+      class="absolute top-64 -left-5 -rotate-12 blur-[2.5px] floating-element-9s"
+    />
+    <img
+      src="img/campanas-interactivas/ad-phone.webp"
+      alt="Edit Poligon"
+      class="absolute top-96 -left-14 -rotate-20 blur-[1.5px] floating-element-3s delay-3s"
+    />
+
+    <picture>
+      <img
+        src="img/campanas-interactivas/personaje.webp"
+        class="w-[400px]"
+        alt="Personaje"
+      />
+    </picture>
+  </div>
+
+  <img src="img/puntos.svg" alt="Puntos" class="absolute top-30 right-0 w-8" />
+</section>

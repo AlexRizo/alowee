@@ -1,0 +1,98 @@
+---
+import "@styles/global.css";
+---
+
+<main class="h-screen flex items-center justify-center">
+  <article aria-label="Text" class="text-8xl font-bold text-black flex overflow-hidden max-h-24">
+    <div class="flex flex-col" id="T" aria-label="T">
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      
+    </div>
+    <div class="flex flex-col" id="e" aria-label="e">
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+    </div>
+    <div class="flex flex-col" id="x" aria-label="x">
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+    </div>
+    <div class="flex flex-col" id="t" aria-label="t">
+      <!-- ? 14 elementos -->
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+      <span>t</span>
+      <span>T</span>
+      <span>e</span>
+      <span>x</span>
+      <span>t</span>
+    </div>
+  </article>
+</main>
+
+<script>
+  import { gsap } from "gsap";
+  const textT = document.getElementById('T');
+  const texte = document.getElementById('e');
+  const textx = document.getElementById('x');
+  const textt = document.getElementById('t');
+
+  const textTl = gsap.timeline({
+    defaults: {
+      duration: 2,
+      ease: "power4.inOut",
+      stagger: 0.15,
+      yoyo: true,
+      repeat: -1,
+    }
+  });
+
+  // ? el porcentaje se calcula así: [n] elementos * 100 - 100;
+  textTl.to([textT, texte, textx, textt], {
+    y: '-=1300%',
+  })
+
+</script>

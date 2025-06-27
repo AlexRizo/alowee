@@ -1,0 +1,84 @@
+---
+import ServicesLayout from "@layouts/ServicesLayout.astro";
+import HomeHero from "@views/campanas-interactivas/home-hero.astro";
+import ComoLoHacemos from "@views/servicios-integrales/como-lo-hacemos.astro";
+import "@styles/custom.css";
+---
+
+<ServicesLayout title="Campanas Interactivas | Alowee">
+  <HomeHero />
+  <ComoLoHacemos />
+  <section class="h-screen snap-start bg-white py-16 section-3">
+    <div class="container mx-auto">
+      <article class="">
+        <h2 class="text-center text-4xl font-extrabold text-gray-900 flex">
+          ¿Por qué elegir
+          <span
+            class="campanas-interactivas overflow-hidden flex align-bottom"
+            >Campañas Interactivas</span
+          >?
+        </h2>
+      </article>
+    </div>
+  </section>
+</ServicesLayout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  let campanasInteractivas: SplitText;
+
+  const getRandomSvg = () => {
+    const svgs = [
+      'img/servicios-integrales/cuadrado.webp',
+      'img/servicios-integrales/estrella.webp',
+      'img/servicios-integrales/cuadrado-redondeado.webp',
+      'img/servicios-integrales/flor.webp',
+    ]
+    return svgs[Math.floor(Math.random() * svgs.length)];
+  }
+  
+  document.fonts.ready.then(() => {
+    campanasInteractivas = new SplitText(".campanas-interactivas", {
+      type: "chars",
+      tag: "span",
+      charsClass: "text-gradient-to-b-blue-purple",
+    });
+
+    campanasInteractivas.chars.forEach((char) => {
+      const slot = document.createElement('div');
+      slot.classList.add('slot');
+      char.parentNode?.insertBefore(slot, char);
+      slot.appendChild(char);
+
+      const svgContainer = document.createElement('div');
+      const svg = document.createElement('img');
+      svg.src = getRandomSvg();
+      svg.alt = 'SVG';
+      svg.width = 25;
+      svg.classList.add('svg');
+      svgContainer.appendChild(svg);
+      slot.appendChild(svgContainer);
+    });
+
+    ScrollTrigger.create({
+      scroller: "main",
+      trigger: ".section-3",
+      markers: true,
+      onEnter: () => {
+        gsap.fromTo(campanasInteractivas.chars, {
+          y: 0,
+        }, {
+          y: '-=8rem',
+          duration: .2,
+          ease: "power4.inOut",
+          stagger: 0.05,
+        });
+      },
+    });
+  });
+</script>

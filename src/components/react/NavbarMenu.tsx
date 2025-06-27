@@ -11,12 +11,12 @@ const MenuOptions = [
     href: "/video",
   },
   {
-    text: "DISEÑO WEB",
-    href: "/diseno-web",
+    text: "SERVICIOS INTEGRALES",
+    href: "/servicios-integrales",
   },
   {
     text: "CAMPAÑAS INTERACTIVAS",
-    href: "#campanas-interactivas",
+    href: "/campanas-interactivas",
   },
 ];
 

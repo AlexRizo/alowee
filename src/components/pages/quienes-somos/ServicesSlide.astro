@@ -1,7 +1,7 @@
 ---
 import 'swiper/css';
 import ServicesCard from './ServicesCard.astro';
-import { services } from '../../../utils/data';
+import { services } from '@/utils/data';
 
 ---
 
@@ -18,7 +18,7 @@ import { services } from '../../../utils/data';
 <script>
   import Swiper from 'swiper';
 
-  const swiper = new Swiper('.swiper', {
+  new Swiper('.swiper', {
     direction: 'horizontal',
     loop: true,
     slidesPerView: 4,

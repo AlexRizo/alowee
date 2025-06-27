@@ -20,9 +20,9 @@ if (!textSplit.includes(textFill)) {
   {
     textSplit.map((word, index) =>
       word === textFill ? (
-        <span class="text-white flex">{word}</span>
+        <span class="text-white flex exalted-text">{word}</span>
       ) : (
-        <span class="text-black [-webkit-text-stroke:2px_#f7f0f0] [paint-order:stroke_fill]">
+        <span class="text-purple-950 [-webkit-text-stroke:2px_#f7f0f0] [paint-order:stroke_fill]">
           {word}
           {index !== textSplit.length - 1 ? ' ' : ''}
         </span>

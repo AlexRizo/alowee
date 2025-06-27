@@ -2,7 +2,6 @@
 import "@styles/global.css";
 import Navbar from "@components/Navbar.astro";
 import BackgroundAnimation from "@components/BackgroundAnimation.astro";
-import Footer from "@components/Footer.astro";
 
 interface Props {
   title: string;
@@ -33,19 +32,14 @@ const { title }: Props = Astro.props;
   <body
     class="bg-gradient-to-br from-fuchsia-800 to-[#310034] bg-cover bg-no-repeat min-h-screen"
   >
-    <!-- <div class="smooth-wrapper"> -->
-      <!-- <div class="smooth-content"> -->
-      <Navbar />
-      <BackgroundAnimation />
-        
-      <main class="relative snap-y snap-mandatory scroll-smooth max-h-[100dvh] overflow-y-scroll [scrollbar-width:none]">
-        <slot />
-      </main>
-      
-      <Footer />
-      <!-- </div> -->
+    <BackgroundAnimation />
 
-    <!-- </div> -->
+    <main
+      class="relative snap-y snap-mandatory scroll-smooth max-h-[100dvh] overflow-y-scroll [scrollbar-width:none]"
+    >
+      <Navbar />
+      <slot />
+    </main>
   </body>
 
   <!-- ? Estilos para el Navbar (TSX component) -->
@@ -68,19 +62,4 @@ const { title }: Props = Astro.props;
       color: #f7f0f0;
     }
   </style>
-
-<!-- <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  import { ScrollSmoother } from "gsap/ScrollSmoother";
-
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-  const smoother = ScrollSmoother.create({
-    wrapper: ".smooth-wrapper",
-    content: ".smooth-content",
-    smooth: 1,
-    effects: true,
-  });
-</script> -->
 </html>

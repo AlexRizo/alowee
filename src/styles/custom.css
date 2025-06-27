@@ -1,3 +1,5 @@
+@reference './global.css';
+
 .floating-element-3s {
   animation: floating 3s ease-in-out infinite alternate;
 }
@@ -21,4 +23,8 @@
   to {
     transform: translateY(-10px);
   }
+}
+
+.text-gradient-to-b-blue-purple {
+  @apply bg-clip-text text-transparent bg-gradient-to-b from-blue-500 to-purple-500 font-plus-jakarta-sans flex flex-col;
 }

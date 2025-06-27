@@ -1,11 +1,11 @@
 ---
-import ServicesSlide from "@components/pages/quienes-somos/ServicesSlide.astro";
 import ServicesLayout from "@layouts/ServicesLayout.astro";
 import ComoLoHacemos from "@views/servicios-integrales/como-lo-hacemos.astro";
 import EnfoqueEstrategico from "@views/servicios-integrales/enfoque-estrategico.astro";
 import Experiencia from "@views/servicios-integrales/experiencia.astro";
 import HomeHero from "@views/servicios-integrales/home-hero.astro";
 import ScrollSection from "@views/servicios-integrales/scroll-section.astro";
+import SlideSection from "@views/servicios-integrales/slide-section.astro";
 ---
 
 <ServicesLayout title="¿Quienes Somoss? | Alowee">
@@ -19,11 +19,5 @@ import ScrollSection from "@views/servicios-integrales/scroll-section.astro";
 
   <ScrollSection />
 
-  <section
-    class="bg-[url('img/servicios-integrales/enfoque-estrategico-bg.webp')] h-screen section-6 snap-start"
-  >
-    <div class="container mx-auto h-full flex justify-center items-center">
-      <ServicesSlide />
-    </div>
-  </section>
+  <SlideSection />
 </ServicesLayout>

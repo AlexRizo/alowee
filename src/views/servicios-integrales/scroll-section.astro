@@ -3,7 +3,7 @@ import BorderText from "@components/pages/quienes-somos/BorderText.astro";
 ---
 
 <section
-  class="bg-gradient-to-b from-black via-purple-900 to-purple-400 h-[300dvh] section-5 relative snap-start"
+  class="bg-gradient-to-b from-black via-purple-900 to-purple-400 h-screen section-5 relative snap-start"
 >
   <article
     class="flex flex-col justify-center items-center sticky top-56 overflow-hidden article py-10"
@@ -30,3 +30,54 @@ import BorderText from "@components/pages/quienes-somos/BorderText.astro";
     />
   </article>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  let splitText: SplitText;
+  let exaltedText: SplitText;
+
+  document.fonts.ready.then(() => {
+    splitText = new SplitText(".article", {
+      type: "words",
+    });
+    exaltedText = new SplitText(".exalted-text", {
+      type: "words",
+    });
+  });
+
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: ".section-5",
+    onEnter: () => {
+      gsap.fromTo(
+        splitText.words,
+        {
+          y: 40,
+          autoAlpha: 0,
+          filter: "blur(10px)",
+        },
+        {
+          delay: 0.3,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.1,
+          autoAlpha: 1,
+          filter: "blur(0px)",
+          ease: "power4.out",
+        }
+      );
+
+      gsap.to(
+        exaltedText.words,
+        {
+          y: 40,
+        },
+      );
+    },
+    markers: true,
+  });
+</script>
