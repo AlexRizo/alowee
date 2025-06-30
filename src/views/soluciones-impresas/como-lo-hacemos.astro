@@ -1,0 +1,67 @@
+---
+
+---
+
+<section
+  class="h-screen snap-start bg-[url('/img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center flex items-center section-01"
+>
+  <div class="container mx-auto grid grid-cols-2 gap-16">
+    <article class="flex flex-col text-black items-center ml-auto">
+      <picture class="como-lo-hacemos">
+        <img
+          src="img/soluciones-impresas/como-lo-hacemos.webp"
+          alt="Como lo hacemos"
+        />
+      </picture>
+      <h2 class="text-[42px] font-bold title-section-01">
+        ¿Como lo <span
+          class="font-extrabold text-white [-webkit-text-stroke:2px_#000] [paint-order:stroke_fill]"
+        >
+          hacemos?
+        </span>
+      </h2>
+      <p class="leading-8 w-91 description-section-01">
+        Gracias a nuestra infraestructura tecnológica y alianzas estratégicas
+        con especialistas en impresión, ofrecemos una solución verdaderamente
+        escalable para campañas con cambios recurrentes.
+      </p>
+    </article>
+
+    <div class="flex relative">
+      <picture class="relative z-2 rotate-3 ml-28 rounded post">
+        <img src="img/soluciones-impresas/post-01.webp" alt="Como lo hacemos" />
+      </picture>
+      <picture class="absolute top-2 left-0 z-1 -rotate-6 rounded post">
+        <img src="img/soluciones-impresas/post-02.webp" alt="Como lo hacemos" />
+      </picture>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const objects = ['.como-lo-hacemos', '.post', '.title-section-01', '.description-section-01'];
+
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: ".section-01",
+    onEnter: () => {
+      gsap.fromTo(objects, {
+        y: 800,
+      }, {
+        y: 0,
+        delay: 0.3,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.2,
+          from: "random",
+        },
+      });
+    },
+  });
+</script>

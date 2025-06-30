@@ -1,0 +1,65 @@
+---
+import PageHomeTitle from "@components/PageHomeTitle.astro";
+import "@styles/custom.css";
+---
+
+<section
+  class="container mx-auto grid grid-cols-2 h-screen snap-start pt-20.5 relative"
+>
+  <img
+    src="img/puntos.svg"
+    alt="Puntos"
+    class="absolute bottom-10 left-0 w-8"
+  />
+  <article class="flex flex-col justify-center items-end">
+    <div class="w-3/5 flex flex-col gap-5">
+      <PageHomeTitle
+        title="Soluciones"
+        titleExalted="Impresas"
+        description="En Alowee, no solo imprimimos: organizamos, sistematizamos y ejecutamos toda tu operación promocional, con la flexibilidad de un proveedor local cercano y la precisión de un sistema nacional."
+      />
+
+      <div class="flex items-start">
+        <picture class="picture mt-2">
+          <img
+            src="img/soluciones-impresas/impresora.webp"
+            alt="Representación de impresora"
+            class="rounded"
+          />
+        </picture>
+        <img
+          src="img/soluciones-impresas/flor-impresa.webp"
+          alt="Flor Impresa"
+        />
+      </div>
+    </div>
+  </article>
+
+  <div class="flex justify-start items-end relative">
+    <img
+      src="img/soluciones-impresas/tarjetas.webp"
+      alt="Tarjetas"
+      class="absolute top-20 right-2/4 floating-element-3s"
+    />
+    <img
+      src="img/soluciones-impresas/triptico.webp"
+      alt="Triptico"
+      class="absolute top-40 left-30 -rotate-12 floating-element-6s"
+    />
+    <img
+      src="img/soluciones-impresas/flor-impresa.webp"
+      alt="Flor Impresa"
+      class="absolute top-80 left-16 -rotate-12 blur-[2.5px] floating-element-9s"
+    />
+
+    <picture class="-translate-x-20">
+      <img
+        src="img/soluciones-impresas/personaje.webp"
+        class="w-[703px]"
+        alt="Personaje"
+      />
+    </picture>
+  </div>
+
+  <img src="img/puntos.svg" alt="Puntos" class="absolute top-30 right-0 w-8" />
+</section>

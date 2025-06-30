@@ -1,0 +1,146 @@
+---
+
+---
+
+<section
+  class="h-screen snap-start section-03 bg-[url('/img/soluciones-impresas/bg-instalaciones-profesionales.webp')] bg-cover bg-center"
+>
+  <div class="container mx-auto py-40">
+    <article class="flex flex-col items-center gap-4">
+      <h2
+        class="font-space-grotesk text-3xl font-bold text-center text-[#6C4796] title-section-03"
+      >
+        Instalación profesional
+      </h2>
+      <picture class="instalador">
+        <img src="/img/soluciones-impresas/instalador.webp" alt="Instalador" />
+      </picture>
+      <p class="text-[#575757] text-center description-section-03">
+        Contamos con técnicos con experiencia específica en retail: instalación
+        de viniles en<br /> cristales, reemplazo de letreros colgantes y espectaculares,
+        armado de estructuras<br /> promocionales. Nos encargamos de que todo se
+        vea perfecto y estandarizado.
+      </p>
+    </article>
+
+    <article class="flex items-center justify-center mt-20">
+      <h3 class="text-6xl font-extrabold text-center leading-20 exalted">
+        <span class="text-outline">TUS</span>
+        <span class="text-bg-fill">MATERIALES A TIEMPO</span>
+        <br />
+        <span class="text-outline">Y</span>
+        <span class="text-fill">COMO DEBEN VERSE</span>
+      </h3>
+    </article>
+  </div>
+</section>
+
+<style>
+  @reference "@styles/global.css";
+
+  .text-outline {
+    @apply text-amber-50 [-webkit-text-stroke:2px_#AA88D1] [paint-order:stroke_fill];
+  }
+
+  .text-fill {
+    @apply text-[#6F36AF];
+  }
+
+  .text-bg-fill {
+    @apply text-white bg-[#6F36AF] px-4;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  const instalerTl = gsap.timeline({
+  });
+
+  const pharagraphTl = gsap.timeline({
+  });
+
+  const exaltedTl = gsap.timeline({
+    defaults: {
+      duration: 1.5,
+      ease: "power3.out",
+    }
+  });
+
+  let paragraphSplit: SplitText;
+  let exaltedSplit: SplitText;
+
+  document.fonts.ready.then(() => {
+    paragraphSplit = new SplitText(".description-section-03", {
+      type: "lines",
+      mask: "lines",
+    });
+
+    exaltedSplit = new SplitText(".exalted", {
+      type: "lines",
+      mask: "lines",
+    });
+  });
+
+  ScrollTrigger.create({
+      scroller: "main",
+      trigger: ".section-03",
+      // Esto pasa cuando el trigger entra en la pantalla
+      onLeaveBack: () => {
+        exaltedTl.clear();
+        pharagraphTl.clear();
+        instalerTl.clear();
+      },
+      onEnter: () => {
+        instalerTl.fromTo(
+          [".instalador", ".title-section-03"],
+          {
+            y: 50,
+            autoAlpha: 0,
+          },
+          {
+            delay: 0.3,
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.5,
+            ease: "power3.out",
+          }
+        );
+
+        pharagraphTl.fromTo(
+          paragraphSplit.lines,
+          {
+            y: 30,
+            autoAlpha: 0,
+          },
+          {
+            y: 0,
+            delay: 1,
+            autoAlpha: 1,
+            stagger: 0.1,
+            duration: 1.5,
+            ease: "power3.out",
+          }
+        );
+
+        exaltedTl.fromTo(exaltedSplit.lines[0], {
+          y: 100,
+          x:30
+        }, {
+          y: 0,
+          x: 0,
+          delay: 2.2,
+        }).fromTo(exaltedSplit.lines[1], {
+          y: -100,
+          x:-30
+        }, {
+          y: 0,
+          x: 0,
+        }, '<');
+      },
+    });
+</script>

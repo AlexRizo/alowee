@@ -3,10 +3,10 @@ import BorderText from "@components/pages/quienes-somos/BorderText.astro";
 ---
 
 <section
-  class="bg-gradient-to-b from-black via-purple-900 to-purple-400 h-screen section-5 relative snap-start"
+  class="bg-gradient-to-b from-black via-purple-900 to-purple-400 h-screen section-5 relative snap-start flex items-center justify-center"
 >
   <article
-    class="flex flex-col justify-center items-center sticky top-56 overflow-hidden article py-10"
+    class="flex flex-col justify-center items-center article"
   >
     <BorderText
       text="ESTRUCTURAMOS LA"
@@ -43,9 +43,11 @@ import BorderText from "@components/pages/quienes-somos/BorderText.astro";
   document.fonts.ready.then(() => {
     splitText = new SplitText(".article", {
       type: "words",
+      tag: "span",
     });
     exaltedText = new SplitText(".exalted-text", {
       type: "words",
+      tag: "span",
     });
   });
 
@@ -78,6 +80,5 @@ import BorderText from "@components/pages/quienes-somos/BorderText.astro";
         },
       );
     },
-    markers: true,
   });
 </script>

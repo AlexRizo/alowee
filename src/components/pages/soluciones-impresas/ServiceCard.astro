@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const { title, description, image } = Astro.props as Props;
+
+const imageUrl = `img/soluciones-impresas/${image}`;
+---
+
+<div role="contentinfo" class="flex items-center gap-5 px-10 rounded bg-white/7 w-[485px] h-38 service-card">
+  <picture>
+    <img src={imageUrl} alt={title} class="h-30"/>
+  </picture>
+  <article class="space-y-1 self-start mt-5">
+    <h3 class="font-space-grotesk text-2xl font-bold text-fuchsia-200">{title}</h3>
+    <p class="font-league-spartan font-light text-purple-200">{description}</p>
+  </article>
+</div>
