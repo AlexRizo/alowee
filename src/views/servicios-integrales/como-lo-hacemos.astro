@@ -8,14 +8,14 @@
   <article
     class="text-center flex flex-col items-center justify-center gap-5 h-full"
   >
-    <picture class="como-lo-hacemos relative top-16">
+    <picture class="como-lo-hacemos">
       <img
-        src="img/servicios-integrales/como-lo-hacemos.webp"
+        src="img/campanas-interactivas/ad-board.webp"
         alt="Como lo hacemos"
       />
     </picture>
-    <h2 class="text-7xl font-bold text-black py-2.5 title-p01">
-      ¿Cómo lo hacemos?
+    <h2 class="text-7xl font-bold text-black title-s-02 leading-none">
+      Medible
     </h2>
     <p class="text-gray-800 text-xl description-p01">
       Escuchamos lo que tu marca necesita y para<br /> qué lo vas a usar. A partir
@@ -28,12 +28,22 @@
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
   const section2 = document.querySelector(".section-2") as HTMLElement;
   const children = section2.children[0].children;
 
-  gsap.registerPlugin(ScrollTrigger);
-
+  gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
+  
+  const titleTl = gsap.timeline({
+    defaults: {
+      duration: 0.8,
+    },
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 1.7,
+  });
+  
   const defaults = {
     delay: 0.2,
     duration: 0.8,
@@ -56,6 +66,29 @@
           ...defaults,
         }
       );
+
+      titleTl.to(".title-s-02", {
+        scrambleText: {
+          text: "Integral",
+          chars: "█▓▒░#",
+          speed: 0.2,
+        },
+        delay: 1.7,
+      }).to(".title-s-02", {
+        scrambleText: {
+          text: "Efectiva",
+          chars: "█▓▒░#",
+          speed: 0.2,
+        },
+        delay: 1.7,
+      }).to(".title-s-02", {
+        scrambleText: {
+          text: "Medible",
+          chars: "█▓▒░#",
+          speed: 0.2,
+        },
+        delay: 1.7,
+      });
     },
   });
 </script>

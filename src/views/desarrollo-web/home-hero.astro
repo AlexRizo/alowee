@@ -1,0 +1,77 @@
+---
+import PageHomeTitle from "@components/PageHomeTitle.astro";
+import "@styles/custom.css";
+
+---
+
+<section
+  class="container mx-auto grid grid-cols-2 h-screen snap-start relative pt-20.5"
+>
+  <img
+    src="img/puntos.svg"
+    alt="Puntos"
+    class="absolute bottom-10 left-0 w-8"
+  />
+  <article class="flex flex-col justify-center items-end relative z-1">
+    <div class="w-[550px] flex flex-col gap-10 tracking-wider">
+      <PageHomeTitle
+        title="Desarrollo"
+        titleExalted="Web"
+        description="Creamos soluciones digitales eficientes, escalables y optimizadas para brindar experiencias fluidas."
+      />
+      <div class="flex gap-2 items-center">
+        <picture class="picture">
+          <img
+            src="img/campanas-interactivas/analitica-de-ventas.webp"
+            alt="Representación de contenido digital"
+            class="rounded-lg"
+          />
+        </picture>
+        <div class="flex flex-col gap-4">
+          <picture class="picture">
+            <img
+              src="img/campanas-interactivas/product.webp"
+              alt="Representación de contenido digital"
+              class="rounded-lg"
+            />
+          </picture>
+          <picture class="picture">
+            <img
+              src="img/campanas-interactivas/product.webp"
+              alt="Representación de contenido digital"
+              class="rounded-lg"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <div class="flex items-end relative">
+    <img
+      src="img/desarrollo-web/dev-icon.webp"
+      alt="Tools"
+      class="absolute top-36 left-64 floating-element-3s -rotate-3"
+    />
+    <img
+      src="img/desarrollo-web/configure-icon.webp"
+      alt="Ad File"
+      class="absolute top-44 left-26 -rotate-12 floating-element-6s blur-[1px]"
+    />
+    <img
+      src="img/desarrollo-web/tool-icon.webp"
+      alt="File"
+      class="absolute top-74 left-10 -rotate-12 blur-[2.5px] floating-element-9s"
+    />
+
+    <picture>
+      <img
+        src="img/desarrollo-web/personaje.webp"
+        alt="Personaje"
+        class="-translate-x-36"
+      />
+    </picture>
+  </div>
+
+  <img src="img/puntos.svg" alt="Puntos" class="absolute top-30 right-0 w-8" />
+</section>
