@@ -1,0 +1,107 @@
+---
+
+---
+
+<section class="h-screen snap-start section-04 bg-[url('/img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center">
+  <article class="container mx-auto flex flex-col items-center justify-center h-full">
+    <h2 class="text-[90px] font-extrabold title-s-04 leading-snug font-plus-jakarta-none text-center">
+      <span class="text-purple pixeles">PIXELES</span>
+      <span class="text-outline">Y</span>
+      <span class="text-purple codigo">CODIGO</span><br/>
+      <span class="text-outline">CONVERTIDOS EN</span><br/>
+      <span class="text-bg mt-6">SOLUCIONES</span>
+    </h2>
+  </article>
+</section>
+
+<style>
+  .text-outline {
+    -webkit-text-stroke: 2px #59168b;
+    paint-order: stroke fill;
+    color: white;
+  }
+
+  .text-purple {
+    color: #59168b;
+  }
+
+  .text-bg {
+    background-color: #59168b;
+    padding: 0 10px;
+    color: white;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+  import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin);
+
+  const tl = gsap.timeline()
+  const scrambleTextTl = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 1.8,
+  })
+
+  document.fonts.ready.then(() => {
+    const titleSplit = new SplitText('.title-s-04', {
+      type: "lines",
+    });
+
+    ScrollTrigger.create({
+      scroller: 'main',
+      trigger: '.section-04',
+      onEnter: () => {
+        tl.clear();
+        scrambleTextTl.clear();
+
+        scrambleTextTl.to('.pixeles', {
+          scrambleText: {
+            text: 'PIXELES',
+            chars: '█▓▒░',
+          },
+          duration: 1.8,
+        });
+
+        tl.fromTo(titleSplit.lines[0], {
+          x: -300,
+          duration: 1,
+          ease: "power2.inOut",
+          stagger: 0.1,
+          autoAlpha: 0
+        }, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.inOut",
+        }).fromTo(titleSplit.lines[1], {
+          x: 300,
+          duration: 1,
+          ease: "power2.inOut",
+          stagger: 0.1,
+          autoAlpha: 0
+        }, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.inOut",
+        }, '<').fromTo(titleSplit.lines[2], {
+          y: 200,
+          duration: 1,
+          ease: "power2.inOut",
+          stagger: 0.1,
+          autoAlpha: 0
+        }, {
+          delay: 0.2,
+          y: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.inOut",
+        }, '<');
+      }
+    })
+  });
+</script>

@@ -155,48 +155,75 @@ export const services: Service[] = [
   },
 ];
 
-export interface AdService {
+export interface CardService {
   id: number;
   title: string;
   description: string;
   image: string;
 }
 
-export const adServices: AdService[] = [
+export const adServices: CardService[] = [
   {
     id: 1,
     title: "Native",
     description: "Anuncios integrados de forma orgánica dentro del contenido, diseñados para no interrumpir la experiencia del usuario.",
-    image: "service-native-ads.webp",
+    image: "img/campanas-interactivas/service-native-ads.webp",
   },
   {
     id: 2,
     title: "Facebook",
     description: "Campañas optimizadas para la plataforma, diseñadas para aumentar la interacción y atraer clientes potenciales.",
-    image: "service-facebook-ads.webp",
+    image: "img/campanas-interactivas/service-facebook-ads.webp",
   },
   {
     id: 3,
     title: "Display",
     description: "Banners y anuncios en imagen o GIF distribuidos en la red de partners de Google, ampliando el alcance de tu campaña.",
-    image: "service-google-ads.webp",
+    image: "img/campanas-interactivas/service-google-ads.webp",
   },
   {
     id: 4,
     title: "Instagram",
     description: "Contenido visual estratégico para generar interacción y fortalecer la presencia de marca en la plataforma.",
-    image: "service-instagram-ads.webp",
+    image: "img/campanas-interactivas/service-instagram-ads.webp",
   },
   {
     id: 5,
     title: "Búsqueda",
     description: "Anuncios en Google Search que posicionan tu producto o servicio frente a personas interesadas en tu sector.",
-    image: "service-busqueda.webp",
+    image: "img/campanas-interactivas/service-busqueda.webp",
   },
   {
     id: 6,
     title: "YouTube",
     description: "Publicidad en video o imagen dentro de YouTube, ideal para promocionar productos, servicios o contenido de marca.",
-    image: "service-youtube-ads.webp",
+    image: "img/campanas-interactivas/service-youtube-ads.webp",
   },
+];
+
+export const webServices: CardService[] = [
+  {
+    id: 1,
+    title: "Sitios Web",
+    description: "Creamos sitios estratégicos, alineados a necesidades reales, incluso no detectadas por el cliente.",
+    image: "img/desarrollo-web/service-sitios-web.webp",
+  },
+  {
+    id: 2,
+    title: "Desarrollo a Medida",
+    description: "Simplificamos el desarrollo: prototipamos, validamos requerimientos y entregamos justo lo que imaginaste.",
+    image: "img/desarrollo-web/service-desarrollo-a-medida.webp",
+  },
+  {
+    id: 3,
+    title: "E-commerce",
+    description: "Creamos tiendas online eficientes con Shopify, WooCommerce o a medida, listas para escalar.",
+    image: "img/desarrollo-web/service-e-commerce.webp",
+  },
+  {
+    id: 4,
+    title: "Infraestructura",
+    description: "Usamos Cloudflare, microservicios y servidores optimizados para plataformas rápidas, seguras y escalables.",
+    image: "img/desarrollo-web/service-infraestructura.webp",
+  }
 ];

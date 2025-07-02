@@ -68,3 +68,7 @@ html::-webkit-scrollbar {
 .title-style {
   @apply font-bold bg-clip-text text-transparent !bg-gradient-to-b !from-success-600 !to-info-50 py-1;
 }
+
+.text-rose-to-purple {
+  @apply bg-clip-text text-transparent bg-gradient-to-b from-rose-300 to-purple-600;
+}
