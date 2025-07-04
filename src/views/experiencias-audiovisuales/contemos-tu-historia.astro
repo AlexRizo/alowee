@@ -1,0 +1,90 @@
+---
+
+---
+
+<section class="h-screen snap-start section-04 bg-[url('/img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center">
+  <article class="container mx-auto flex flex-col items-center justify-center h-full">
+    <h2 class="text-[90px] font-extrabold title-s-04 leading-snug font-plus-jakarta-none text-center">
+      <span class="text-outline">CONTEMOS TU</span><br/>
+      <span class="text-purple">HISTORIA</span>
+      <span class="text-bg overflow-clip inline-block">JUNTOS</span><br/>
+    </h2>
+  </article>
+</section>
+
+<style>
+  .text-outline {
+    -webkit-text-stroke: 2px #59168b;
+    paint-order: stroke fill;
+    color: white;
+  }
+
+  .text-purple {
+    color: #59168b;
+  }
+
+  .text-bg {
+    background-color: #59168b;
+    padding: 0 10px;
+    color: white;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  const tl = gsap.timeline()
+
+  document.fonts.ready.then(() => {
+    const titleSplit = new SplitText('.title-s-04', {
+      type: "words,lines",
+    });
+
+    ScrollTrigger.create({
+      scroller: 'main',
+      trigger: '.section-04',
+      onEnter: () => {
+        tl.clear();
+
+        tl.fromTo(titleSplit.lines[0], {
+          x: -300,
+          duration: 1,
+          ease: "power2.inOut",
+          stagger: 0.1,
+          autoAlpha: 0
+        }, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.inOut",
+        }).fromTo(titleSplit.words[2], {
+          x: 400,
+          duration: 1,
+          ease: "power2.inOut",
+          stagger: 0.1,
+          autoAlpha: 0
+        }, {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.inOut",
+        }, '-=0.5').fromTo(titleSplit.words[3], {
+          y: 200,
+          duration: 1,
+          ease: "power2.inOut",
+          stagger: 0.1,
+          autoAlpha: 0
+        }, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.9,
+          ease: "power2.out",
+        }, '-=0.5');
+      }
+    })
+  });
+</script>

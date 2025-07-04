@@ -1,0 +1,73 @@
+---
+import CardService from "@components/CardService.astro";
+import type { CardService as CardServiceType } from "@utils/data";
+
+interface Props {
+  services: CardServiceType[];
+}
+const { services }: Props = Astro.props;
+---
+
+<section class="h-screen snap-start section-03 bg-[url('/img/servicios-integrales/enfoque-estrategico-bg.webp')] bg-cover bg-center">
+  <div class="container mx-auto flex flex-col items-center h-full py-20">
+    <h2 class="text-rose-to-purple text-7xl font-bold title-s-03 leading-normal title-s-03">Tipos de videos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 mt-16">
+      {services.map((service) => (
+        <CardService {...service} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  let splitText: SplitText;
+  
+  document.fonts.ready.then(() => {
+    splitText = new SplitText('.title-s-03', {
+      type: 'lines',
+      linesClass: 'text-rose-to-purple',
+    });
+  });
+
+  const tl = gsap.timeline()
+
+  ScrollTrigger.create({
+    scroller: 'main',
+    trigger: '.section-03',
+    onEnter: () => {
+      tl.clear();
+      
+      tl.fromTo(splitText.lines, {
+        y: 100,
+        filter: 'blur(10px)',
+      }, {
+        delay: 0.3,
+        y: 0,
+        filter: 'blur(0px)',
+        ease: "power4.out",
+        duration: 1,
+      }).fromTo('#card', {
+        y: 100,
+        autoAlpha: 0,
+        filter: 'blur(10px)',
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        filter: 'blur(0px)',
+        stagger: 0.1,
+        duration: 1,
+        force3D: false,
+        ease: "power4.out",
+      }, '-=0.5')
+    },
+    onLeaveBack: () => {
+      tl.clear();
+    }
+  })
+</script>

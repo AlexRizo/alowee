@@ -1,0 +1,63 @@
+---
+import PageHomeTitle from "@components/PageHomeTitle.astro";
+import "@styles/custom.css";
+---
+
+<section
+  class="container mx-auto grid grid-cols-2 h-screen snap-start pt-20.5 relative"
+>
+  <img
+    src="img/puntos.svg"
+    alt="Puntos"
+    class="absolute bottom-10 left-0 w-8"
+  />
+  <article class="flex flex-col justify-center items-end">
+    <div class="w-3/4 flex flex-col gap-5">
+      <PageHomeTitle
+        title="Experiencias"
+        titleExalted="audiovisuales"
+        description="Desde contenido para redes sociales hasta promocionales en proyectores de cine, transformamos ideas en videos dinámicos, interactivos y memorables."
+      />
+      <picture class="picture mt-2">
+        <img
+          src="img/servicios-integrales/contenido.webp"
+          alt="Representación de contenido digital"
+          class="rounded"
+        />
+      </picture>
+    </div>
+  </article>
+
+  <div class="flex justify-start items-end relative">
+    <img
+      src="img/experiencias-audiovisuales/camara-icon.webp"
+      alt="Cámara"
+      class="absolute top-20 right-2/5 floating-element-3s"
+    />
+    <img
+      src="img/experiencias-audiovisuales/cel-like-icon.webp"
+      alt="Celular"
+      class="absolute top-20 left-60 -rotate-16 floating-element-6s blur-[3px]"
+    />
+    <img
+      src="img/experiencias-audiovisuales/bocina-icon.webp"
+      alt="Bocina"
+      class="absolute top-32 left-24 -rotate-8 blur-[2.5px] floating-element-9s"
+    />
+    <img
+      src="img/experiencias-audiovisuales/monitor-icon.webp"
+      alt="Monitor"
+      class="absolute top-62 left-6 -rotate-12 blur-[1.5px] floating-element-3s delay-3s"
+    />
+
+    <picture class="-translate-x-24">
+      <img
+        src="img/experiencias-audiovisuales/personaje.webp"
+        class="w-[703px]"
+        alt="Personaje"
+      />
+    </picture>
+  </div>
+
+  <img src="img/puntos.svg" alt="Puntos" class="absolute top-30 right-0 w-8" />
+</section>

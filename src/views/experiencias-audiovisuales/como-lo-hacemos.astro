@@ -1,0 +1,76 @@
+---
+
+---
+
+<section
+  class="bg-[url('img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center h-screen section-02 snap-start"
+>
+  <article
+    class="text-center flex flex-col items-center justify-center gap-8 h-full"
+  >
+  <div class="flex relative">
+    <picture class="animate absolute top-8 -left-9">
+      <img
+        src="img/experiencias-audiovisuales/como-lo-hacemos-lapiz.webp"
+        alt="Como lo hacemos"
+      />
+    </picture>
+    <picture class="animate">
+      <img
+        src="img/experiencias-audiovisuales/como-lo-hacemos-foco.webp"
+        alt="Como lo hacemos"
+      />
+    </picture>
+    <picture class="animate absolute top-8 -right-7">
+      <img
+        src="img/experiencias-audiovisuales/como-lo-hacemos-pincel.webp"
+        alt="Como lo hacemos"
+      />
+    </picture>
+  </div>
+    <h2 class="text-7xl font-bold text-black animate leading-none">
+      ¿Cómo lo hacemos?
+    </h2>
+    <p class="text-gray-800 text-xl animate">
+      Combinamos creatividad y estrategia para<br/> generar piezas de alto impacto en
+      sectores<br/> como educación, inmobiliarias, salud, retail,<br/> restaurantes y más.
+    </p>
+  </article>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const objetcs = document.querySelectorAll(".animate");
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const defaults = {
+    delay: 0.25,
+    duration: 1,
+    ease: "power4.out",
+  };
+
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: ".section-02",
+    onEnter: () => {
+      gsap.fromTo(
+        objetcs,
+        {
+          y: 1000,
+          ...defaults,
+        },
+        {
+          y: 0,
+          stagger: {
+            amount: 0.15,
+            from: "random",
+          },
+          ...defaults,
+        }
+      );
+    },
+  });
+</script>

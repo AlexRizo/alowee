@@ -227,3 +227,42 @@ export const webServices: CardService[] = [
     image: "img/desarrollo-web/service-infraestructura.webp",
   }
 ];
+
+export const audiovisualServices: CardService[] = [
+  {
+    id: 1,
+    title: "Animación 2D",
+    description: "Animación promocional o storytelling visual, ideales para aumentar la retención de la audiencia.",
+    image: "img/experiencias-audiovisuales/servicio-animacion-2d.webp",
+  },
+  {
+    id: 2,
+    title: "Redes Sociales",
+    description: "Reels, stories y videos optimizados para cada plataforma, diseñados para captar la atención y reforzar el branding.",
+    image: "img/experiencias-audiovisuales/servicio-redes-sociales.webp",
+  },
+  {
+    id: 3,
+    title: "Spots / Videos",
+    description: "Producción de comerciales, contenidos sociales e informativos para televisión o eventos, redes, pantallas gigantes o cualquier otro.",
+    image: "img/experiencias-audiovisuales/servicio-spots-videos.webp",
+  },
+  {
+    id: 4,
+    title: "Empresarial",
+    description: "Videos corporativos, capacitaciones e inducción de personal con un enfoque profesional.",
+    image: "img/experiencias-audiovisuales/servicio-empresarial.webp",
+  },
+  {
+    id: 5,
+    title: "YouTube",
+    description: "Producción de comerciales, contenidos sociales e informativos para televisión o eventos, redes, pantallas gigantes o cualquier otro.",
+    image: "img/experiencias-audiovisuales/servicio-youtube.webp",
+  },
+  {
+    id: 6,
+    title: "Cine Digital",
+    description: "Conversión de videos a formatos listos para proyectarse en salas de Cinépolis y Cinemex.",
+    image: "img/experiencias-audiovisuales/servicio-cine-digital.webp",
+  }
+];

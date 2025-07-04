@@ -1,18 +1,18 @@
 ---
 import ServicesLayout from "@layouts/ServicesLayout.astro";
-import { webServices } from "@utils/data";
-import ComoLoHacemos from "@views/desarrollo-web/como-lo-hacemos.astro";
-import HomeHero from "@views/desarrollo-web/home-hero.astro";
-import PixelesYCodigo from "@views/desarrollo-web/pixeles-y-codigo.astro";
-import QueHacemos from "@views/desarrollo-web/que-hacemos.astro";
-import SlideServicios from "@views/desarrollo-web/slide-servicios.astro";
+import ComoLoHacemos from "@views/experiencias-audiovisuales/como-lo-hacemos.astro";
+import HomeHero from "@views/experiencias-audiovisuales/home-hero.astro";
+import TiposDeVideos from "@views/experiencias-audiovisuales/tipos-de-videos.astro";
+import ContemosTuHistoria from "@views/experiencias-audiovisuales/contemos-tu-historia.astro";
+import VideoSlide from "@views/experiencias-audiovisuales/video-slide.astro";
+import { audiovisualServices } from "@utils/data";
 
 ---
 
-<ServicesLayout title="Desarrollo Web | Alowee">
+<ServicesLayout title="Experiencias Audiovisuales | Alowee">
+  <VideoSlide />
   <HomeHero />
-  <QueHacemos />
-  <ComoLoHacemos services={webServices} />
-  <PixelesYCodigo />
-  <SlideServicios />
+  <ComoLoHacemos />
+  <TiposDeVideos services={audiovisualServices} />
+  <ContemosTuHistoria />
 </ServicesLayout>
