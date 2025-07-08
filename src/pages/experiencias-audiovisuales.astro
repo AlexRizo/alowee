@@ -6,13 +6,15 @@ import TiposDeVideos from "@views/experiencias-audiovisuales/tipos-de-videos.ast
 import ContemosTuHistoria from "@views/experiencias-audiovisuales/contemos-tu-historia.astro";
 import VideoSlide from "@views/experiencias-audiovisuales/video-slide.astro";
 import { audiovisualServices } from "@utils/data";
+import SlideServicios from "@views/desarrollo-web/slide-servicios.astro";
 
 ---
 
 <ServicesLayout title="Experiencias Audiovisuales | Alowee">
-  <VideoSlide />
   <HomeHero />
   <ComoLoHacemos />
   <TiposDeVideos services={audiovisualServices} />
   <ContemosTuHistoria />
+  <VideoSlide />
+  <SlideServicios />
 </ServicesLayout>

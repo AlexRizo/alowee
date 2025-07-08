@@ -1,6 +1,7 @@
 ---
 import ServicesLayout from "@layouts/ServicesLayout.astro";
 import "@styles/custom.css";
+import { printedServices } from "@utils/data";
 import ComoLoHacemos from "@views/soluciones-impresas/como-lo-hacemos.astro";
 import HomeHero from "@views/soluciones-impresas/home-hero.astro";
 import InstalacionProfesional from "@views/soluciones-impresas/instalacion-profesional.astro";
@@ -10,6 +11,6 @@ import Services from "@views/soluciones-impresas/services.astro";
 <ServicesLayout title="Soluciones Impresas | Alowee">
   <HomeHero />
   <ComoLoHacemos />
-  <Services />
+  <Services services={printedServices} />
   <InstalacionProfesional />
 </ServicesLayout>

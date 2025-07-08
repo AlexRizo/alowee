@@ -7,13 +7,11 @@ interface Props {
 }
 const { title, description, image, cardId = 'card' }: Props = Astro.props;
 
-const imageUrl = `img/campanas-interactivas/${image}`;
-
 ---
 
 <div role="contentinfo" id={cardId} class="bg-gray-200/8 py-4 px-6 flex items-start gap-4 rounded max-w-[485px]">
   <picture class="h-full w-28">
-    <img src={imageUrl} alt={title} class="w-full h-full object-contain">
+    <img src={image} alt={title} class="w-full h-full object-contain">
   </picture>
   <article>
     <h3 class="text-2xl font-bold text-purple-300">{title}</h3>

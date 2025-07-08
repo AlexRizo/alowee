@@ -1,20 +1,9 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Home from "@views/home.astro";
-import Design from "@views/design.astro";
-import Metodology from "@views/metodology.astro";
-import Estructure from "@views/estructure.astro";
-import Services from "@views/services.astro";
-import Contact from "@views/contact.astro";
-import EstructureMobile from "@views/estructure-mobile.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
+import { VideoHome } from "@components/pages/index/VideoHome";
 ---
 
-<Layout title="Alowee Interactive">
-  <Home />
-  <Design />
-  <Metodology />
-  <Estructure />
-  <EstructureMobile />
-  <Services />
-  <Contact />
-</Layout>
+
+<HomeLayout title="Alowee Interactive">
+  <VideoHome client:load />
+</HomeLayout>

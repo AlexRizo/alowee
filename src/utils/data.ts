@@ -266,3 +266,54 @@ export const audiovisualServices: CardService[] = [
     image: "img/experiencias-audiovisuales/servicio-cine-digital.webp",
   }
 ];
+
+export const printedServices: CardService[] = [
+  {
+    id: 1,
+    title: "Gran Formato",
+    description: "Lona, mesh, traslúcida, backlight.",
+    image: "img/soluciones-impresas/servicio-gran-formato.webp",
+  },
+  {
+    id: 2,
+    title: "Alta Resolución",
+    description: "Impresión en calidad fotográfica.",
+    image: "img/soluciones-impresas/servicio-alta-resolucion.webp",
+  },
+  {
+    id: 3,
+    title: "Material Pop",
+    description: "Viniles, piso, colgantes, etiquetas, letreros.",
+    image: "img/soluciones-impresas/servicio-material-pop.webp",
+  },
+  {
+    id: 4,
+    title: "Especiales",
+    description: "PVC, sublimación, corte láser y router, laminado, UV.",
+    image: "img/soluciones-impresas/servicio-especiales.webp",
+  },
+  {
+    id: 5,
+    title: "Textil",
+    description: "Playeras en DTF, serigrafía, vinil textil.",
+    image: "img/soluciones-impresas/servicio-textil.webp",
+  },
+  {
+    id: 6,
+    title: "Rígidos",
+    description: "Corplast, trovicel, estireno, mdf.",
+    image: "img/soluciones-impresas/servicio-rigidos.webp",
+  },
+  {
+    id: 7,
+    title: "Promocional y esctructuras",
+    description: "Display wall, demo stands, caballetes, anuncios luminosos, figuras clones.",
+    image: "img/soluciones-impresas/servicio-promocional-y-estructuras.webp",
+  },
+  {
+    id: 8,
+    title: "Offset",
+    description: "Flyers, trípticos, tarjetas, calidad fotográfica.",
+    image: "img/soluciones-impresas/servicio-offset.webp",
+  }
+];

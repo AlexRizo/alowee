@@ -3,12 +3,8 @@ import { gsap } from "gsap";
 
 const MenuOptions = [
   {
-    text: "DISEÑO",
-    href: "#diseno",
-  },
-  {
-    text: "ANIMACIÓN 2D Y VIDEO",
-    href: "/video",
+    text: "INICIO",
+    href: "/",
   },
   {
     text: "SERVICIOS INTEGRALES",
@@ -17,6 +13,18 @@ const MenuOptions = [
   {
     text: "CAMPAÑAS INTERACTIVAS",
     href: "/campanas-interactivas",
+  },
+  {
+    text: "DESARROLLO WEB",
+    href: "/desarrollo-web",
+  },
+  {
+    text: "EXPERIENCIAS AUDIOVISUALES",
+    href: "/experiencias-audiovisuales",
+  },
+  {
+    text: "SOLUCIONES IMPRESAS",
+    href: "/soluciones-impresas",
   },
 ];
 
@@ -39,7 +47,7 @@ export default function NavbarMenu({
   
     // Mover nav hacia abajo
     gsap.to(navMenuRef.current, {
-      top: 0,
+      top: '0%',
       duration: 1,
       ease: "power2.inOut",
     });
@@ -102,11 +110,12 @@ export default function NavbarMenu({
       <div onClick={handleOpen}>{children}</div>
       <nav
         ref={navMenuRef}
-        className="fixed left-0 w-screen h-screen bg-warning-600 z-50 2xl:p-18 lg:p-16 p-14 top-[-100%] overflow-y-auto"
+        className="fixed left-0 w-screen h-screen bg-warning-600 z-50 2xl:p-18 lg:p-16 p-14 overflow-y-auto"
+        style={{ top: '-100%' }}
       >
         <div
           ref={navMenuContentRef}
-          className="xl:text-[5.60rem] lg:text-[4.60rem] text-4xl leading-[inherit] flex flex-col gap-5 font-extrabold"
+          className="xl:text-7xl lg:text-5xl text-4xl leading-[inherit] flex flex-col gap-10 font-extrabold tracking-wide"
         >
           <button
             ref={buttonRef}

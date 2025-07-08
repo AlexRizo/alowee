@@ -6,6 +6,7 @@ import { servicesWithLongDescription } from "@utils/data"
 import { ServicesSliderCard } from "./ServicesSliderCard"
 
 const buttonStyle = 'absolute top-1/2 -translate-y-1/2 z-10 bg-purple-400 rounded-full 2xl:p-3 lg:p-2 after:hidden cursor-pointer'
+
 export const ServicesSlider = () => {
   return (
     <div className="relative w-full h-full mx-auto hidden lg:block">

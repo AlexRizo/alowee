@@ -1,0 +1,69 @@
+---
+import "@styles/global.css";
+import Navbar from "@components/Navbar.astro";
+import BackgroundAnimation from "@components/BackgroundAnimation.astro";
+import { Loader } from "@components/react/Loader";
+import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title }: Props = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- ? Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ? Astro generator -->
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ?? "Alowee Interactive"}</title>
+  </head>
+  <body
+    class="bg-gradient-to-br from-fuchsia-800 to-[#310034] bg-cover bg-no-repeat min-h-screen"
+  >
+    <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
+    <!-- <Loader client:load>
+      <LoaderImagesContainer />
+    </Loader> -->
+    
+    <main
+      class="relative snap-y snap-mandatory scroll-smooth max-h-[100dvh] overflow-y-scroll [scrollbar-width:none]"
+    >
+      <slot />
+    </main>
+  </body>
+
+  <style is:global>
+    @reference '@styles/global.css';
+
+    .nav-menu {
+      @apply fixed top-0 left-0 w-full h-full bg-warning-600 z-50 p-18;
+    }
+
+    .text-outline {
+      color: #222128;
+      -webkit-text-stroke: 2px #f7f0f0;
+      paint-order: stroke fill;
+      transition: color 0.3s;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .text-outline:hover {
+      color: #f7f0f0;
+    }
+  </style>
+
+</html>

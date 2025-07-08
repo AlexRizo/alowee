@@ -1,52 +1,30 @@
 ---
 import ServiceCard from "@components/pages/soluciones-impresas/ServiceCard.astro";
+import { type CardService } from "@utils/data";
+
+interface Props {
+  services: CardService[];
+}
+
+const { services } = Astro.props as Props;
 ---
 
 <section
-  class="h-screen snap-start section-02 bg-gradient-to-br from-purple-900 via-[#29212D] to-fuchsia-800 section-02"
+  class="h-screen snap-start section-02 bg-[url('/img/servicios-integrales/enfoque-estrategico-bg.webp')] bg-cover bg-center section-02"
 >
   <div
-    class="container mx-auto h-full flex flex-col items-center justify-center relative"
+    class="container mx-auto h-full flex flex-col items-center relative py-10 gap-14"
   >
-    <img
-      src="img/soluciones-impresas/triptico.webp"
-      alt="Triptico"
-      class="absolute top-1/6 left-50 -rotate-10 blur-[2px] items"
-    />
-
+    <h2 class="text-7xl font-bold text-rose-to-purple title-s-02">Soportes de impresión</h2>
     <div class="grid grid-cols-2 gap-8 services-container">
-      <ServiceCard
-        title="Gran Formato"
-        description="Lona, mesh, traslúcida, backlight."
-        image="servicio-gran-formato.webp"
-      />
-      <ServiceCard
-        title="Alta Resolución"
-        description="Impresión en calidad fotográfica."
-        image="servicio-alta-resolucion.webp"
-      />
-      <ServiceCard
-        title="Material Pop"
-        description="Viniles, piso, colgantes, etiquetas, letreros..."
-        image="servicio-material-pop.webp"
-      />
-      <ServiceCard
-        title="Especiales"
-        description="PVC, sublimación, corte láser y router, laminado, UV..."
-        image="servicio-especiales.webp"
-      />
+      {services.map((service) => (
+        <ServiceCard
+          title={service.title}
+          description={service.description}
+          image={service.image}
+        />
+      ))}
     </div>
-
-    <img
-      src="img/soluciones-impresas/tarjetas.webp"
-      alt="Tarjetas"
-      class="absolute bottom-1/4 right-36 blur-[2px] items"
-    />
-
-    <button
-      class="font-space-grotesk text-2xl font-bold bg-purple-600 px-6 py-3 rounded-md mt-10 hover:bg-purple-700 cursor-pointer button opacity-0 -rotate-10 scale-80"
-      >Ver más</button
-    >
   </div>
 </section>
 
@@ -58,59 +36,30 @@ import ServiceCard from "@components/pages/soluciones-impresas/ServiceCard.astro
 
   const DEFAULT_DELAY = 0.2;
 
-  const itemsTl = gsap.timeline({
-    defaults: {
-      delay: DEFAULT_DELAY,
-    }
-  });
   const serviceCardTl = gsap.timeline({
     defaults: {
       delay: DEFAULT_DELAY,
     } 
   });
-  const buttonTl = gsap.timeline();
 
   ScrollTrigger.create({
     scroller: 'main',
     trigger: '.section-02',
     onEnter: () => {
-      gsap.set('.button', {
-        autoAlpha: 0,
-        scale: 0.8,
-        y: 20,
-        rotation: -10,
-      });
-      
-      itemsTl.from('.items', {
-        autoAlpha: 0,
-        duration: 1,
-        ease: 'back.inOut',
-        stagger: 0.1,
-        y: 20,
-      });
-
-      serviceCardTl.from('.service-card', {
-        autoAlpha: 0,
+      serviceCardTl.from('.title-s-02', {
+        delay: 0.5,
         y: 100,
+        autoAlpha: 0,
         duration: 1,
-        ease: 'back',
-        stagger: 0.2,
-        onComplete: () => {
-          buttonTl.to('.button', {
-            autoAlpha: 1,
-            scale: 1.1,
-            y: -30,
-            duration:0.3,
-            ease: 'back',
-          }).to('.button', {
-            scale: 1,
-            y: 0,
-            duration:0.4,
-            rotation: 0,
-            ease: 'bounce',
-          });
-        },
-      });
+        ease: "power4.out",
+      }).from('.service-card', {
+        y: 100,
+        autoAlpha: 0,
+        filter: 'blur(10px)',
+        duration: 1,
+        ease: "power4.out",
+        stagger: 0.1,
+      }, '-=0.5');
     },
   });
 </script>
