@@ -1,35 +1,38 @@
 ---
-import BorderText from "@components/pages/quienes-somos/BorderText.astro";
 ---
 
 <section
-  class="bg-gradient-to-b from-black via-purple-900 to-purple-400 h-screen section-5 relative snap-start flex items-center justify-center"
+  class="bg-[url('img/servicios-integrales/enfoque-estrategico-bg.webp')] bg-cover h-screen section-5 relative snap-start flex items-center justify-center"
 >
   <article
-    class="flex flex-col justify-center items-center article"
+    class="flex flex-col justify-center items-center article 2xl:max-w-7xl xl:max-w-5xl lg:max-w-4xl"
   >
-    <BorderText
-      text="ESTRUCTURAMOS LA"
-      textFill="ESTRUCTURAMOS"
-      id="text-left text-1"
-    />
-    <BorderText
-      text="COMUNICACIÓN VISUAL DE TU"
-      textFill="VISUAL"
-      id="text-right text-2"
-    />
-    <BorderText
-      text="MARCA PARA CONECTARLA"
-      textFill="MARCA"
-      id="text-left text-3"
-    />
-    <BorderText
-      text="CON TU AUDIENCIA"
-      textFill="AUDIENCIA"
-      id="text-right text-4"
-    />
+    <h3 class="2xl:text-[90px] xl:text-7xl lg:text-6xl text-5xl leading-snug font-extrabold text-center exalted font-plus-jakarta-sans aliados space-y-3">
+      <span class="text-outline">ALIADOS</span>
+      <span class="text-bg inline-flex overflow-hidden">ESTRATÉGICOS</span>
+      <span class="text-outline">PARA</span>
+      <span class="text-bg relative z-1 inline-flex overflow-hidden">RESOLVER</span>
+      <span class="text-outline">LOS RETOS DE TU</span>
+      <span class="text-fill">MARCA</span>
+    </h3>
   </article>
 </section>
+
+<style>
+  @reference "@styles/global.css";
+
+  .text-outline {
+    @apply text-black stroke-purple-200 stroke-1 [paint-order:stroke_fill];
+  }
+
+  .text-fill {
+    @apply text-white;
+  }
+
+  .text-bg {
+    @apply text-white bg-[#6F36AF] px-3;
+  }
+</style>
 
 <script>
   import { gsap } from "gsap";
@@ -38,47 +41,122 @@ import BorderText from "@components/pages/quienes-somos/BorderText.astro";
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
   let splitText: SplitText;
-  let exaltedText: SplitText;
+  const tl = gsap.timeline();
+
+  const DELAY = 0.45;
 
   document.fonts.ready.then(() => {
-    splitText = new SplitText(".article", {
+    splitText = new SplitText(".aliados", {
       type: "words",
-      tag: "span",
     });
-    exaltedText = new SplitText(".exalted-text", {
-      type: "words",
-      tag: "span",
-    });
+
+    ScrollTrigger.create({
+      scroller: "main",
+      trigger: ".section-5",
+      onEnter: () => {
+        tl.fromTo( // ? ALIADOS;
+          splitText.words[0],
+          {
+            autoAlpha: 0,
+            rotate: -90,
+            transformOrigin: "left",
+          },
+          {
+            delay: 0.3,
+            autoAlpha: 1,
+            rotate: 0,
+            duration: 0.7,
+            ease: "bounce",
+          }).fromTo( // ? ESTRATÉGICOS;
+            splitText.words[1],
+            {
+              transform: "translateX(-110%)",
+            },
+            {
+              transform: "translateX(0%)",
+              duration: 0.7,
+              ease: "power4.out",
+            }, `-=${DELAY}`).fromTo( // ? PARA;
+            splitText.words[2],
+            {
+              transform: "translatey(100%)",
+              autoAlpha: 0,
+              filter: "blur(15px)",
+            },
+            {
+              transform: "translatey(0%)",
+              autoAlpha: 1,
+              filter: "blur(0px)",
+              duration: 0.7,
+              ease: "power4.out",
+            }, `-=${DELAY}`).fromTo( // ? RESOLVER;
+            splitText.words[3],
+            {
+              transform: "translateY(100%)",
+            },
+            {
+              transform: "translateY(0%)",
+              duration: 0.7,
+              ease: "bounce.out",
+            }, `-=${DELAY}`).fromTo( // ? LOS;
+            splitText.words[4],
+            {
+              transform: "translateX(-110%)",
+              autoAlpha: 0,
+            },
+            {
+              transform: "translateX(0%)",
+              autoAlpha: 1,
+              duration: 0.7,
+              ease: "power4.out",
+            }, `-=${DELAY}`).fromTo( // ? RETOS;
+            splitText.words[5],
+            {
+              transform: "translateX(100%)",
+              autoAlpha: 0,
+            },
+            {
+              transform: "translateX(0%)",
+              autoAlpha: 1,
+              duration: 0.7,
+              ease: "power4.out",
+            }, `-=${DELAY}`).fromTo( // ? DE;
+            splitText.words[6],
+            {
+              transform: "translateX(-100%)",
+              autoAlpha: 0,
+            },
+            {
+              transform: "translateX(0%)",
+              autoAlpha: 1,
+              duration: 0.7,
+              ease: "power4.out",
+            }, `-=${DELAY}`).fromTo( // ? TU;
+            splitText.words[7],
+            {
+              transform: "translateX(-100%)",
+              autoAlpha: 0,
+            },
+            {
+              transform: "translateX(0%)",
+              autoAlpha: 1,
+              duration: 0.7,
+              ease: "power4.out",
+            }, '<').fromTo( // ? MARCA;
+            splitText.words[8],
+            {
+              scale: 1.5,
+              autoAlpha: 0,
+            },
+            {
+              scale: 1,
+              autoAlpha: 1,
+              duration: 0.7,
+              ease: "power4.out",
+            }, `-=${DELAY}`);
+        },
+      }
+    );
   });
 
-  ScrollTrigger.create({
-    scroller: "main",
-    trigger: ".section-5",
-    onEnter: () => {
-      gsap.fromTo(
-        splitText.words,
-        {
-          y: 40,
-          autoAlpha: 0,
-          filter: "blur(10px)",
-        },
-        {
-          delay: 0.3,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.1,
-          autoAlpha: 1,
-          filter: "blur(0px)",
-          ease: "power4.out",
-        }
-      );
-
-      gsap.to(
-        exaltedText.words,
-        {
-          y: 40,
-        },
-      );
-    },
-  });
 </script>

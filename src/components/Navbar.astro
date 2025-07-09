@@ -1,22 +1,24 @@
 ---
 import { Icon } from "astro-icon/components";
 import NavbarMenu from "./react/NavbarMenu";
+import { Mail } from "@lucide/astro";
 ---
 
 <header class="w-full bg-gradient-to-b from-[#230D28] to-[#44234D] absolute z-5">
-  <nav class="flex items-center justify-between container mx-auto py-4 max-h-20">
+  <nav class="flex items-center justify-between container mx-auto py-4 lg:px-0 px-4 max-h-20">
     <NavbarMenu client:load>
       <button>
-        <Icon name="burguer-menu" />
+        <Icon name="burguer-menu" class="size-6" />
       </button>
     </NavbarMenu>
     <a href="/">
-      <img src="./icons/alowee-icon.svg" alt="Alowee Interactive" class="h-full">
+      <img src="./icons/alowee-icon.svg" alt="Alowee Interactive" class="lg:h-full h-6">
     </a>
 
-    <a href="/contacto" class="font-space-grotesk font-bold text-xl">
+    <a href="/contacto" class="font-space-grotesk font-bold text-xl lg:block hidden">
       CONTACTO
     </a>
+    <Mail class="lg:hidden block" />
   </nav>
   <div class="h-0.5 bg-gradient-to-r from-[#252237] via-[#6A7C88] to-[#252237]"></div>
 </header>

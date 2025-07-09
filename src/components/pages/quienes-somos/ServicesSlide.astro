@@ -4,7 +4,7 @@ import ServicesCard from './ServicesCard.astro';
 import { services } from '@/utils/data';
 ---
 
-<div class="swiper">
+<div class="swiper lg:mb-0 mb-20">
   <div class="swiper-wrapper py-6.5">
     {services.map((service) => (
       <div class="swiper-slide cursor-grab active:cursor-grabbing">
@@ -20,7 +20,17 @@ import { services } from '@/utils/data';
   new Swiper('.swiper', {
     direction: 'horizontal',
     loop: true,
-    slidesPerView: 4,
     spaceBetween: 25,
+    breakpoints: {
+      1536: {
+        slidesPerView: 4,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 1,
+      },
+    },
   });
 </script>

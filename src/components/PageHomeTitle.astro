@@ -14,10 +14,10 @@ const { title, titleExalted, description } = Astro.props as Props;
     {title} <br />
     <span>
       <span class="font-space-grotesk relative z-2 title">{titleExalted}</span>
-      <hr class="w-[calc(100%+1.5rem)] h-3 bg-purple-400 absolute left-0 bottom-2 z-1" />
+      <hr class="w-[calc(100%+1.5rem)] 2xl:h-3 xl:h-2.5 h-2 bg-purple-400 absolute left-0 bottom-2 z-1" />
     </span>
   </h1>
-  <p class="text-xl text-gray-50 description">
+  <p class="xl:text-xl text-lg text-gray-50 description">
     {description}
   </p>
 </>
@@ -25,6 +25,6 @@ const { title, titleExalted, description } = Astro.props as Props;
 <style>
   @reference '@styles/global.css';
   .title {
-    @apply text-6xl text-transparent bg-clip-text bg-gradient-to-b from-rose-50 to-rose-100 font-extrabold py-1;
+    @apply 2xl:text-6xl xl:text-5xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-rose-50 to-rose-100 font-extrabold py-1;
   }
 </style>

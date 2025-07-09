@@ -1,6 +1,5 @@
 import NavbarMenu from "@components/react/NavbarMenu";
 import { Menu } from "lucide-react";
-import { useState } from "react";
 
 export const Header = ({ hidden = true, menuOpen = false, setMenuOpen }: { hidden: boolean, menuOpen: boolean, setMenuOpen: (menuOpen: boolean) => void }) => {
 
@@ -10,7 +9,7 @@ export const Header = ({ hidden = true, menuOpen = false, setMenuOpen }: { hidde
       style={{ opacity: hidden ? 0 : 1 }}
     >
       <nav className="flex items-center justify-between container mx-auto py-4 max-h-20">
-        <NavbarMenu>
+        <NavbarMenu setMenuOpen={setMenuOpen}>
           <button onClick={() => setMenuOpen(!menuOpen)}>
             <Menu />
           </button>

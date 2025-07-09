@@ -30,8 +30,10 @@ const MenuOptions = [
 
 export default function NavbarMenu({
   children,
+  setMenuOpen,
 }: {
   children: React.ReactNode;
+  setMenuOpen?: (menuOpen: boolean) => void;
 }) {
   const linesRef = useRef<HTMLHRElement[]>([]);
   const elementsRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -84,6 +86,7 @@ export default function NavbarMenu({
   };
   
   const handleQuit = () => {
+    setMenuOpen && setMenuOpen(false);
     // Ocultar menú con animación
     gsap.to(navMenuContentRef.current, {
       opacity: 0,
@@ -110,12 +113,12 @@ export default function NavbarMenu({
       <div onClick={handleOpen}>{children}</div>
       <nav
         ref={navMenuRef}
-        className="fixed left-0 w-screen h-screen bg-warning-600 z-50 2xl:p-18 lg:p-16 p-14 overflow-y-auto"
+        className="fixed left-0 w-screen h-screen bg-warning-600 z-50 2xl:p-18 xl:p-16 p-14 overflow-y-auto"
         style={{ top: '-100%' }}
       >
         <div
           ref={navMenuContentRef}
-          className="xl:text-7xl lg:text-5xl text-4xl leading-[inherit] flex flex-col gap-10 font-extrabold tracking-wide"
+          className="flex flex-col xl:gap-10 gap-5"
         >
           <button
             ref={buttonRef}
@@ -134,7 +137,7 @@ export default function NavbarMenu({
           {MenuOptions.map((option, index) => (
             <span
               key={option.href}
-              className="relative text-outline hover:[text-stroke:2px]"
+              className="relative text-outline hover:[text-stroke:2px] 2xl:text-7xl xl:text-6xl text-5xl leading-[inherit] font-extrabold tracking-wide"
             >
               <a
                 ref={(el) => {
