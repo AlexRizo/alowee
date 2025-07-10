@@ -1,6 +1,6 @@
 ---
 import CampainServiceCard from "@components/pages/campanas-interactivas/CampainServiceCard.astro";
-import CampanasSlide from "@components/pages/campanas-interactivas/CampanasSlide.tsx";
+import CardServicesSlider from "@components/pages/campanas-interactivas/CardServicesSlider";
 import type { CardService } from "@utils/data";
 
 interface Props {
@@ -20,7 +20,7 @@ const { campainServices }: Props = Astro.props;
     </div>
 
     <div class="lg:hidden inline-flex w-full mt-10 relative">
-      <CampanasSlide client:only campanas={campainServices} />
+      <CardServicesSlider client:only campanas={campainServices} />
     </div>
 
   </div>

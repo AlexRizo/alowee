@@ -37,12 +37,56 @@ const SLIDES = [
   },
 ];
 
+const getWindowSize = () => {
+  const { innerWidth: width, innerHeight: height } = window;
+
+  return {
+    width,
+    height,
+  };
+}
+
 const INITIAL_VIDEO_VALUES = {
-  width: "616px",
-  height: "820px",
+  "2xl": {
+    width: "616px",
+    height: "820px",
+  },
+  "xl": {
+    width: "516px",
+    height: "720px",
+  },
+  "lg": {
+    width: "416px",
+    height: "620px",
+  },
+  "md": {
+    width: "316px",
+    height: "520px",
+  },
 };
 
+type SizePrefix = "2xl" | "xl" | "lg" | "md";
+
 export const VideoSlider = () => {
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [sizePrefix, setSizePrefix] = useState<SizePrefix>("2xl");
+  const [isRendering, setIsRendering] = useState<boolean>(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(getWindowSize());
+      const windowSizeKey = windowSize.width > 1520 ? "2xl" : windowSize.width > 1280 ? "xl" : windowSize.width > 1024 ? "lg" : "md";
+      setSizePrefix(windowSizeKey);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
   const [activeSlide, setActiveSlide] = useState<number>(ACTIVE_SLIDE);
   const [playing, setPlaying] = useState<boolean>(false);
 
@@ -61,7 +105,7 @@ export const VideoSlider = () => {
 
   const setInitialVideoSize = () => {
     gsap.set(videoContainerRef.current, {
-      ...INITIAL_VIDEO_VALUES,
+      ...INITIAL_VIDEO_VALUES[sizePrefix],
     });
   };
 
@@ -76,6 +120,10 @@ export const VideoSlider = () => {
   };
 
   const handlePlay = () => {
+    if (isRendering) {
+      setIsRendering(false);
+      return;
+    };
     if (timerToPlay.current) {
       clearTimeout(timerToPlay.current);
     }
@@ -94,7 +142,7 @@ export const VideoSlider = () => {
 
   const handleVideoEnded = () => {
     tl.current?.to(videoContainerRef.current, {
-      ...INITIAL_VIDEO_VALUES,
+      ...INITIAL_VIDEO_VALUES[sizePrefix],
       duration: 1,
       ease: "power2.inOut",
       onComplete: () => {
@@ -123,35 +171,36 @@ export const VideoSlider = () => {
     tl.current.to(videoContainerRef.current, {
       delay: 1,
       width: "80vw",
-      height: "100vh",
+      height: "90vh",
       aspectRatio: "none",
       duration: 1.5,
       ease: "power2.inOut",
     });
   };
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      ScrollTrigger.create({
-        scroller: "main",
-        markers: true,
-        trigger: swiperRef.current.el,
-        start: "40% center",
-        onEnter: () => {
-          handlePlay();
-        },
-        onEnterBack: () => {
-          handlePlay();
-        },
-        onLeave: () => {
-          handleStop();
-        },
-        onLeaveBack: () => {
-          handleStop();
-        },
-      });
-    }
-  }, []);
+useEffect(() => {
+  if (!swiperRef.current) return;
+
+  const st = ScrollTrigger.create({
+    scroller: "main", // si estás usando locomotivescroll, asegúrate que "main" sea correcto
+    trigger: swiperRef.current!.el,
+    markers: true,
+    start: "top center", // puedes ajustar esto
+    onEnter: () => {
+      handlePlay();
+      console.log("onEnter");
+    },
+    onEnterBack: handlePlay,
+    onLeave: handleStop,
+    onLeaveBack: handleStop,
+  });
+
+  handleStop();
+
+  return () => {
+    st.kill();
+  };
+}, [swiperRef.current]);
 
   return (
     <>
@@ -173,7 +222,7 @@ export const VideoSlider = () => {
           slideShadows: true,
         }}
         modules={[EffectCoverflow]}
-        className="w-full py-12.5"
+        className="w-full"
         onSlideChange={(swiper) => {
           setActiveSlide(swiper.activeIndex)
           handlePlay();
@@ -187,7 +236,7 @@ export const VideoSlider = () => {
         }}
       >
         {SLIDES.map((slide, index) => (
-          <SwiperSlide key={index} className="!w-[616px] !h-[820px] relative">
+          <SwiperSlide key={index} className="2xl:!w-[616px] 2xl:!h-[820px] xl:!w-[516px] xl:!h-[720px] lg:!w-[416px] lg:!h-[620px] !w-[316px] !h-[520px] relative">
             <img
               src={slide.src}
               alt={slide.alt}
@@ -205,7 +254,7 @@ export const VideoSlider = () => {
 
       <div
         ref={videoContainerRef}
-        className={`w-[616px] h-[820px] absolute z-100 ${
+        className={`2xl:w-[616px] 2xl:h-[820px] xl:w-[516px] xl:h-[720px] lg:w-[416px] lg:h-[620px] w-[316px] h-[520px] absolute z-100 ${
           !playing ? "hidden" : "block"
         }`}
       >
@@ -214,7 +263,7 @@ export const VideoSlider = () => {
           src="img/services-spots-video.webp"
           muted={true}
           onEnded={handleVideoEnded}
-          className="block size-full object-cover select-none"
+          className="block size-full object-cover object-center select-none"
         />
       </div>
     </>
