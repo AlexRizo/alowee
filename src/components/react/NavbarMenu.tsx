@@ -118,7 +118,7 @@ export default function NavbarMenu({
       >
         <div
           ref={navMenuContentRef}
-          className="flex flex-col xl:gap-10 gap-5"
+          className="flex flex-col xl:gap-8 gap-5"
         >
           <button
             ref={buttonRef}
@@ -137,7 +137,7 @@ export default function NavbarMenu({
           {MenuOptions.map((option, index) => (
             <span
               key={option.href}
-              className="relative text-outline hover:[text-stroke:2px] 2xl:text-7xl xl:text-6xl lg:text-5xl text-3xl leading-snug font-extrabold tracking-wide"
+              className="relative text-outline hover:[text-stroke:2px] 2xl:text-6xl xl:text-5xl lg:text-4xl text-3xl leading-snug font-extrabold tracking-wide"
             >
               <a
                 ref={(el) => {

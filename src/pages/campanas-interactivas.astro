@@ -1,7 +1,7 @@
 ---
 import ServicesLayout from "@layouts/ServicesLayout.astro";
 import HomeHero from "@views/campanas-interactivas/home-hero.astro";
-import ComoLoHacemos from "@views/servicios-integrales/como-lo-hacemos.astro";
+import ComoLoHacemos from "@views/campanas-interactivas/como-lo-hacemos.astro";
 import TiposDeCampanas from "@views/campanas-interactivas/tipos-de-campanas.astro";
 import { adServices } from "@utils/data";
 import AnunciosIdeales from "@views/campanas-interactivas/anuncios-ideales.astro";
@@ -10,8 +10,12 @@ import SlideServicios from "@views/campanas-interactivas/slide-servicios.astro";
 
 <ServicesLayout title="Campañas Interactivas | Alowee">
   <HomeHero />
+  
   <ComoLoHacemos />
+  
   <TiposDeCampanas campainServices={adServices} />
+  
   <AnunciosIdeales />
+  
   <SlideServicios />
 </ServicesLayout>

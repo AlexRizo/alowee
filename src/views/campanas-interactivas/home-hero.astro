@@ -1,19 +1,19 @@
 ---
 import PageHomeTitle from "@components/PageHomeTitle.astro";
-
+import '@styles/custom.css';
 
 ---
 
 <section
-  class="container mx-auto grid grid-cols-2 h-screen snap-start relative pt-20.5"
+  class="container mx-auto lg:grid lg:grid-cols-2 flex flex-col h-screen snap-start relative pt-20.5 lg:px-0 px-6 overflow-hidden"
 >
   <img
     src="img/puntos.svg"
     alt="Puntos"
-    class="absolute bottom-10 left-0 w-8"
+    class="absolute bottom-10 lg:left-0 left-2 xl:w-8 lg:w-6 w-5"
   />
   <article class="flex flex-col justify-center items-end relative z-1">
-    <div class="w-[500px] flex flex-col gap-10 tracking-wider">
+    <div class="lg:w-[500px] w-full flex flex-col xl:gap-10 gap-3 tracking-wider">
       <PageHomeTitle
         title="Campañas"
         titleExalted="Interactivas"
@@ -47,36 +47,35 @@ import PageHomeTitle from "@components/PageHomeTitle.astro";
     </div>
   </article>
 
-  <div class="flex items-end relative">
+  <div class="flex items-end relative lg:mt-0 mt-auto">
     <img
       src="img/campanas-interactivas/message.webp"
       alt="Tools"
-      class="absolute top-30 left-2/7 floating-element-3s rotate-3"
+      class="absolute lg:top-30 lg:left-2/7 top-5 right-10 floating-element-3s rotate-3"
     />
     <img
       src="img/campanas-interactivas/ad-button.webp"
       alt="Ad File"
-      class="absolute top-38 left-20 -rotate-12 floating-element-6s blur-[1px]"
+      class="absolute lg:top-38 lg:left-20 top-30 right-10 -rotate-12 floating-element-6s blur-[1px]"
     />
     <img
       src="img/campanas-interactivas/laptop.webp"
       alt="File"
-      class="absolute top-64 -left-5 -rotate-12 blur-[2.5px] floating-element-9s"
+      class="absolute lg:top-64 lg:-left-5 top-20 left-10 -rotate-12 blur-[2.5px] floating-element-9s"
     />
     <img
       src="img/campanas-interactivas/ad-phone.webp"
       alt="Edit Poligon"
-      class="absolute top-96 -left-14 -rotate-20 blur-[1.5px] floating-element-3s delay-3s"
+      class="absolute lg:top-96 lg:-left-14 top-50 left-10 -rotate-20 blur-[1.5px] floating-element-3s delay-3s"
     />
 
-    <picture>
+    <picture class="lg:w-[400px] w-56 mx-auto">
       <img
         src="img/campanas-interactivas/personaje.webp"
-        class="w-[400px]"
         alt="Personaje"
       />
     </picture>
   </div>
 
-  <img src="img/puntos.svg" alt="Puntos" class="absolute top-30 right-0 w-8" />
+  <img src="img/puntos.svg" alt="Puntos" class="absolute lg:top-30 lg:right-0 top-24 right-2 xl:w-8 lg:w-6 w-5" />
 </section>

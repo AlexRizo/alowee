@@ -1,8 +1,5 @@
 ---
 import "@styles/global.css";
-import { Loader } from "@components/react/Loader";
-import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
-import { Navbar } from "@components/react/Navbar";
 
 interface Props {
   title: string;
@@ -38,8 +35,6 @@ const { title, load = true }: Props = Astro.props;
         <LoaderImagesContainer />
       </Loader>
     )} -->
-
-    <Navbar client:load />
 
     <main>
       <slot />

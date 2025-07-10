@@ -3,13 +3,13 @@
 ---
 
 <section
-  class="h-screen snap-start bg-[url('img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center py-24 section-04"
+  class="h-screen snap-start bg-[url('img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center lg:py-24 py-6 section-04"
 >
   <div
     class="container mx-auto flex flex-col items-center justify-center h-full"
   >
     <h2
-      class="font-plus-jakarta-sans text-[90px] font-extrabold title-s-04 text-center leading-normal"
+      class="font-plus-jakarta-sans 2xl:text-[90px] xl:text-7xl text-6xl font-extrabold title-s-04 text-center leading-normal lg:block hidden"
     >
       <span class="text-outline">TUS</span>
       <span class="text-bg">ANUNCIOS</span>
@@ -17,6 +17,17 @@
       <span class="text-purple">ESPACIOS</span><br />
       <span class="text-outline">Y</span>
       <span class="text-outline">FORMATOS</span>
+      <span class="text-bg">IDEALES</span>
+    </h2>
+    <h2
+      class="font-plus-jakarta-sans text-4xl font-extrabold title-s-04-mobile text-center leading-normal lg:hidden"
+    >
+      <span class="text-outline text-overflow">TUS</span>
+      <span class="text-bg text-overflow z-1 relative">ANUNCIOS</span>
+      <span class="text-outline">EN</span>
+      <span class="text-purple">ESPACIOS</span>
+      <span class="text-outline text-overflow">Y</span>
+      <span class="text-outline text-overflow formatos-mobile">FORMATOS</span>
       <span class="text-bg">IDEALES</span>
     </h2>
   </div>
@@ -38,6 +49,13 @@
     padding: 0 10px;
     color: white;
   }
+
+  .text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-flex;
+  }
 </style>
 
 <script>
@@ -46,31 +64,120 @@
   import { SplitText } from "gsap/SplitText";
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
-  
-  document.fonts.ready.then(() => {
-    const title = new SplitText(".title-s-04", {
-      type: "lines",
-      mask: "lines",
-    });
 
-    const tl = gsap.timeline();
+  let title: SplitText;
+  let titleMobile: SplitText;
+  let formatosMobile: SplitText;
+  let tl: gsap.core.Timeline;
+  let tlMobile: gsap.core.Timeline;
 
-    ScrollTrigger.create({
-      scroller: "main",
-      trigger: ".section-04",
-      onEnter: () => {
-        tl.from(title.lines[0], {
-          y: 130,
-          x: 130,
-          duration: 1.3,
-          ease: "power4.inOut",
-        }).from(title.lines[1], {
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: ".section-04",
+    onEnter: () => {
+      title = new SplitText(".title-s-04", {
+        type: "lines",
+        mask: "lines",
+      });
+
+      titleMobile = new SplitText(".title-s-04-mobile", {
+        type: "words",
+      });
+
+      formatosMobile = new SplitText(".formatos-mobile", {
+        type: "chars",
+      });
+
+      tl = gsap.timeline();
+      tlMobile = gsap.timeline();
+      const mobileDelay = "-=0.6";
+
+      tl.from(title.lines[0], {
+        y: 130,
+        x: 130,
+        duration: 1.3,
+        ease: "power4.inOut",
+      }).from(
+        title.lines[1],
+        {
           y: -130,
           x: -130,
           duration: 1.3,
           ease: "power4.inOut",
-        }, '<')
-      },
-    });
+        },
+        "<"
+      );
+
+      tlMobile
+        .from(titleMobile.words[0], {
+          x: -100,
+          duration: 1,
+          ease: "bounce",
+        })
+        .from(
+          titleMobile.words[1],
+          {
+            x: "-110%",
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          mobileDelay
+        )
+        .from(
+          titleMobile.words[2],
+          {
+            x: -100,
+            duration: 0.8,
+            ease: "back",
+          },
+          mobileDelay
+        )
+        .from(
+          titleMobile.words[3],
+          {
+            scale: 1.3,
+            autoAlpha: 0,
+            filter: "blur(5px)",
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          mobileDelay
+        )
+        .from(
+          [titleMobile.words[4], ...formatosMobile.chars],
+          {
+            duration: 0.4,
+            autoAlpha: 0,
+            scale: 0.7,
+            stagger: 0.1,
+            ease: "back",
+          },
+          mobileDelay
+        )
+        .fromTo(
+          titleMobile.words[6],
+          {
+            autoAlpha: 0,
+            scale: 0.7,
+            rotate: -10,
+          },
+          {
+            autoAlpha: 1,
+            scale: 1,
+            rotate: 0,
+            duration: 0.8,
+            ease: "bounce",
+          },
+          "-=0.3"
+        );
+    },
+    onLeaveBack: () => {
+      title.revert();
+      titleMobile.revert();
+      formatosMobile.revert();
+
+      tl.clear();
+      tlMobile.clear();
+    },
   });
 </script>

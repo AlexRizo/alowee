@@ -1,5 +1,6 @@
 ---
 import CampainServiceCard from "@components/pages/campanas-interactivas/CampainServiceCard.astro";
+import CampanasSlide from "@components/pages/campanas-interactivas/CampanasSlide.tsx";
 import type { CardService } from "@utils/data";
 
 interface Props {
@@ -8,14 +9,20 @@ interface Props {
 const { campainServices }: Props = Astro.props;
 ---
 
-<section class="h-screen snap-start bg-gray-950 py-24 section-03">
+<section class="h-screen snap-start bg-gray-950 lg:py-24 py-6 section-03 lg:px-0 px-6">
   <div class="h-full container mx-auto flex flex-col items-center">
-    <h2 class="text-rose-to-purple text-7xl font-bold title-s-03 leading-normal">Tipos de campañas</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 mt-16">
+    <h2 class="text-rose-to-purple 2xl:text-7xl xl:text-6xl lg:text-5xl text-4xl font-bold title-s-03 leading-normal">Tipos de campañas</h2>
+
+    <div class="lg:grid lg:grid-cols-2 gap-x-16 xl:gap-y-8 gap-y-6 mt-16 hidden">
       {campainServices.map((service) => (
         <CampainServiceCard {...service} />
       ))}
     </div>
+
+    <div class="lg:hidden inline-flex w-full mt-10 relative">
+      <CampanasSlide client:only campanas={campainServices} />
+    </div>
+
   </div>
 </section>
 
@@ -37,6 +44,7 @@ const { campainServices }: Props = Astro.props;
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
   let titleSplit: SplitText;
+  const cards = document.querySelectorAll("#card");
   
   document.fonts.ready.then(() => {
     titleSplit = new SplitText(".title-s-03", {
@@ -44,9 +52,6 @@ const { campainServices }: Props = Astro.props;
       mask: "lines",
       linesClass: "title-s-03-char",
     });
-  })
-
-  const cards = document.querySelectorAll("#card");
 
     ScrollTrigger.create({
       scroller: "main",
@@ -62,7 +67,7 @@ const { campainServices }: Props = Astro.props;
             ease: "power4.out",
           }
         );
-
+  
         gsap.fromTo(
           cards,
           {
@@ -82,4 +87,6 @@ const { campainServices }: Props = Astro.props;
         );
       },
     });
+  })
+
 </script>

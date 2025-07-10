@@ -1,0 +1,94 @@
+---
+
+---
+
+<section
+  class="bg-[url('img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center h-screen section-2 snap-start lg:px-0 px-6"
+>
+  <article
+    class="text-center flex flex-col items-center justify-center gap-5 h-full"
+  >
+    <picture class="como-lo-hacemos lg:w-auto w-56">
+      <img
+        src="img/campanas-interactivas/ad-board.webp"
+        alt="Como lo hacemos"
+      />
+    </picture>
+    <h2 class="2xl:text-7xl xl:text-7xl lg:text-6xl text-4xl font-bold text-black title-s-02 leading-none lg:w-auto w-56">
+      Integral
+    </h2>
+    <p class="text-gray-800 lg:text-xl text-lg description-p01">
+      Escuchamos lo que tu marca necesita y para<br /> qué lo vas a usar. A partir
+      de eso, creamos<br /> piezas gráficas bien pensadas, diseñadas<br /> con detalle
+      y enfocadas en cumplir su<br /> propósito.
+    </p>
+  </article>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+
+  const section2 = document.querySelector(".section-2") as HTMLElement;
+  const children = section2.children[0].children;
+
+  gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
+  
+  const titleTL = gsap.timeline({
+    delay: 2,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 1,
+  });
+  
+  const defaults = {
+    delay: 0.2,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power4.out",
+  };
+
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: section2,
+    onEnter: () => {
+      gsap.fromTo(
+        children,
+        {
+          y: 1000,
+          ...defaults,
+        },
+        {
+          y: 0,
+          ...defaults,
+        }
+      );
+
+      titleTL.to('.title-s-02', {
+        scrambleText: {
+          text: 'Medible',
+          chars: 'UX/UI',
+        },
+        duration: 1.5,
+        ease: 'power4.out',
+      }).to('.title-s-02', {
+        scrambleText: {
+          text: 'Efectiva',
+          chars: 'UX/UI',
+        },
+        duration: 1.5,
+        ease: 'power4.out',
+        delay: 1,
+      }).to('.title-s-02', {
+        scrambleText: {
+          text: 'Integral',
+          chars: 'UX/UI',
+        },
+        duration: 1.5,
+        ease: 'power4.out',
+        delay: 1,
+      });
+    },
+  });
+</script>
