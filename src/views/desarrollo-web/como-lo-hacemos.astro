@@ -10,11 +10,11 @@ const { services }: Props = Astro.props;
 
 <section class="h-screen snap-start section-03 bg-[url('/img/servicios-integrales/enfoque-estrategico-bg.webp')] bg-cover bg-center">
   <div class="container mx-auto flex flex-col items-center h-full py-5">
-    <picture class="size-56 translate-y-5 img-como-lo-hacemos">
+    <picture class="2xl:size-56 xl:size-48 lg:size-40 size-32 lg:translate-y-5 translate-y-2 img-como-lo-hacemos">
       <img src="/img/desarrollo-web/dev-config.webp" alt="¿Cómo lo hacemos?"/>
     </picture>
-    <h2 class="text-rose-to-purple text-7xl font-bold title-s-03 leading-normal title-s-03">¿Cómo lo hacemos?</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 mt-16">
+    <h2 class="text-rose-to-purple 2xl:text-7xl xl:text-7xl lg:text-6xl text-4xl font-bold title-s-03 leading-normal title-s-03">¿Cómo lo hacemos?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-x-16 xl:gap-y-8 lg:gap-y-6 gap-y-4 2xl:mt-16 xl:mt-10 lg:mt-8 mt-6">
       {services.map((service) => (
         <CardService {...service} />
       ))}

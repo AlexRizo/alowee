@@ -5,15 +5,15 @@ import "@styles/custom.css";
 ---
 
 <section
-  class="container mx-auto grid grid-cols-2 h-screen snap-start relative pt-20.5"
+  class="container mx-auto lg:grid lg:grid-cols-2 flex flex-col h-screen snap-start relative pt-20.5 lg:px-0 px-6 overflow-hidden"
 >
   <img
     src="img/puntos.svg"
     alt="Puntos"
-    class="absolute bottom-10 left-0 w-8"
+    class="absolute bottom-10 lg:left-0 left-2 xl:w-8 lg:w-6 w-5"
   />
   <article class="flex flex-col justify-center items-end relative z-1">
-    <div class="w-[550px] flex flex-col gap-10 tracking-wider">
+    <div class="lg:w-[550px] w-full flex flex-col lg:gap-10 gap-6 tracking-wider">
       <PageHomeTitle
         title="Desarrollo"
         titleExalted="Web"
@@ -47,31 +47,30 @@ import "@styles/custom.css";
     </div>
   </article>
 
-  <div class="flex items-end relative">
+  <div class="flex items-end relative mt-auto">
     <img
       src="img/desarrollo-web/dev-icon.webp"
       alt="Tools"
-      class="absolute top-36 left-64 floating-element-3s -rotate-3"
+      class="absolute lg:top-36 lg:left-64 top-10 right-2 floating-element-3s -rotate-3"
     />
     <img
       src="img/desarrollo-web/configure-icon.webp"
       alt="Ad File"
-      class="absolute top-44 left-26 -rotate-12 floating-element-6s blur-[1px]"
+      class="absolute lg:top-44 lg:left-26 top-20 left-6 -rotate-12 floating-element-6s blur-[1px]"
     />
     <img
       src="img/desarrollo-web/tool-icon.webp"
       alt="File"
-      class="absolute top-74 left-10 -rotate-12 blur-[2.5px] floating-element-9s"
+      class="absolute lg:top-74 lg:left-10 top-50 right-4 -rotate-12 blur-[2.5px] floating-element-9s"
     />
 
-    <picture>
+    <picture class="lg:-translate-x-36 lg:w-auto w-86">
       <img
         src="img/desarrollo-web/personaje.webp"
         alt="Personaje"
-        class="-translate-x-36"
       />
     </picture>
   </div>
 
-  <img src="img/puntos.svg" alt="Puntos" class="absolute top-30 right-0 w-8" />
+  <img src="img/puntos.svg" alt="Puntos" class="absolute lg:top-30 top-24 lg:right-0 right-2 xl:w-8 lg:w-6 w-5" />
 </section>
