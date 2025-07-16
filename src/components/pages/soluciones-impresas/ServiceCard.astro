@@ -9,12 +9,12 @@ const { title, description, image } = Astro.props as Props;
 
 ---
 
-<div role="contentinfo" class="flex items-center gap-1 px-4 rounded bg-white/7 w-[485px] h-38 service-card">
-  <picture class="h-25 min-w-28">
+<div role="contentinfo" class="flex items-center gap-1 px-4 py-2 rounded bg-white/7 max-w-[485px] h-30 service-card">
+  <picture class="h-full min-w-28">
     <img src={image} alt={title} class="h-full w-full object-contain"/>
   </picture>
-  <article class="space-y-1 self-start mt-5">
-    <h3 class="font-space-grotesk text-2xl font-bold text-fuchsia-200">{title}</h3>
-    <p class="text-purple-200 leading-snug">{description}</p>
+  <article class="space-y-1 self-start">
+    <h3 class="font-space-grotesk xl:text-2xl text-xl font-bold text-fuchsia-200">{title}</h3>
+    <p class="text-purple-200 leading-snug xl:text-base text-sm">{description}</p>
   </article>
 </div>

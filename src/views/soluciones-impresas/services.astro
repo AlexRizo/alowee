@@ -1,5 +1,6 @@
 ---
 import ServiceCard from "@components/pages/soluciones-impresas/ServiceCard.astro";
+import CardServicesSlider from "@components/pages/campanas-interactivas/CardServicesSlider";
 import { type CardService } from "@utils/data";
 
 interface Props {
@@ -10,13 +11,13 @@ const { services } = Astro.props as Props;
 ---
 
 <section
-  class="h-screen snap-start section-02 bg-[url('/img/servicios-integrales/enfoque-estrategico-bg.webp')] bg-cover bg-center section-02"
+  class="h-screen snap-start section-02 bg-[url('/img/servicios-integrales/enfoque-estrategico-bg.webp')] bg-cover bg-center section-02 lg:px-0 px-6"
 >
   <div
-    class="container mx-auto h-full flex flex-col items-center relative py-10 gap-14"
+    class="container mx-auto h-full flex flex-col items-center relative py-10 lg:gap-14 gap-10"
   >
-    <h2 class="text-7xl font-bold text-rose-to-purple title-s-02">Soportes de impresión</h2>
-    <div class="grid grid-cols-2 gap-8 services-container">
+    <h2 class="2xl:text-7xl xl:text-6xl lg:text-5xl text-4xl font-bold text-rose-to-purple title-s-02">Soportes de impresión</h2>
+    <div class="lg:grid lg:grid-cols-2 gap-8 services-container hidden">
       {services.map((service) => (
         <ServiceCard
           title={service.title}
@@ -24,6 +25,10 @@ const { services } = Astro.props as Props;
           image={service.image}
         />
       ))}
+    </div>
+
+    <div class="lg:hidden inline-flex w-full mt-10 relative">
+      <CardServicesSlider client:only campanas={services} section=".section-02" />
     </div>
   </div>
 </section>
@@ -55,11 +60,11 @@ const { services } = Astro.props as Props;
       }).from('.service-card', {
         y: 100,
         autoAlpha: 0,
-        filter: 'blur(10px)',
-        duration: 1,
-        ease: "power4.out",
+        filter: "blur(10px)",
         stagger: 0.1,
-      }, '-=0.5');
+        duration: 0.5,
+        ease: "sine.out",
+      }, '-=0.6');
     },
   });
 </script>

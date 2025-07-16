@@ -4,7 +4,7 @@ import "@styles/custom.css";
 ---
 
 <section
-  class="container mx-auto lg:grid lg:grid-cols-2 h-screen snap-start lg:pt-20.5 relative lg:px-0 px-6"
+  class="container mx-auto lg:grid lg:grid-cols-2 flex flex-col h-screen snap-start pt-20.5 relative lg:px-0 px-6 overflow-hidden"
 >
   <img
     src="img/puntos.svg"
@@ -12,15 +12,15 @@ import "@styles/custom.css";
     class="absolute bottom-10 lg:left-0 left-2 xl:w-8 lg:w-6 w-5"
   />
   <article class="flex flex-col justify-center items-end">
-    <div class="w-3/5 flex flex-col gap-5">
+    <div class="lg:w-3/5 flex flex-col lg:gap-5 gap-4">
       <PageHomeTitle
         title="Soluciones"
         titleExalted="Impresas"
         description="En Alowee, no solo imprimimos: organizamos, sistematizamos y ejecutamos toda tu operación promocional, con la flexibilidad de un proveedor local cercano y la precisión de un sistema nacional."
       />
 
-      <div class="flex items-start">
-        <picture class="picture mt-2">
+      <div class="flex items-start justify-center lg:justify-start">
+        <picture class="picture mt-2 lg:w-auto w-35">
           <img
             src="img/soluciones-impresas/impresora.webp"
             alt="Representación de impresora"
@@ -30,32 +30,32 @@ import "@styles/custom.css";
         <img
           src="img/soluciones-impresas/flor-impresa.webp"
           alt="Flor Impresa"
+          class="lg:w-auto w-16"
         />
       </div>
     </div>
   </article>
 
-  <div class="flex justify-start items-end relative">
+  <div class="flex justify-start items-end relative mt-auto lg:mt-0">
     <img
       src="img/soluciones-impresas/tarjetas.webp"
       alt="Tarjetas"
-      class="absolute top-20 right-2/4 floating-element-3s"
+      class="absolute lg:top-20 top-10 lg:right-2/4 right-0 floating-element-3s"
     />
     <img
       src="img/soluciones-impresas/triptico.webp"
       alt="Triptico"
-      class="absolute top-40 left-30 -rotate-12 floating-element-6s"
+      class="absolute lg:top-40 lg:left-30 top-14 left-10 -rotate-12 floating-element-6s"
     />
     <img
       src="img/soluciones-impresas/flor-impresa.webp"
       alt="Flor Impresa"
-      class="absolute top-80 left-16 -rotate-12 blur-[2.5px] floating-element-9s"
+      class="absolute lg:top-80 lg:left-16 top-36 left-5 -rotate-12 blur-[2.5px] floating-element-9s"
     />
 
-    <picture class="-translate-x-20">
+    <picture class="lg:-translate-x-20 lg:w-[703px] w-86 mx-auto lg:mx-0">
       <img
         src="img/soluciones-impresas/personaje.webp"
-        class="w-[703px]"
         alt="Personaje"
       />
     </picture>

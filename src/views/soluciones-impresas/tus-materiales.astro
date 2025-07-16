@@ -1,0 +1,99 @@
+---
+
+---
+
+<section
+  class="h-screen snap-start section-04 bg-[url('/img/servicios-integrales/enfoque-estrategico-bg.webp')] bg-cover bg-center lg:px-0 px-6"
+>
+  <div class="container mx-auto flex flex-col justify-center h-full">
+    <article class="flex items-center justify-center">
+      <h3 class="2xl:text-[90px] xl:text-7xl lg:text-6xl text-5xl font-extrabold text-center leading-normal exalted px-1">
+        <span class="text-outline">TUS</span>
+        <span class="text-fill">MATERIALES A TIEMPO</span>
+        <span class="text-outline">Y</span>
+        <span class="text-bg-fill relative z-1 overflow-hidden inline-flex">COMO</span>
+        <span class="text-bg-fill inline-flex mt-1 gap-3">DEBEN VERSE</span>
+      </h3>
+    </article>
+  </div>
+</section>
+
+<style>
+  @reference "@styles/global.css";
+
+  .text-outline {
+    @apply text-black [-webkit-text-stroke:2px_#AA88D1] [paint-order:stroke_fill];
+  }
+
+  .text-fill {
+    @apply text-white;
+  }
+
+  .text-bg-fill {
+    @apply text-white bg-[#6F36AF] px-4;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  let exaltedSplit: SplitText;
+
+  document.fonts.ready.then(() => {
+    exaltedSplit = new SplitText(".exalted", {
+      type: "words",
+    });
+  });
+
+  const exaltedTl = gsap.timeline({
+    defaults: {
+      duration: 0.7,
+    }
+  });
+
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: ".section-04",
+    onLeaveBack: () => {
+      exaltedTl.clear();
+    },
+    onEnter: () => {
+      exaltedTl.from(exaltedSplit.words[0], {
+        delay: 0.4,
+        y: '-100%',
+        autoAlpha: 0,
+        ease: 'bounce'
+      }).from(exaltedSplit.words[1], {
+        y: '-100%',
+        autoAlpha: 0,
+        ease: 'bounce'
+      }, '-=0.5').from(exaltedSplit.words[2], {
+        y: '-100%',
+        autoAlpha: 0,
+        ease: 'bounce'
+      }, '-=0.5').from(exaltedSplit.words[3], {
+        x: '-100%',
+        autoAlpha: 0,
+        filter: 'blur(10px)',
+        ease: 'power4.out'
+      }, '-=0.5').from(exaltedSplit.words[4], {
+        x: '100%',
+        rotate: 45,
+        autoAlpha: 0,
+        ease: 'back.out'
+      }, '-=0.5').from(exaltedSplit.words[5], {
+        x: '120%',
+        ease: 'power4.out'
+      }, '-=0.5').from([exaltedSplit.words[6], exaltedSplit.words[7]], {
+        scale: 1.2,
+        autoAlpha: 0,
+        filter: 'blur(10px)',
+        ease: 'sine'
+      }, '-=0.5');
+    },
+  });
+</script>

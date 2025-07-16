@@ -1,12 +1,13 @@
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import type { CardService } from '@utils/data';
-import { useEffect, useRef, type FC } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Navigation } from 'swiper/modules';
+import "swiper/css";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { CardService } from "@utils/data";
+import { useEffect, useRef, useState, type FC } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Navigation } from "swiper/modules";
+
 interface CampainServiceCardProps {
   cardId?: string;
   title: string;
@@ -14,43 +15,60 @@ interface CampainServiceCardProps {
   image: string;
 }
 
-const CampainServiceCard: FC<CampainServiceCardProps> = ({ cardId = 'mobile-card', title, description, image }) => {
+const CampainServiceCard: FC<CampainServiceCardProps> = ({
+  cardId = "mobile-card",
+  title,
+  description,
+  image,
+}) => {
   return (
-    <div id={cardId} className="bg-gray-200/8 lg:py-4 py-3 lg:px-6 px-4 flex items-start gap-4 rounded xl:max-w-[485px] lg:max-w-[400px] w-full">
+    <div
+      id={cardId}
+      className="bg-gray-200/8 lg:py-4 py-3 lg:px-6 px-4 flex items-start gap-4 rounded xl:max-w-[485px] lg:max-w-[400px] w-full"
+    >
       <picture className="h-full lg:w-28 w-24">
-        <img src={image} alt={title} className="w-full h-full object-contain"/>
+        <img src={image} alt={title} className="w-full h-full object-contain" />
       </picture>
       <article>
-        <h3 className="xl:text-2xl lg:text-xl text-lg font-bold text-purple-300">{title}</h3>
-        <p className="text-gray-50 description-p01 lg:text-base text-sm">{description}</p>
+        <h3 className="xl:text-2xl lg:text-xl text-lg font-bold text-purple-300">
+          {title}
+        </h3>
+        <p className="text-gray-50 description-p01 lg:text-base text-sm">
+          {description}
+        </p>
       </article>
     </div>
-  )
+  );
 };
 
 interface Props {
   campanas: CardService[];
+  section: string;
 }
 
-const FIRST_SLIDE = [1, 2, 3];
-const SECOND_SLIDE = [4, 5, 6];
-
-const CampainServiceSlider: FC<Props> = ({ campanas }) => {
+const CampainServiceSlider: FC<Props> = ({ campanas, section = ".section-03" }) => {
   const swiperRef = useRef<any>(null);
-  
-  const firstGroup = campanas.filter(c => FIRST_SLIDE.includes(c.id));
-  const secondGroup = campanas.filter(c => SECOND_SLIDE.includes(c.id));
+
+  const [slides, setSlides] = useState<CardService[][]>([]);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    setSlides(() => {
+      const newSlides = [];
 
-    const cards = document.querySelectorAll("#mobile-card");
+      for (let i = 0; i < campanas.length; i += 3) {
+        newSlides.push(campanas.slice(i, i + 3));
+      }
+
+      return newSlides;
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({
       scroller: "main",
-      trigger: ".section-03",
+      trigger: section,
       onEnter: () => {
-        gsap.from(cards, {
+        gsap.from('#mobile-card', {
           delay: 0.7,
           y: 100,
           autoAlpha: 0,
@@ -65,11 +83,11 @@ const CampainServiceSlider: FC<Props> = ({ campanas }) => {
 
   const handleNext = () => {
     swiperRef.current?.slideNext();
-  }
+  };
 
   const handlePrev = () => {
     swiperRef.current?.slidePrev();
-  }
+  };
 
   return (
     <>
@@ -81,36 +99,30 @@ const CampainServiceSlider: FC<Props> = ({ campanas }) => {
           <ChevronRight className="size-10" />
         </button>
       </div>
-    
+
       <Swiper
         slidesPerView={1}
-        onSwiper={(swiper) => swiperRef.current = swiper}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
         centeredSlides
         grabCursor
-        className='w-full'
-        slideActiveClass='active-slide-service'
+        className="w-full"
+        slideActiveClass="active-slide-service"
         navigation={{
           nextEl: ".custom-next",
           prevEl: ".custom-prev",
         }}
         modules={[Navigation]}
       >
-        <SwiperSlide>
-          <div className="max-w-9/10 flex flex-col gap-6 mx-auto">
-            {firstGroup.map(campana => (
-              <CampainServiceCard key={campana.id} {...campana} />
-            ))}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="max-w-9/10 flex flex-col gap-6 mx-auto">
-            {secondGroup.map(campana => (
-              <CampainServiceCard key={campana.id} {...campana} />
-            ))}
-          </div>
-        </SwiperSlide>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div className="max-w-9/10 flex flex-col gap-6 mx-auto">
+              {slide.map((campana) => (
+                <CampainServiceCard key={campana.id} {...campana} />
+              ))}
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
-
     </>
   );
 };
