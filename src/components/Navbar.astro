@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import NavbarMenu from "./react/NavbarMenu";
 import { Mail } from "@lucide/astro";
+import { ContactForm } from "./react/ContactForm";
 ---
 
 <header class="w-full bg-gradient-to-b from-[#230D28] to-[#44234D] absolute z-5">
@@ -15,9 +16,9 @@ import { Mail } from "@lucide/astro";
       <img src="./icons/alowee-icon.svg" alt="Alowee Interactive" class="lg:h-full h-6">
     </a>
 
-    <a href="/contacto" class="font-space-grotesk font-bold text-xl lg:block hidden">
-      CONTACTO
-    </a>
+    <ContactForm client:load className="font-space-grotesk font-bold text-xl lg:block hidden cursor-pointer">
+      CONTACT<span class="inline-flex flex-col">O<hr class="-translate-y-1 border-1 rounded-full w-full ml-auto"></span>
+    </ContactForm>
     <Mail class="lg:hidden block" />
   </nav>
   <div class="h-0.5 bg-gradient-to-r from-[#252237] via-[#6A7C88] to-[#252237]"></div>
