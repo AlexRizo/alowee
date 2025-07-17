@@ -77,7 +77,23 @@ function generateColumnItems(startLetter: string): Item[] {
       ))
     }
   </article>
+
+  <div id="lottie-player" class="w-full h-full bg-red-500">
+
+  </div>
+  
 </main>
+
+<script>
+  import lottie from "lottie-web";
+
+  lottie.loadAnimation({
+    container: document.getElementById("lottie-player")!,
+    renderer: "svg",
+    loop: true,
+    path: 'lottie/ADAPTABLE.json'
+  });
+</script>
 
 <style>
   .slot-column span {

@@ -1,0 +1,59 @@
+---
+
+---
+
+<section
+  class="bg-[url('img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center h-screen section-2 snap-start lg:px-0 px-6"
+>
+  <article
+    class="text-center flex flex-col items-center justify-center gap-5 h-full"
+  >
+    <picture class="como-lo-hacemos lg:w-auto w-56">
+      <img
+        src="img/servicios-integrales/como-lo-hacemos.webp"
+        alt="Como lo hacemos"
+      />
+    </picture>
+    <h2 class="2xl:text-7xl xl:text-7xl lg:text-6xl text-4xl font-bold text-black title-s-02 leading-none lg:w-auto w-56">
+      ¿Cómo lo hacemos?
+    </h2>
+    <p class="text-gray-800 lg:text-xl text-lg description-p01">
+      Desde identidades visuales hasta contenido<br/> para redes y medios físicos o digitales.
+    </p>
+  </article>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const section2 = document.querySelector(".section-2") as HTMLElement;
+  const children = section2.children[0].children;
+
+  gsap.registerPlugin(ScrollTrigger);
+  
+  const defaults = {
+    delay: 0.2,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power4.out",
+  };
+
+  ScrollTrigger.create({
+    scroller: "main",
+    trigger: section2,
+    onEnter: () => {
+      gsap.fromTo(
+        children,
+        {
+          y: 1000,
+          ...defaults,
+        },
+        {
+          y: 0,
+          ...defaults,
+        }
+      );
+    },
+  });
+</script>

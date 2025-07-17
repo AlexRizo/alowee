@@ -1,0 +1,71 @@
+---
+import PageHomeTitle from "@components/PageHomeTitle.astro";
+import "@styles/custom.css";
+---
+
+<section
+  class="container mx-auto lg:grid lg:grid-cols-2 flex flex-col h-screen snap-start pt-20.5 relative lg:px-0 px-6 overflow-hidden"
+>
+  <img
+    src="img/puntos.svg"
+    alt="Puntos"
+    class="absolute bottom-10 lg:left-0 left-2 xl:w-8 lg:w-6 w-5"
+  />
+  <article class="flex flex-col justify-center items-end">
+    <div class="lg:w-3/5 flex flex-col lg:gap-5 gap-4">
+      <PageHomeTitle
+        title="Diseño"
+        titleExalted="Digital"
+        description="Nos especializamos en crear piezas gráficas de alta calidad para cualquier plataforma digital o impresa."
+      />
+
+      <div class="flex items-start justify-center lg:justify-start">
+        <picture class="picture mt-2 lg:w-auto w-35">
+          <img
+            src="img/soluciones-impresas/impresora.webp"
+            alt="Representación de impresora"
+            class="rounded"
+          />
+        </picture>
+        <img
+          src="img/soluciones-impresas/flor-impresa.webp"
+          alt="Flor Impresa"
+          class="lg:w-auto w-16"
+        />
+      </div>
+    </div>
+  </article>
+
+  <div class="flex justify-start items-end relative mt-auto lg:mt-0">
+    <img
+      src="img/diseno-digital/ideas.webp"
+      alt="Tarjetas"
+      class="absolute lg:top-24 top-10 lg:right-2/4 right-0 floating-element-3s"
+    />
+    <img
+      src="img/diseno-digital/documento-ad.webp"
+      alt="Triptico"
+      class="absolute lg:top-44 lg:left-32 top-14 left-10 -rotate-12 floating-element-6s"
+    />
+    <img
+      src="img/diseno-digital/documento.webp"
+      alt="Flor Impresa"
+      class="absolute lg:top-80 lg:left-16 top-36 left-5 -rotate-12 blur-[2.5px] floating-element-9s z-1"
+    />
+
+    <img
+      src="img/diseno-digital/poligono.webp"
+      alt="Flor Impresa"
+      class="absolute lg:bottom-80 lg:left-16 bottom-36 left-5 -rotate-12 blur-[2.5px] floating-element-3s z-1"
+    />
+
+    <picture class="lg:-translate-x-20 mx-auto lg:mx-0">
+      <img
+        src="img/diseno-digital/personaje.webp"
+        alt="Personaje"
+      />
+    </picture>
+  </div>
+
+  <img src="img/puntos.svg" alt="Puntos" class="absolute lg:top-30 top-24 lg:right-0 right-2 xl:w-8 lg:w-6 w-5" />
+</section>

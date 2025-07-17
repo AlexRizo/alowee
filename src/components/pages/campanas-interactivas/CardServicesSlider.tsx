@@ -26,8 +26,8 @@ const CampainServiceCard: FC<CampainServiceCardProps> = ({
       id={cardId}
       className="bg-gray-200/8 lg:py-4 py-3 lg:px-6 px-4 flex items-start gap-4 rounded xl:max-w-[485px] lg:max-w-[400px] w-full"
     >
-      <picture className="h-full lg:w-28 w-24">
-        <img src={image} alt={title} className="w-full h-full object-contain" />
+      <picture className="h-full max-w-14 min-w-14">
+        <img src={image} alt={title} className="object-contain size-full" />
       </picture>
       <article>
         <h3 className="xl:text-2xl lg:text-xl text-lg font-bold text-purple-300">

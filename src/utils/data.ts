@@ -317,3 +317,42 @@ export const printedServices: CardService[] = [
     image: "img/soluciones-impresas/servicio-offset.webp",
   }
 ];
+
+export const formatosUsuales: CardService[] = [
+  {
+    id: 1,
+    title: "Digital",
+    description: "Banners o imágenes para cualquier tipo de plataforma.",
+    image: "img/diseno-digital/digital.webp",
+  },
+  {
+    id: 2,
+    title: "UX / UI",
+    description: "Interfaces o prototipos para web / sistemas",
+    image: "img/diseno-digital/ux-ui.webp",
+  },
+  {
+    id: 3,
+    title: "Identidad",
+    description: "Logotipos, manuales de marca, ilustraciones.",
+    image: "img/diseno-digital/identidad.webp",
+  },
+  {
+    id: 4,
+    title: "Redes",
+    description: "Post, Infografías, Stories o Ads Google/Meta.",
+    image: "img/diseno-digital/redes.webp",
+  },
+  {
+    id: 5,
+    title: "Impresos",
+    description: "Gran formato, papeleria, vinil, materiales especiales de marca.",
+    image: "img/diseno-digital/impresos.webp",
+  },
+  {
+    id: 6,
+    title: "Visual Merchandising",
+    description: "Visual y estratégico del P.V. para mejorar la experiencia y promover productos.",
+    image: "img/diseno-digital/visual-merchandising.webp",
+  }
+];

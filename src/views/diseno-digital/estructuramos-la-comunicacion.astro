@@ -1,0 +1,134 @@
+---
+---
+
+<section
+  class="bg-[url('img/servicios-integrales/experiencia-bg.webp')] bg-cover h-screen section-4 relative snap-start flex items-center justify-center"
+>
+  <article
+    class="flex flex-col justify-center items-center article 2xl:max-w-[1400px] xl:max-w-7xl lg:max-w-5xl"
+  >
+    <h3 class="2xl:text-[90px] xl:text-7xl lg:text-6xl text-4xl leading-snug font-extrabold text-center exalted font-plus-jakarta-sans aliados space-y-3">
+      <span class="text-fill">ESTRUCTURAMOS</span>
+      <span class="text-outline">LA COMUNICACIÓN</span>
+      <span class="text-fill">VISUAL</span>
+      <span class="text-outline">DE TU</span>
+      <span class="text-bg overflow-hidden inline-flex relative z-1">MARCA</span>
+      <span class="text-outline">PARA CONECTARLA CON TU</span>
+      <span class="text-bg overflow-hidden inline-flex relative z-1">AUDIENCIA</span>
+    </h3>
+  </article>
+</section>
+
+<style>
+  @reference "@styles/global.css";
+
+  .text-outline {
+    @apply text-white [-webkit-text-stroke:2px_#59168b] [paint-order:stroke_fill];
+  }
+
+  .text-fill {
+    @apply text-purple-200 [-webkit-text-stroke:2px_#59168b] [paint-order:stroke_fill];
+  }
+
+  .text-bg {
+    @apply text-purple-200 bg-[#6F36AF] px-1;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  let splitText: SplitText;
+  const tl = gsap.timeline({
+    defaults: {
+      duration: 0.7,
+    }
+  });
+
+  const DELAY = 0.45;
+
+  document.fonts.ready.then(() => {
+    splitText = new SplitText(".aliados", {
+      type: "words",
+    });
+
+    ScrollTrigger.create({
+      scroller: "main",
+      trigger: ".section-4",
+      onEnter: () => {
+        tl.from( // ? ESTRUCTURAMOS;
+          splitText.words[0],
+          {
+            autoAlpha: 0,
+            rotate: -90,
+            transformOrigin: "left",
+            delay: 0.3,
+            ease: "bounce",
+          }).from( // ? LA;
+            splitText.words[1],
+            {
+              x: '-100%',
+              autoAlpha: 0,
+              ease: "power4.out",
+            }, `-=${DELAY}`).from( // ? COMUNICACIÓN;
+            splitText.words[2],
+            {
+              x: '-100%',
+              autoAlpha: 0,
+              filter: "blur(15px)",
+              ease: "power4.out",
+            }, `-=${DELAY}`).from( // ? VISUAL;
+            splitText.words[3],
+            {
+              y: '100%',
+              autoAlpha: 0,
+              ease: "bounce.out",
+            }, `-=${DELAY}`).from( // ? DE;
+            splitText.words[4],
+            {
+              x: '-100%',
+              autoAlpha: 0,
+              ease: "power4.out",
+            }, `-=${DELAY}`).from( // ? TU;
+            splitText.words[5],
+            {
+              x: '100%',
+              autoAlpha: 0,
+              ease: "power4.out",
+            }, `-=${DELAY}`).from( // ? MARCA;
+            splitText.words[6],
+            {
+              x: '-100%',
+              autoAlpha: 0,
+              ease: "power4.out",
+            }, `-=${DELAY}`).from( // ? PARA;
+            splitText.words[7],
+            {
+              x: '-100%',
+              autoAlpha: 0,
+              ease: "power4.out",
+            }, `-=${DELAY}`).from( // ? CONECTARLA;
+            splitText.words[8],
+            {
+              scale: 1.5,
+              autoAlpha: 0,
+              ease: "power4.out",
+            }, `-=${DELAY}`).from([splitText.words[9], splitText.words[10]], {
+              x: '200%',
+              autoAlpha: 0,
+              ease: "power4.out",
+            }, `-=${DELAY}`).from(splitText.words[11], {
+              scale: 1.2,
+              autoAlpha: 0,
+              filter: "blur(15px)",
+              ease: "power4.out",
+            }, `-=${DELAY}`);
+        },
+      }
+    );
+  });
+
+</script>

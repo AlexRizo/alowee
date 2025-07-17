@@ -1,0 +1,18 @@
+---
+import "@styles/custom.css";
+import ServicesLayout from "@layouts/ServicesLayout.astro";
+import HomeHero from "@views/diseno-digital/home-hero.astro";
+import ComoLoHacemos from "@views/diseno-digital/como-lo-hacemos.astro";
+import FormatosUsuales from "@views/diseno-digital/formatos-usuales.astro";
+import { formatosUsuales } from "@utils/data";
+import EstructuramosLaComunicacion from "@views/diseno-digital/estructuramos-la-comunicacion.astro";
+import SlideServicios from "@views/campanas-interactivas/slide-servicios.astro";
+---
+
+<ServicesLayout title="Diseño Digital | Alowee">
+  <HomeHero />
+  <ComoLoHacemos />
+  <FormatosUsuales formatosUsuales={formatosUsuales} />
+  <EstructuramosLaComunicacion />
+  <SlideServicios/>
+</ServicesLayout>

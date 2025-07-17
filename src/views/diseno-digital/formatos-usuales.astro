@@ -1,0 +1,92 @@
+---
+import CampainServiceCard from "@components/pages/campanas-interactivas/CampainServiceCard.astro";
+import CardServicesSlider from "@components/pages/campanas-interactivas/CardServicesSlider";
+import type { CardService } from "@utils/data";
+
+interface Props {
+  formatosUsuales: CardService[];
+}
+const { formatosUsuales }: Props = Astro.props;
+---
+
+<section class="h-screen snap-start bg-[url('img/servicios-integrales/enfoque-estrategico-bg.webp')] bg-cover bg-center lg:py-24 py-6 section-03 lg:px-0 px-6">
+  <div class="h-full container mx-auto flex flex-col items-center">
+    <h2 class="text-rose-to-purple 2xl:text-7xl xl:text-6xl lg:text-5xl text-4xl font-bold title-s-03 leading-normal">Formatos usuales</h2>
+
+    <div class="lg:grid lg:grid-cols-2 gap-x-16 xl:gap-y-8 gap-y-6 mt-16 hidden">
+      {formatosUsuales.map((formato) => (
+        <CampainServiceCard {...formato} />
+      ))}
+    </div>
+
+    <div class="lg:hidden inline-flex w-full mt-10 relative">
+      <CardServicesSlider client:only campanas={formatosUsuales} section=".section-03" />
+    </div>
+
+  </div>
+</section>
+
+<style is:inline>
+
+  .title-s-03-char {
+    display: inline-block;
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to bottom, oklch(81% 0.117 11.638), #9810fa);
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  let titleSplit: SplitText;
+  const cards = document.querySelectorAll("#card");
+  
+  document.fonts.ready.then(() => {
+    titleSplit = new SplitText(".title-s-03", {
+      type: "lines",
+      mask: "lines",
+      linesClass: "title-s-03-char",
+    });
+
+    ScrollTrigger.create({
+      scroller: "main",
+      trigger: ".section-03",
+      onEnter: () => {
+        gsap.from(
+          titleSplit.lines,
+          {
+            delay: 0.5,
+            y: 50,
+            autoAlpha: 0,
+            duration: 0.9,
+            ease: "power4.out",
+          }
+        );
+  
+        gsap.fromTo(
+          cards,
+          {
+            y: 100,
+            autoAlpha: 0,
+            filter: "blur(10px)",
+          },
+          {
+            delay: 0.8,
+            y: 0,
+            autoAlpha: 1,
+            filter: "blur(0px)",
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "sine.out",
+          }
+        );
+      },
+    });
+  })
+
+</script>
