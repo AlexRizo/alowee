@@ -1,5 +1,5 @@
 import { cn } from "@utils/cn";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FormInput } from "./FormInput";
 
 const modalStyles =
@@ -13,10 +13,6 @@ export const ContactForm = ({
   className?: string;
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
 
   return (
     <>

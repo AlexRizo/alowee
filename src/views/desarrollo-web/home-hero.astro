@@ -1,4 +1,5 @@
 ---
+import { LottieAnimation } from "@components/lottie/LottieAnimation";
 import PageHomeTitle from "@components/PageHomeTitle.astro";
 import "@styles/custom.css";
 
@@ -19,30 +20,8 @@ import "@styles/custom.css";
         titleExalted="Web"
         description="Creamos soluciones digitales eficientes, escalables y optimizadas para brindar experiencias fluidas."
       />
-      <div class="flex gap-2 items-center">
-        <picture class="picture">
-          <img
-            src="img/campanas-interactivas/analitica-de-ventas.webp"
-            alt="Representación de contenido digital"
-            class="rounded-lg"
-          />
-        </picture>
-        <div class="flex flex-col gap-4">
-          <picture class="picture">
-            <img
-              src="img/campanas-interactivas/product.webp"
-              alt="Representación de contenido digital"
-              class="rounded-lg"
-            />
-          </picture>
-          <picture class="picture">
-            <img
-              src="img/campanas-interactivas/product.webp"
-              alt="Representación de contenido digital"
-              class="rounded-lg"
-            />
-          </picture>
-        </div>
+      <div class="flex items-center lg:justify-center">
+        <LottieAnimation client:load path="lottie/WEB.json" autoplay loop className="h-30" />
       </div>
     </div>
   </article>

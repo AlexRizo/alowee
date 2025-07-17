@@ -1,4 +1,5 @@
 ---
+import { LottieAnimation } from "@components/lottie/LottieAnimation";
 import PageHomeTitle from "@components/PageHomeTitle.astro";
 import "@styles/custom.css";
 ---
@@ -19,19 +20,8 @@ import "@styles/custom.css";
         description="Nos especializamos en crear piezas gráficas de alta calidad para cualquier plataforma digital o impresa."
       />
 
-      <div class="flex items-start justify-center lg:justify-start">
-        <picture class="picture mt-2 lg:w-auto w-35">
-          <img
-            src="img/soluciones-impresas/impresora.webp"
-            alt="Representación de impresora"
-            class="rounded"
-          />
-        </picture>
-        <img
-          src="img/soluciones-impresas/flor-impresa.webp"
-          alt="Flor Impresa"
-          class="lg:w-auto w-16"
-        />
+      <div class="flex items-start lg:justify-center">
+        <LottieAnimation client:load path="lottie/LOADER.json" autoplay loop className="h-30" />
       </div>
     </div>
   </article>
