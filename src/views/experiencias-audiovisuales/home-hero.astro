@@ -1,4 +1,5 @@
 ---
+import { LottieAnimation } from "@components/lottie/LottieAnimation";
 import PageHomeTitle from "@components/PageHomeTitle.astro";
 import "@styles/custom.css";
 ---
@@ -18,13 +19,7 @@ import "@styles/custom.css";
         titleExalted="audiovisuales"
         description="Desde contenido para redes sociales hasta promocionales en proyectores de cine, transformamos ideas en videos dinámicos, interactivos y memorables."
       />
-      <picture class="picture mt-2 lg:h-auto h-35">
-        <img
-          src="img/servicios-integrales/contenido.webp"
-          alt="Representación de contenido digital"
-          class="rounded h-full mx-auto"
-        />
-      </picture>
+      <LottieAnimation client:load path="lottie/ANIMACION-2D.json" autoplay loop className="h-30 lg:h-60 w-max" />
     </div>
   </article>
 
