@@ -184,7 +184,6 @@ useEffect(() => {
   const st = ScrollTrigger.create({
     scroller: "main", // si estás usando locomotivescroll, asegúrate que "main" sea correcto
     trigger: swiperRef.current!.el,
-    markers: true,
     start: "top center", // puedes ajustar esto
     onEnter: () => {
       handlePlay();
