@@ -50,6 +50,16 @@ export const VideoHome = () => {
     }
   }, [menuOpen]);
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.play();
+      }
+    }, 5500);
+  }, []);
+
   return (
     <section
     className="h-screen snap-start bg-black"
@@ -57,8 +67,8 @@ export const VideoHome = () => {
     >
       <Header hidden={!isCursorMoving} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <video
+          ref={videoRef}
           src="/video/video-home.mp4"
-          autoPlay
           muted
           className="w-full h-full object-cover"
           onEnded={() => handleVideoEnded()}

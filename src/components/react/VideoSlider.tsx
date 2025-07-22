@@ -11,28 +11,28 @@ const ACTIVE_SLIDE = 2;
 
 const SLIDES = [
   {
-    src: "img/services-2d.webp",
-    video: "video/video-01.mp4",
+    src: "/img/services-2d.webp",
+    video: "/video/video-01.mp4",
     alt: "2D",
   },
   {
-    src: "img/services-cine.webp",
-    video: "video/video-02.mp4",
+    src: "/img/services-cine.webp",
+    video: "/video/video-02.mp4",
     alt: "Cine",
   },
   {
-    src: "img/services-enterprise.webp",
-    video: "video/video-03.mp4",
+    src: "/img/services-enterprise.webp",
+    video: "/video/video-03.mp4",
     alt: "Enterprise",
   },
   {
-    src: "img/services-social-media.webp",
-    video: "video/video-01.mp4",
+    src: "/img/services-social-media.webp",
+    video: "/video/video-01.mp4",
     alt: "Social Media",
   },
   {
-    src: "img/services-spots-video.webp",
-    video: "video/video-03.mp4",
+    src: "/img/services-spots-video.webp",
+    video: "/video/video-03.mp4",
     alt: "Spots Video",
   },
 ];
@@ -260,7 +260,7 @@ useEffect(() => {
       >
         <video
           ref={videoRef}
-          src="img/services-spots-video.webp"
+          src="/img/services-spots-video.webp"
           muted={true}
           onEnded={handleVideoEnded}
           className="block size-full object-cover object-center select-none"

@@ -16,7 +16,7 @@ export const Header = ({ hidden = true, menuOpen = false, setMenuOpen }: { hidde
         </NavbarMenu>
         <a href="/">
           <img
-            src="./icons/alowee-icon.svg"
+            src="/icons/alowee-icon.svg"
             alt="Alowee Interactive"
             className="h-full"
           />

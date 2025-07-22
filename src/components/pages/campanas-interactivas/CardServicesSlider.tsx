@@ -43,7 +43,7 @@ const CampainServiceCard: FC<CampainServiceCardProps> = ({
 
 interface Props {
   campanas: CardService[];
-  section: string;
+  section?: string;
 }
 
 const CampainServiceSlider: FC<Props> = ({ campanas, section = ".section-03" }) => {

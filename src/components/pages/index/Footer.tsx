@@ -7,7 +7,7 @@ export const Footer = ({ hidden = true }: { hidden: boolean }) => {
       style={{ opacity: hidden ? 0 : 1 }}
     >
       <a href="/">
-        <img src="img/alowee-logo-morado.webp" className="w-23 h-auto"/>
+        <img src="/img/alowee-logo-morado.webp" className="w-23 h-auto"/>
       </a>
       <p className="text-gray-400">©2025 Hecho con ♥ por Alowee Interactive</p>
       <div className="flex gap-4">

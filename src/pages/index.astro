@@ -1,9 +1,15 @@
 ---
 import HomeLayout from "@layouts/HomeLayout.astro";
 import { VideoHome } from "@components/pages/index/VideoHome";
+import { Loader } from "@components/react/Loader";
+import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
 ---
 
 
 <HomeLayout title="Alowee Interactive">
+  <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
+  <Loader client:load>
+    <LoaderImagesContainer />
+  </Loader>
   <VideoHome client:load />
 </HomeLayout>

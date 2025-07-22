@@ -2,8 +2,6 @@
 import "@styles/global.css";
 import Navbar from "@components/Navbar.astro";
 import BackgroundAnimation from "@components/BackgroundAnimation.astro";
-import { Loader } from "@components/react/Loader";
-import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
 
 interface Props {
   title: string;
@@ -33,12 +31,7 @@ const { title }: Props = Astro.props;
   </head>
   <body
     class="bg-gradient-to-br from-fuchsia-800 to-[#310034] bg-cover bg-no-repeat min-h-screen"
-  >
-    <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
-    <!-- <Loader client:load>
-      <LoaderImagesContainer />
-    </Loader> -->
-    
+  > 
     <BackgroundAnimation />
 
     <main

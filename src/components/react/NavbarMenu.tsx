@@ -131,7 +131,7 @@ export default function NavbarMenu({
             onClick={handleQuit}
           >
             <img
-              src="./icons/quit.svg"
+              src="/icons/quit.svg"
               alt="Quit"
               width={77}
               height={77}
