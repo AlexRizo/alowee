@@ -31,7 +31,7 @@ export const Header = ({
         </a>
 
         <ContactForm className="font-space-grotesk font-bold text-xl cursor-pointer">
-          <span className="lg:hidden block">
+          <span className="hidden lg:block">
             CONTACT
             <span className="inline-flex flex-col">
               O
