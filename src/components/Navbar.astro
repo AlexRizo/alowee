@@ -12,7 +12,7 @@ const { isIndex = false } = Astro.props;
 
 ---
 
-<header class={`w-full bg-gradient-to-b from-[#230D28] to-[#44234D] absolute z-5 ${isIndex && 'hidden'}`}>
+<header class={`w-full bg-gradient-to-b from-[#230D28] to-[#44234D] absolute z-5 ${isIndex && 'block lg:hidden'}`}>
   <nav class="flex items-center justify-between container mx-auto py-4 lg:px-0 px-4 max-h-20">
     <NavbarMenu client:load>
       <button>
