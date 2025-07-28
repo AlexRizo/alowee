@@ -3,7 +3,7 @@
 ---
 
 <section class="h-screen snap-start section-04 bg-[url('/img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center">
-  <article class="container mx-auto flex flex-col items-center justify-center h-full">
+  <article class="container mx-auto flex flex-col items-center justify-center h-full phrase">
     <h2 class="2xl:text-[90px] xl:text-7xl lg:text-6xl text-4xl font-extrabold title-s-04 leading-snug font-plus-jakarta-none text-center">
       <span class="text-outline">CONTEMOS TU</span><br/>
       <span class="text-purple">HISTORIA</span>
@@ -49,6 +49,12 @@
       trigger: '.section-04',
       onEnter: () => {
         tl.clear();
+
+        tl.from('.phrase', {
+          autoAlpha: 0,
+          duration: 0.5,
+          ease: 'power4.out'
+        });
 
         tl.fromTo(titleSplit.lines[0], {
           x: '-100%',

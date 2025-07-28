@@ -5,7 +5,7 @@
   class="bg-[url('/img/servicios-integrales/experiencia-bg.webp')] bg-cover h-screen section-4 relative snap-start flex items-center justify-center"
 >
   <article
-    class="flex flex-col justify-center items-center article 2xl:max-w-[1400px] xl:max-w-7xl lg:max-w-5xl"
+    class="flex flex-col justify-center items-center article 2xl:max-w-[1400px] xl:max-w-7xl lg:max-w-5xl phrase"
   >
     <h3 class="2xl:text-[90px] xl:text-7xl lg:text-6xl text-4xl leading-snug font-extrabold text-center exalted font-plus-jakarta-sans aliados space-y-3">
       <span class="text-fill">ESTRUCTURAMOS</span>
@@ -59,6 +59,12 @@
       scroller: "main",
       trigger: ".section-4",
       onEnter: () => {
+        tl.from('.phrase', {
+          autoAlpha: 0,
+          duration: 0.5,
+          ease: 'power4.out'
+        });
+
         tl.from( // ? ESTRUCTURAMOS;
           splitText.words[0],
           {

@@ -6,7 +6,7 @@
   class="h-screen snap-start bg-[url('/img/servicios-integrales/experiencia-bg.webp')] bg-cover bg-center lg:py-24 py-6 section-04"
 >
   <div
-    class="container mx-auto flex flex-col items-center justify-center h-full"
+    class="container mx-auto flex flex-col items-center justify-center h-full phrase"
   >
     <h2
       class="font-plus-jakarta-sans 2xl:text-[90px] xl:text-7xl text-6xl font-extrabold title-s-04 text-center leading-normal lg:block hidden"
@@ -75,6 +75,12 @@
     scroller: "main",
     trigger: ".section-04",
     onEnter: () => {
+      tl.from('.phrase', {
+        autoAlpha: 0,
+        duration: 0.5,
+        ease: 'power4.out'
+      });
+
       title = new SplitText(".title-s-04", {
         type: "lines",
         mask: "lines",
