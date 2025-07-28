@@ -3,9 +3,16 @@ import { Icon } from "astro-icon/components";
 import NavbarMenu from "./react/NavbarMenu";
 import { Mail } from "@lucide/astro";
 import { ContactForm } from "./react/ContactForm";
+
+interface Props {
+  isIndex: boolean;
+}
+
+const { isIndex = false } = Astro.props;
+
 ---
 
-<header class="w-full bg-gradient-to-b from-[#230D28] to-[#44234D] absolute z-5">
+<header class={`w-full bg-gradient-to-b from-[#230D28] to-[#44234D] absolute z-5 ${isIndex && 'hidden'}`}>
   <nav class="flex items-center justify-between container mx-auto py-4 lg:px-0 px-4 max-h-20">
     <NavbarMenu client:load>
       <button>

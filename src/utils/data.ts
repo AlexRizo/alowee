@@ -113,42 +113,42 @@ interface Service {
 export const services: Service[] = [
   {
     id: 1,
-    title: "Spots / Videos",
+    title: "Integral",
     description:
       "Producción de comerciales, contenidos sociales e informativos para televisión o eventos, redes, pantallas gigantes o cualquier otro medio.",
     icon: "spots-y-video",
   },
   {
     id: 2,
-    title: "Redes Socialese",
+    title: "Digital",
     description:
       "Reels, stories y videos optimizados para cada plataforma, diseñados para captar la atención y reforzar el branding.",
     icon: "redes-sociales",
   },
   {
     id: 3,
-    title: "YouTube",
+    title: "Campañas",
     description:
       "Contenido, entrevistas, eventos, vlogs, demostraciones y videos educativos.",
     icon: "youtube",
   },
   {
     id: 4,
-    title: "Animación 2D",
+    title: "Sistemas",
     description:
       "Animación promocional o storytelling visual, ideales para aumentar la retención de la audiencia.",
     icon: "animacion-2d",
   },
   {
     id: 5,
-    title: "Empresarial",
+    title: "Audiovisual",
     description:
       "Videos corporativos, capacitaciones e inducción de personal con un enfoque profesional.",
     icon: "empresarial",
   },
   {
     id: 6,
-    title: "Cine Digital",
+    title: "Impresión",
     description:
       "Conversión de videos a formatos listos para proyectarse en salas de Cinépolis y Cinemex.",
     icon: "cine-digital",

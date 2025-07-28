@@ -3,7 +3,7 @@ import { Mail, MessageCircle } from "lucide-react"
 export const Footer = ({ hidden = true }: { hidden: boolean }) => {
   return (
     <footer
-      className="bg-black border-t border-gray-800 py-6 flex lg:flex-row flex-col lg:gap-0 gap-1 justify-evenly items-center absolute bottom-0 w-full transition-opacity"
+      className="bg-black border-t border-gray-800 py-6 lg:flex lg:flex-row flex-col lg:gap-0 gap-1 justify-evenly items-center absolute bottom-0 w-full transition-opacity hidden"
       style={{ opacity: hidden ? 0 : 1 }}
     >
       <a href="/" className="lg:order-none order-1">

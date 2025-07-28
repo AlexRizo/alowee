@@ -3,6 +3,8 @@ import HomeLayout from "@layouts/HomeLayout.astro";
 import { VideoHome } from "@components/pages/index/VideoHome";
 import { Loader } from "@components/react/Loader";
 import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
+import Navbar from "@components/Navbar.astro";
+import Footer from "@components/Footer.astro";
 ---
 
 
@@ -11,5 +13,8 @@ import LoaderImagesContainer from "@components/LoaderImagesContainer.astro";
   <Loader client:load>
     <LoaderImagesContainer />
   </Loader>
+
+  <Navbar isIndex={true}/>
   <VideoHome client:load />
+  <Footer isIndex={true}/>
 </HomeLayout>

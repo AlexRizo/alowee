@@ -1,13 +1,23 @@
 ---
 import { Mail, MessageCircle } from "@lucide/astro";
 import { Icon } from "astro-icon/components";
+
+interface Props {
+  isIndex: boolean;
+}
+
+const { isIndex = false } = Astro.props;
 ---
 
-<footer class="bg-black border-t border-gray-800 py-6 flex lg:flex-row flex-col lg:gap-0 gap-1 justify-evenly items-center absolute bottom-0 w-full">
+<footer
+  class={`bg-black border-t border-gray-800 py-6 flex lg:flex-row flex-col lg:gap-0 gap-1 justify-evenly items-center absolute bottom-0 w-full ${isIndex && "hidden"}`}
+>
   <a href="/" class="lg:order-none order-1">
-    <Icon name="alowee-icon-purple" class="w-23 h-auto"/>
+    <Icon name="alowee-icon-purple" class="w-23 h-auto" />
   </a>
-  <p class="text-gray-400 lg:order-none order-3">©2025 Hecho con ♥ por Alowee Interactive</p>
+  <p class="text-gray-400 lg:order-none order-3">
+    ©2025 Hecho con ♥ por Alowee Interactive
+  </p>
   <div class="flex gap-4 lg:order-none order-2">
     <MessageCircle class="lg:size-6 size-5 text-gray-400" />
     <Mail class="lg:size-6 size-5 text-gray-400" />
