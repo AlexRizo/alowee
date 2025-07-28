@@ -8,7 +8,7 @@ import { services } from '@/utils/data';
   <div class="swiper-wrapper py-6.5">
     {services.map((service) => (
       <div class="swiper-slide cursor-grab active:cursor-grabbing">
-        <ServicesCard title={service.title} description={service.description} icon={service.icon} />
+        <ServicesCard title={service.title} description={service.description} icon={service.icon} src={service.src} />
       </div>
     ))}
   </div>

@@ -108,6 +108,7 @@ interface Service {
   title: string;
   description: string;
   icon: string;
+  src: string;
 }
 
 export const services: Service[] = [
@@ -117,6 +118,7 @@ export const services: Service[] = [
     description:
       "Producción de comerciales, contenidos sociales e informativos para televisión o eventos, redes, pantallas gigantes o cualquier otro medio.",
     icon: "spots-y-video",
+    src: '/servicios-integrales'
   },
   {
     id: 2,
@@ -124,6 +126,7 @@ export const services: Service[] = [
     description:
       "Reels, stories y videos optimizados para cada plataforma, diseñados para captar la atención y reforzar el branding.",
     icon: "redes-sociales",
+    src: '/diseno-digital'
   },
   {
     id: 3,
@@ -131,6 +134,7 @@ export const services: Service[] = [
     description:
       "Contenido, entrevistas, eventos, vlogs, demostraciones y videos educativos.",
     icon: "youtube",
+    src: '/campanas-interactivas'
   },
   {
     id: 4,
@@ -138,6 +142,7 @@ export const services: Service[] = [
     description:
       "Animación promocional o storytelling visual, ideales para aumentar la retención de la audiencia.",
     icon: "animacion-2d",
+    src: '/desarrollo-web'
   },
   {
     id: 5,
@@ -145,6 +150,7 @@ export const services: Service[] = [
     description:
       "Videos corporativos, capacitaciones e inducción de personal con un enfoque profesional.",
     icon: "empresarial",
+    src: '/experiencias-audiovisuales'
   },
   {
     id: 6,
@@ -152,6 +158,7 @@ export const services: Service[] = [
     description:
       "Conversión de videos a formatos listos para proyectarse en salas de Cinépolis y Cinemex.",
     icon: "cine-digital",
+    src: '/soluciones-impresas'
   },
 ];
 
