@@ -28,7 +28,7 @@ const { title, load = true }: Props = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? "Alowee Interactive"}</title>
   </head>
-  <body class="bg-gradient-to-br from-fuchsia-800 to-[#310034] bg-cover bg-no-repeat min-h-screen">
+  <body class="bg-gradient-to-br from-fuchsia-800 to-[#310034] bg-cover bg-no-repeat min-h-[100dvh]">
     <!-- TODO: Implementar el loader (desactivado en desarrollo) -->
     <!-- {load && (
       <Loader client:load>

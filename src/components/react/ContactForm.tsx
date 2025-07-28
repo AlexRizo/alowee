@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FormInput } from "./FormInput";
 
 const modalStyles =
-  "bg-black/50 absolute top-0 left-0 w-screen h-screen z-20 flex items-center justify-center";
+  "bg-black/50 absolute top-0 left-0 w-screen h-[100dvh] z-20 flex items-center justify-center";
 
 export const ContactForm = ({
   children,

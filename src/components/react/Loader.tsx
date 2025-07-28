@@ -93,7 +93,7 @@ export const Loader: FC<Props> = ({ children }) => {
     }
   }, [progress])
   return (
-    <section ref={loaderSectionRef} className="h-screen w-screen bg-[url('/img/background-loader-image.jpg')] bg-cover bg-center fixed top-0 left-0 z-50 flex flex-col items-center justify-evenly">
+    <section ref={loaderSectionRef} className="h-[100dvh] w-screen bg-[url('/img/background-loader-image.jpg')] bg-cover bg-center fixed top-0 left-0 z-50 flex flex-col items-center justify-evenly">
       {children}
 
       <div ref={loaderRef} className="flex items-center gap-2 w-full lg:px-40 px-10">
