@@ -30,11 +30,13 @@ export const Header = ({
           />
         </a>
 
-        <ContactForm className="font-space-grotesk font-bold text-xl lg:block hidden cursor-pointer">
-          CONTACT
-          <span className="inline-flex flex-col">
-            O
-            <hr className="-translate-y-1 border-1 rounded-full w-full ml-auto"></hr>
+        <ContactForm className="font-space-grotesk font-bold text-xl cursor-pointer">
+          <span className="lg:hidden block">
+            CONTACT
+            <span className="inline-flex flex-col">
+              O
+              <hr className="-translate-y-1 border-1 rounded-full w-full ml-auto"></hr>
+            </span>
           </span>
           <Mail className="lg:hidden block" />
         </ContactForm>
