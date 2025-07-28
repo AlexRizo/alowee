@@ -117,7 +117,7 @@ export default function NavbarMenu({
       <div onClick={handleOpen}>{children}</div>
       <nav
         ref={navMenuRef}
-        className="fixed left-0 w-screen h-screen bg-warning-600 z-50 2xl:p-18 xl:p-16 lg:p-14 p-10 overflow-y-auto"
+        className="fixed left-0 w-screen h-[100dvh] bg-warning-600 z-50 2xl:p-18 xl:p-16 lg:p-14 p-10 overflow-y-auto"
         style={{ top: '-100%' }}
       >
         <div
