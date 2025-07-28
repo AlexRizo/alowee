@@ -55,6 +55,8 @@
     }
   });
 
+  const textBgTl = gsap.timeline()
+
   ScrollTrigger.create({
     scroller: "main",
     trigger: ".section-04",
@@ -62,10 +64,13 @@
       exaltedTl.clear();
     },
     onEnter: () => {
-      exaltedTl.from('.phrase', {
-        autoAlpha: 0,
+      textBgTl.clear();
+
+      textBgTl.from('.text-bg-fill', {
+        delay: 1.2,
         duration: 0.5,
-        ease: 'power4.out'
+        ease: 'power4.out',
+        backgroundColor: "rgba(0,0,0,0)",
       });
 
       exaltedTl.from(exaltedSplit.words[0], {

@@ -14,7 +14,7 @@
       <span class="text-outline">TUS</span>
       <span class="text-bg">ANUNCIOS</span>
       <span class="text-outline">EN</span>
-      <span class="text-purple">ESPACIOS</span><br />
+      <span class="text-purple">ESPACIOS</span><br/>
       <span class="text-outline">Y</span>
       <span class="text-outline">FORMATOS</span>
       <span class="text-bg">IDEALES</span>
@@ -23,12 +23,12 @@
       class="font-plus-jakarta-sans text-4xl font-extrabold title-s-04-mobile text-center leading-normal lg:hidden"
     >
       <span class="text-outline text-overflow">TUS</span>
-      <span class="text-bg text-overflow z-1 relative">ANUNCIOS</span>
+      <span class="text-bg bg-mobile text-overflow z-1 relative">ANUNCIOS</span>
       <span class="text-outline">EN</span>
       <span class="text-purple">ESPACIOS</span>
       <span class="text-outline text-overflow">Y</span>
       <span class="text-outline text-overflow formatos-mobile">FORMATOS</span>
-      <span class="text-bg">IDEALES</span>
+      <span class="text-bg bg-mobile">IDEALES</span>
     </h2>
   </div>
 </section>
@@ -70,16 +70,18 @@
   let formatosMobile: SplitText;
   let tl: gsap.core.Timeline;
   let tlMobile: gsap.core.Timeline;
+  let textBgTl: gsap.core.Timeline;
+
+  tl = gsap.timeline();
+  tlMobile = gsap.timeline();
+  textBgTl = gsap.timeline();
 
   ScrollTrigger.create({
     scroller: "main",
     trigger: ".section-04",
     onEnter: () => {
-      tl.from('.phrase', {
-        autoAlpha: 0,
-        duration: 0.5,
-        ease: 'power4.out'
-      });
+      tl.clear();
+      textBgTl.clear();
 
       title = new SplitText(".title-s-04", {
         type: "lines",
@@ -94,8 +96,6 @@
         type: "chars",
       });
 
-      tl = gsap.timeline();
-      tlMobile = gsap.timeline();
       const mobileDelay = "-=0.6";
 
       tl.from(title.lines[0], {
@@ -113,6 +113,14 @@
         },
         "<"
       );
+
+      textBgTl.from('.bg-mobile', {
+        delay: 0.3,
+        duration: 0.5,
+        ease: 'power4.out',
+        backgroundColor: "rgba(0,0,0,0)",
+        stagger: 1.7,
+      });
 
       tlMobile
         .from(titleMobile.words[0], {
@@ -134,6 +142,7 @@
           {
             x: -100,
             duration: 0.8,
+            autoAlpha: 0,
             ease: "back",
           },
           mobileDelay

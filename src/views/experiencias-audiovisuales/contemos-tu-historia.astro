@@ -38,6 +38,7 @@
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
   const tl = gsap.timeline()
+  const textBgTl = gsap.timeline()
 
   document.fonts.ready.then(() => {
     const titleSplit = new SplitText('.title-s-04', {
@@ -49,38 +50,40 @@
       trigger: '.section-04',
       onEnter: () => {
         tl.clear();
+        textBgTl.clear();
 
-        tl.from('.phrase', {
-          autoAlpha: 0,
+        textBgTl.from('.text-bg', {
+          delay: 0.4,
           duration: 0.5,
-          ease: 'power4.out'
+          ease: 'power4.out',
+          backgroundColor: "rgba(0,0,0,0)",
         });
 
         tl.fromTo(titleSplit.lines[0], {
           x: '-100%',
-          duration: 1,
+          duration: 0.7,
           ease: "power2.inOut",
           stagger: 0.1,
           autoAlpha: 0
         }, {
           x: 0,
           autoAlpha: 1,
-          duration: 1,
+          duration: 0.7,
           ease: "power2.inOut",
         }).fromTo(titleSplit.words[2], {
           x: '-100%',
-          duration: 1,
+          duration: 0.7,
           ease: "power2.inOut",
           stagger: 0.1,
           autoAlpha: 0
         }, {
           x: 0,
           autoAlpha: 1,
-          duration: 1,
+          duration: 0.7,
           ease: "power2.inOut",
         }, '-=0.5').fromTo(titleSplit.words[3], {
           y: '-100%',
-          duration: 1,
+          duration: 0.7,
           ease: "power2.inOut",
           stagger: 0.1,
           autoAlpha: 0
