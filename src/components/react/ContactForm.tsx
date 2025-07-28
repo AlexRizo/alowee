@@ -1,9 +1,9 @@
 import { cn } from "@utils/cn";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormInput } from "./FormInput";
 
 const modalStyles =
-  "bg-black/50 absolute top-0 left-0 w-screen h-[100dvh] z-20 flex items-center justify-center";
+  "bg-black/50 fixed top-0 left-0 w-screen h-[100dvh] z-20 flex items-center justify-center";
 
 export const ContactForm = ({
   children,
@@ -13,6 +13,16 @@ export const ContactForm = ({
   className?: string;
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const main = document.querySelector('main');
+    
+    if (isOpen) {
+      main?.style.setProperty('overflow', 'hidden');
+    } else {
+      main?.style.setProperty('overflow', 'auto');
+    }
+  }, [isOpen]);
 
   return (
     <>
