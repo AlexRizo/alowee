@@ -21,12 +21,12 @@ import "@styles/custom.css";
       />
 
       <div class="flex items-start">
-        <LottieAnimation client:load path="/lottie/DISENO-DIGITAL.json" autoplay loop className="h-30 lg:h-60" />
+        <LottieAnimation client:load path="/lottie/DISENO-DIGITAL.json" autoplay loop className="h-30 lg:h-60 lottie-anim" />
       </div>
     </div>
   </article>
 
-  <div class="flex justify-start items-end relative mt-auto lg:mt-0">
+  <div class="flex justify-start items-end relative mt-auto lg:mt-0 img">
     <img
       src="/img/diseno-digital/ideas.webp"
       alt="Tarjetas"
@@ -59,3 +59,18 @@ import "@styles/custom.css";
 
   <img src="/img/puntos.svg" alt="Puntos" class="absolute lg:top-30 top-24 lg:right-0 right-2 xl:w-8 lg:w-6 w-5" />
 </section>
+
+<script>
+  import gsap from "gsap";
+
+  const tl = gsap.timeline({});
+
+  tl.from(['.title', '.description', '.lottie-anim', '.img'], {
+    autoAlpha: 0,
+    y: 100,
+    delay: 0.2,
+    duration: 1,
+    ease: 'power2.inOut',
+  });
+
+</script>

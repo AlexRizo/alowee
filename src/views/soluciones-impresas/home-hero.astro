@@ -20,13 +20,13 @@ import "@styles/custom.css";
         description="En Alowee, no solo imprimimos: organizamos, sistematizamos y ejecutamos toda tu operación promocional, con la flexibilidad de un proveedor local cercano y la precisión de un sistema nacional."
       />
 
-      <div class="flex items-start">
+      <div class="flex items-start lottie-anim">
         <LottieAnimation client:load path="/lottie/IMPRESORA.json" autoplay loop className="h-30 lg:h-60" />
       </div>
     </div>
   </article>
 
-  <div class="flex justify-start items-end relative mt-auto lg:mt-0">
+  <div class="flex justify-start items-end relative mt-auto lg:mt-0 img">
     <img
       src="/img/soluciones-impresas/tarjetas.webp"
       alt="Tarjetas"
@@ -53,3 +53,18 @@ import "@styles/custom.css";
 
   <img src="/img/puntos.svg" alt="Puntos" class="absolute lg:top-30 top-24 lg:right-0 right-2 xl:w-8 lg:w-6 w-5" />
 </section>
+
+<script>
+  import gsap from "gsap";
+
+  const tl = gsap.timeline({});
+
+  tl.from(['.title', '.description', '.lottie-anim', '.img'], {
+    autoAlpha: 0,
+    y: 100,
+    delay: 0.2,
+    duration: 1,
+    ease: 'power2.inOut',
+  });
+
+</script>
