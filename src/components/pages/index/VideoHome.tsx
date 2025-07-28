@@ -62,7 +62,7 @@ export const VideoHome = () => {
 
   return (
     <section
-    className="h-screen snap-start bg-black"
+    className="h-[100dvh] snap-start bg-black"
     ref={screenRef}
     >
       <Header hidden={!isCursorMoving} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
