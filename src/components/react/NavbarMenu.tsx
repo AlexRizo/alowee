@@ -11,12 +11,16 @@ const MenuOptions = [
     href: "/servicios-integrales",
   },
   {
-    text: "CAMPAÑAS INTERACTIVAS",
-    href: "/campanas-interactivas",
-  },
-  {
     text: "DESARROLLO WEB",
     href: "/desarrollo-web",
+  },
+  {
+    text: "DISEÑO DIGITAL",
+    href: "/diseno-digital",
+  },
+  {
+    text: "CAMPAÑAS INTERACTIVAS",
+    href: "/campanas-interactivas",
   },
   {
     text: "EXPERIENCIAS AUDIOVISUALES",
@@ -25,10 +29,6 @@ const MenuOptions = [
   {
     text: "SOLUCIONES IMPRESAS",
     href: "/soluciones-impresas",
-  },
-  {
-    text: "DISEÑO DIGITAL",
-    href: "/diseno-digital",
   },
 ];
 

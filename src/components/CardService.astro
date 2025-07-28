@@ -12,7 +12,7 @@ const { title, description, image, cardId = 'card' }: Props = Astro.props;
 
 <div role="contentinfo" id={cardId} class="bg-gray-200/8 py-4 px-5 flex items-start gap-4 rounded xl:max-w-[485px] lg:max-w-[400px] max-w-9/10 mx-auto lg:mx-0">
   <picture class="h-full lg:min-w-25">
-    <img src={image} alt={title} class="w-full h-full lg:max-h-32 max-h-14 object-contain">
+    <img src={image} alt={title} class="lg:w-full w-20 h-full lg:max-h-32 max-h-14 object-contain">
   </picture>
   <article>
     <h3 class="xl:text-2xl lg:text-xl text-lg font-bold text-purple-300">{title}</h3>
